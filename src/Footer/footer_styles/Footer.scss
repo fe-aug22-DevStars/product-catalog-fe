@@ -1,0 +1,71 @@
+.footer {
+    height: 257px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        box-sizing: border-box;
+    }
+
+    &__text {
+        font-family: "Mont";
+        font-weight: 800;
+        text-decoration: none;
+        color: #89939A;
+        font-size: 12px;
+
+        &-container {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            margin: 100px 0 0 16px;
+        }
+
+        &-mobile {
+            padding: 16px 0 16px;
+        }
+
+        &-up {
+            font-weight: 700;
+            margin: 0;
+            text-align: center;
+            padding-right: 16px;
+        }
+    }
+
+    &__up {
+        height: 32px;
+        width: 32px;
+        
+        border: 1px solid #B4BDC4;
+        border-radius: 50%;
+        // display: inline-block;
+        
+        
+
+        &-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            margin:32px 0 32px 0;
+            
+        }
+    }
+}
+
+.arrow {
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+  }
+  .up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }

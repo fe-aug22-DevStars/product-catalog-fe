@@ -1,6 +1,7 @@
 import React from 'react';
-import './styles/main.scss';
 import { ProductCard } from './ProductCard';
+import './styles/main.scss';
+import { Footer } from './Footer';
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         DevStars
       </header>
       <ProductCard />
+      <Footer />
     </div>
   );
 }
