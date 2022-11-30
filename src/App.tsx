@@ -1,5 +1,6 @@
 import React from 'react';
 import './styles/main.scss';
+import { ProductCard } from './ProductCard';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
       <header className='colorPurple'>
         DevStars
       </header>
+      <ProductCard />
     </div>
   );
 }
