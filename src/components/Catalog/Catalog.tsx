@@ -5,8 +5,8 @@ import styles from './Catalog.module.scss';
 
 export const Catalog:React.FC = () => {
   return (
-    <main className={styles['main']}>
-      <div className={styles['main__top-menu']}>
+    <main className={styles.main}>
+      <div className={styles.topMenu}>
         <a href="/">
           <img src="./images/Home.png" alt="Home" />
         </a>
@@ -14,19 +14,19 @@ export const Catalog:React.FC = () => {
         <span>Phones</span>
       </div>
 
-      <h1 className={styles['main__header']}>Mobile phones</h1>
+      <h1 className={styles.header}>Mobile phones</h1>
 
-      <h3 className={styles['main__sub-header']}>95 models</h3>
+      <h3 className={styles.subHeader}>95 models</h3>
 
-      <div className={styles['main__view']}>
-        <div className={styles['main__view-by-order']}>
+      <div className={styles.view}>
+        <div className={styles.viewByOrder}>
           <label htmlFor="sorts">Sort by</label>
           <select name="sorts" id="sorts">
             <option value="Newest">Newest</option>
             <option value="Oldest">Oldest</option>
           </select>
         </div>
-        <div className={styles['main__view-by-number']}>
+        <div className={styles.viewByNumber}>
           <label htmlFor="number">Items on page</label>
           <select name="number" id="number">
             <option value="16">16</option>
@@ -37,19 +37,19 @@ export const Catalog:React.FC = () => {
 
       <ProductCard />
 
-      <div className={styles['main__bottom-menu']}>
+      <div className={styles.bottomMenu}>
         <img 
           src="./images/ArrowLeft.png" 
           alt="Left" 
-          className={styles['main__bottom-menu-item']}
+          className={styles.bottomMenuItem}
         />
-        <a href="/" className={styles['main__bottom-menu-item']}>1</a>
-        <a href="/" className={styles['main__bottom-menu-item']}>2</a>
-        <a href="/" className={styles['main__bottom-menu-item']}>3</a>
+        <a href="/" className={styles.bottomMenuItem}>1</a>
+        <a href="/" className={styles.bottomMenuItem}>2</a>
+        <a href="/" className={styles.bottomMenuItem}>3</a>
         <img 
           src="./images/ArrowRight.png"
           alt="Right" 
-          className={styles['main__bottom-menu-item']}
+          className={styles.bottomMenuItem}
         />
       </div>
     </main>

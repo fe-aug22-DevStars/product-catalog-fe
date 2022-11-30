@@ -1,41 +1,41 @@
 .main {
   font-family: Mont;
   margin: 16px;
+}
 
-  &__topMenu {
+.topMenu {
     display: flex;
     align-items: flex-start;
     gap: 15px;
-  }
+}
 
-  &__view {
+.view {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-  }
+}
 
-  &__view-by-order {
-    display: flex;
-    flex-direction: column;
-    grid-column: 1 / 3;
-  }
+.viewByOrder {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / 3;
+}
 
-  &__view-by-number {
-    display: flex;
-    flex-direction: column;
-    grid-column: 3 / 5;
-  }
+.viewByNumber {
+  display: flex;
+  flex-direction: column;
+  grid-column: 3 / 5;
+}
 
-  &__bottom-menu {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
+.bottomMenu {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
 
-  &__bottom-menu-item {
-    border: 2px black solid;
-    border-radius: 100%;
-    width: 32px;
-    height: 32px;
-  }
+.bottomMenuItem {
+  border: 2px black solid;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
 }

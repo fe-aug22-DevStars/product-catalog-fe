@@ -3,7 +3,7 @@ import styles from './ProductCard.module.scss'
 
 export const ProductCard:React.FC = () => {
   return (
-    <div className={styles['product-card']}>
+    <div className="product-card">
       <img
         className={styles['product-card__image']}
         src="src/assets/images/phone_demo.png"
