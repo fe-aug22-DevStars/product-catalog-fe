@@ -1,6 +1,5 @@
 import React from 'react';
 import { ProductCard } from './components/ProductCard';
-import { ProductCard } from './ProductCard';
 import './styles/main.scss';
 import { Footer } from './Footer';
 
