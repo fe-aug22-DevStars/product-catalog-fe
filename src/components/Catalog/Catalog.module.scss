@@ -1,0 +1,41 @@
+.main {
+  font-family: Mont;
+  margin: 16px;
+}
+
+.topMenu {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.view {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.viewByOrder {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 / 3;
+}
+
+.viewByNumber {
+  display: flex;
+  flex-direction: column;
+  grid-column: 3 / 5;
+}
+
+.bottomMenu {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.bottomMenuItem {
+  border: 2px black solid;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+}
