@@ -1,0 +1,26 @@
+.product-card {
+  display: flex;
+  flex-direction: column;
+
+  width: 288px;
+  height: 440px;
+
+  padding: 32px;
+
+  border: 1px solid black;
+  border-radius: 8px;
+  background: #FFFFFF;
+
+  &__image {
+    width: 224px;
+    height: 130px;
+  }
+
+  &__title {
+
+  }
+
+  &__price {
+
+  }
+}
