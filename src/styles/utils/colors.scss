@@ -1,0 +1,45 @@
+@import './variables';
+
+.colorPurple {
+  color: $purple;
+}
+
+.colorPurpleBackground {
+  border-color: $purple;
+}
+
+.colorYellow {
+  color: $yellow;
+}
+
+.colorBlack {
+  color: $black;
+}
+
+.colorGrey {
+  color: $grey;
+}
+
+.colorGreyIcon {
+  color: $greyForIcons;
+}
+
+.colorGreyElements {
+  color: $greyForElements;
+}
+
+.colorGreyBackground {
+  border-color: $greyForBackground;
+}
+
+.colorWhite {
+  color: $white;
+}
+
+.colorRed {
+  color: $red;
+}
+
+.colorGreen {
+  color: $green;
+}
