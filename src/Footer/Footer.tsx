@@ -6,9 +6,9 @@ export const Footer: React.FC = () => {
         <footer className='page__footer footer'>
             <div className='footer__container'>
                 <div className='footer__text-container'>
-                    <a href="#" className='footer__text'>GITHUB</a>
-                    <a href="#" className='footer__text footer__text-mobile'>CONTACTS</a>
-                    <a href="#" className='footer__text'>RIGHTS</a>
+                    <a href="/" className='footer__text'>GITHUB</a>
+                    <a href="/" className='footer__text footer__text-mobile'>CONTACTS</a>
+                    <a href="/" className='footer__text'>RIGHTS</a>
                 </div>
 
                 <div className='footer__up-container'>
