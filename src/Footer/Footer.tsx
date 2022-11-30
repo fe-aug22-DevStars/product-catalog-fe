@@ -16,6 +16,7 @@ export const Footer: React.FC = () => {
                         Back to top
                     </p>
                     <a href="#header" className='footer__up'>
+                    <i className='arrow up'></i>
                     </a>
                 </div>
 
