@@ -1,11 +1,12 @@
 import React from 'react';
-import { Footer } from './Footer';
 import { ProductCard } from './ProductCard';
+import './styles/main.scss';
+import { Footer } from './Footer';
 
 function App() {
   return (
     <div>
-      <header>
+      <header className='colorPurple'>
         DevStars
       </header>
       <ProductCard />
