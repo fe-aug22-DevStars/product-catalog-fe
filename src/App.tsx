@@ -1,7 +1,7 @@
 import React from 'react';
 import { ProductCard } from './ProductCard';
 import './styles/main.scss';
-import { Footer } from './Footer';
+import { Footer } from './components/Footer';
 
 function App() {
   return (
