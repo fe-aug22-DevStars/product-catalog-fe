@@ -1,10 +1,16 @@
 {
   "files": {
-    "main.js": "/product-catalog-fe/static/js/main.f3b7fa84.js",
+    "main.css": "/product-catalog-fe/static/css/main.05d15468.css",
+    "main.js": "/product-catalog-fe/static/js/main.108ff1e1.js",
+    "static/media/FontsFree-Net-Mont-Bold.ttf": "/product-catalog-fe/static/media/FontsFree-Net-Mont-Bold.10a31626fbf3adcb20f0.ttf",
+    "static/media/FontsFree-Net-Mont1.ttf": "/product-catalog-fe/static/media/FontsFree-Net-Mont1.7b72d84e4b4adfcb4c7a.ttf",
+    "static/media/FontsFree-Net-mont.ttf": "/product-catalog-fe/static/media/FontsFree-Net-mont.47ca774f60043a817006.ttf",
     "index.html": "/product-catalog-fe/index.html",
-    "main.f3b7fa84.js.map": "/product-catalog-fe/static/js/main.f3b7fa84.js.map"
+    "main.05d15468.css.map": "/product-catalog-fe/static/css/main.05d15468.css.map",
+    "main.108ff1e1.js.map": "/product-catalog-fe/static/js/main.108ff1e1.js.map"
   },
   "entrypoints": [
-    "static/js/main.f3b7fa84.js"
+    "static/css/main.05d15468.css",
+    "static/js/main.108ff1e1.js"
   ]
 }
