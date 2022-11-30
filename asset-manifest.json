@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/product-catalog-fe/static/css/main.96427305.css",
-    "main.js": "/product-catalog-fe/static/js/main.529fcb0f.js",
-    "static/media/ok.svg": "/product-catalog-fe/static/media/ok.c91d2fc620550bf18b0b06fbf29e64da.svg",
+    "main.css": "/product-catalog-fe/static/css/main.370ad8a9.css",
+    "main.js": "/product-catalog-fe/static/js/main.d1348cbd.js",
+    "static/media/ok.svg": "/product-catalog-fe/static/media/ok.5b3be5d5ccce7128f0220e998585ef13.svg",
     "static/media/FontsFree-Net-Mont-Bold.ttf": "/product-catalog-fe/static/media/FontsFree-Net-Mont-Bold.10a31626fbf3adcb20f0.ttf",
     "static/media/FontsFree-Net-Mont1.ttf": "/product-catalog-fe/static/media/FontsFree-Net-Mont1.7b72d84e4b4adfcb4c7a.ttf",
     "static/media/FontsFree-Net-mont.ttf": "/product-catalog-fe/static/media/FontsFree-Net-mont.47ca774f60043a817006.ttf",
     "static/media/NiceGadgets.svg": "/product-catalog-fe/static/media/NiceGadgets.c36428f4533f54d9b6f9ad9790450058.svg",
-    "static/media/Up.svg": "/product-catalog-fe/static/media/Up.e673b855d43ff2b7e92da0b0ca914d7e.svg",
+    "static/media/Up.svg": "/product-catalog-fe/static/media/Up.0003283512d640dfe6a03d9ead832478.svg",
     "index.html": "/product-catalog-fe/index.html",
-    "main.96427305.css.map": "/product-catalog-fe/static/css/main.96427305.css.map",
-    "main.529fcb0f.js.map": "/product-catalog-fe/static/js/main.529fcb0f.js.map"
+    "main.370ad8a9.css.map": "/product-catalog-fe/static/css/main.370ad8a9.css.map",
+    "main.d1348cbd.js.map": "/product-catalog-fe/static/js/main.d1348cbd.js.map"
   },
   "entrypoints": [
-    "static/css/main.96427305.css",
-    "static/js/main.529fcb0f.js"
+    "static/css/main.370ad8a9.css",
+    "static/js/main.d1348cbd.js"
   ]
 }
