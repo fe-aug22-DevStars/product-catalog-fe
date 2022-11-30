@@ -1,7 +1,7 @@
 import React from 'react';
 import './footer_styles/Footer.scss';
 import Up from '../../src/img/Up.svg'
-import Logo from '../../src/img/NiceGadgets.svg'
+import Logo from '../../src/images/NiceGadgets.svg'
 import ok from '../../src/img/ok.svg'
 
 export const Footer: React.FC = () => {
@@ -13,8 +13,8 @@ export const Footer: React.FC = () => {
                 <img src={ok} alt="Logo" className='footer__logo-ok'/>
 
                 </div>
-            
-          
+
+
                 <div className='footer__text-container'>
                     <a href="/" className='footer__text'>GITHUB</a>
                     <a href="/" className='footer__text footer__text-mobile'>CONTACTS</a>
