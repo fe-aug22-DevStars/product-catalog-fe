@@ -1,8 +1,9 @@
 import React from 'react';
-import { ProductCard } from './components/ProductCard';
-import { ProductCard } from './ProductCard';
+
 import './styles/main.scss';
+
 import { Footer } from './Footer';
+import { Catalog } from './components/Catalog';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <header className='colorPurple'>
         DevStars
       </header>
-      <ProductCard />
+      <Catalog />
       <Footer />
     </div>
   );
