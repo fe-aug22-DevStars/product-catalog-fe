@@ -1,4 +1,5 @@
 import React from 'react';
+import { ProductCard } from './ProductCard';
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <header>
         DevStars
       </header>
+      <ProductCard />
     </div>
   );
 }
