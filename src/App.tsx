@@ -1,4 +1,5 @@
 import React from 'react';
+import { Footer } from './Footer';
 import { ProductCard } from './ProductCard';
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
         DevStars
       </header>
       <ProductCard />
+      <Footer />
     </div>
   );
 }
