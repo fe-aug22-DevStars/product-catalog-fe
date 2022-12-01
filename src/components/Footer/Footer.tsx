@@ -1,15 +1,14 @@
-import React from 'react';
-import classNames from 'classnames';
+import React from 'react'
+import classNames from 'classnames'
 
-
-import styles from './Footer.module.scss';
-import Up from '../../img/Up.svg';
-import Logo from '../../img/NiceGadgets.svg';
-import ok from '../../img/ok.svg';
-import '../../styles/fonts/FontsFree-Net-mont.ttf';
+import styles from './Footer.module.scss'
+import Up from '../../images/ArrowUp.png'
+import Logo from '../../images/NiceGadgets.svg'
+import ok from '../../images/ok.svg'
+import '../../styles/fonts/FontsFree-Net-mont.ttf'
 
 export const Footer: React.FC = () => {
-    return (
+  return (
         <footer className={styles.footer}>
             <div className={styles.container}>
                 <div className={styles.logo_container}>
@@ -17,7 +16,6 @@ export const Footer: React.FC = () => {
                     <img src={ok} alt="Logo" className={styles.logo_ok} />
 
                 </div>
-
 
                 <div className={styles.text_container}>
                     <a href="/" className={styles.text}>GITHUB</a>
@@ -37,5 +35,5 @@ export const Footer: React.FC = () => {
             </div>
         </footer>
 
-    )
+  )
 }

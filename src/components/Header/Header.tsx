@@ -1,8 +1,10 @@
+import React from 'react'
+
 import './Header.scss'
-import Logo from '../../images/NiceGadgets.svg';
-import ok from '../../img/ok.svg'
+import Logo from '../../images/NiceGadgets.svg'
+import ok from '../../images/ok.svg'
 import menu from '../../images/Menu.svg'
-import favourites from '../../images/Favourites.svg';
+import favourites from '../../images/Favourites.svg'
 
 export const Header: React.FC = () => (
   <header className="header">
@@ -50,4 +52,4 @@ export const Header: React.FC = () => (
       </a>
     </div>
   </header>
-);
+)

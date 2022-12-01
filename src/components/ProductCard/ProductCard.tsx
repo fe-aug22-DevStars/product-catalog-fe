@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 import styles from './ProductCard.module.scss'
 
-export const ProductCard:React.FC = () => {
+export const ProductCard: React.FC = () => {
   return (
     <div className="product-card">
       <img
@@ -24,8 +24,16 @@ export const ProductCard:React.FC = () => {
 
       <div className="product-card__info">
         <div>
+      <div className={styles.bottom}>
+        <button
+          // TODO: to add href
+          className={styles.buy}
+        >
+          Add to cart
+        </button>
 
         </div>
+      </div>
       </div>
 
       <a
