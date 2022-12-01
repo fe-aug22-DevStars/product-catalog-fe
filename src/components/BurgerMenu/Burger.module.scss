@@ -1,3 +1,70 @@
+@import "../../styles/utils/variables";
+@import "~bootstrap/scss/bootstrap";
+
+@font-face {
+    font-family: "Mont";
+    src: local("FontsFree-Net-mont"),
+        url("../../styles/fonts/FontsFree-Net-mont.ttf") format("truetype");
+}
+
 .menu {
-    background-color: black;
+    background-color: $greyForBackground;
+    width: 100%;
+
+    &__content {
+        margin: 80px 0 0 0;
+        text-align: center;
+    }
+
+    &__link {
+        text-decoration: none;
+        font-family: "Mont";
+        font-weight: 800;
+        color: $grey;
+        transition: border-bottom 0.3s;
+
+        &:hover {
+            color: $black;
+            border-bottom: 5px solid $black;
+        }
+    }
+
+    &__item {
+        margin-top: 32px;
+    }
+}
+
+.container {
+    height: 100vh;
+    padding: 0;
+
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.footer__block{
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 64px;
+    justify-content: space-between;
+    
+}
+
+.footer__icon {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   width: 160px;
+   border: 1px solid  $grey;
+
+   &:hover {
+    color: $black;
+    border-bottom: 2px solid $black;
+}
 }

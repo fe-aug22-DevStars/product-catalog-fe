@@ -4,8 +4,7 @@ import classNames from 'classnames';
 
 import styles from './Footer.module.scss';
 import Up from '../../images/Up.svg';
-import Logo from '../../images/NiceGadgets.svg';
-import ok from '../../images/ok.svg';
+import Logo from '../../images/Logo.svg';
 import '../../styles/fonts/FontsFree-Net-mont.ttf';
 
 export const Footer: React.FC = () => {
@@ -14,7 +13,7 @@ export const Footer: React.FC = () => {
             <div className={styles.container}>
                 <div className={styles.logo_container}>
                     <img src={Logo} alt="Logo" className={styles.logo} />
-                    <img src={ok} alt="Logo" className={styles.logo_ok} />
+                   
 
                 </div>
 

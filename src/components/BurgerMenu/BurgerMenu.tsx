@@ -1,30 +1,44 @@
 import React from 'react';
-import { Header } from '../Header';
-import { Footer } from '../Footer';
 import styles from './Burger.module.scss';
+import favourites from '../../images/Favourites.svg';
+import shoppingBag from '../../images/ShoppingBag.svg'
 
 type Props = {
     open: boolean;
 }
 
-export const BurgerMenu: React.FC<Props> = ({ open }) => {
+export const Burger: React.FC<Props> = ({ open }) => {
     return (
-        <>
-            <Header />
             <nav className={styles.menu}>
-                <ul className={open ? "show" : ""}>
+                <div className={styles.container}>
+                    <div className={styles.content}>
+                        <ul className={styles.menu__content}>
+                            <li className={styles.menu__item}>
+                                <a href="/" className={styles.menu__link}>HOME</a>
+                            </li>
+                            <li className={styles.menu__item}>
+                                <a href="/" className={styles.menu__link}>PHONES</a>
+                            </li>
+                            <li className={styles.menu__item}>
+                                <a href="/" className={styles.menu__link}>TABLETS</a>
+                            </li>
+                            <li className={styles.menu__item}>
+                                <a href="/" className={styles.menu__link}>ACCESSORIES</a>
+                            </li>
 
-                    <li className='menu__item'>
-                        <a href="/" className='menu__link'>Home</a>
-                    </li>
-                    <li className='menu__item'><a href="/" className='menu__link'>Home</a></li>
-                    <li className='menu__item'><a href="/" className='menu__link'>Home</a></li>
-                    <li className='menu__item'></li>
+                        </ul>
+                    </div>
+                    <div className={styles.footer__block}>
+                        <a href="#favourites" className={styles.footer__icon}>
+                            <img src={favourites} alt="icon" />
+                        </a>
 
-                </ul>
+                        <a href="#shoppingCard" className={styles.footer__icon}>
+                            <img src={shoppingBag} alt="icon" />
+                        </a>
+
+                    </div>
+                </div>
             </nav>
-            <Footer />
-        </>
-
     )
 }
