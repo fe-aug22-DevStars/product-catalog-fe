@@ -1,6 +1,6 @@
 import './Header.scss'
 import Logo from '../../images/NiceGadgets.svg';
-import ok from '../../img/ok.svg'
+import ok from '../../images/ok.svg'
 import menu from '../../images/Menu.svg'
 import favourites from '../../images/Favourites.svg';
 
