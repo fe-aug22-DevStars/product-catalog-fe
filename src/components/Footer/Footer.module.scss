@@ -2,16 +2,19 @@
 @font-face {
     font-family: "Mont"; 
     src: local("FontsFree-Net-mont"),
-      url("../../styles/fonts/FontsFree-Net-mont.ttf") format("truetype");
+      url("../../styles/fonts/Mont-Bold.otf") format("truetype");
   }
 
 .footer {
     height: 257px;
     box-sizing: border-box;
-    position: fixed;
     bottom: 0;
     width: 100%;
     margin: 0 0 32px 0;   
+
+    @media (min-width: 640px) {
+        height: 96px;
+    }
 }
 
 .logo {
@@ -35,6 +38,14 @@
     flex-direction: column;
     box-sizing: border-box;
     
+    @media (min-width: 640px) {
+        flex-direction: row;
+        // justify-content: space-around;
+        margin: 0 32px 0 32px;
+    }
+    @media (min-width: 1200px) {
+        margin: 0 150px 0 150px;
+    }
 }
 
 .text {
@@ -49,10 +60,28 @@
         justify-content: space-between;
         flex-direction: column;
         margin: 32px 0 0 16px;
+
+        @media (min-width: 640px) {
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            // width: 100px;
+            // margin: 0;
+        }
+
+      
     }
 
     &_mobile {
         padding: 16px 0 16px;
+
+        @media (min-width: 640px) {
+            padding: 0 14px 0 14px;
+        }
+
+        @media (min-width: 1200px) {
+            padding: 0 106px 0 106px;
+        }
     }
 
     &_up {

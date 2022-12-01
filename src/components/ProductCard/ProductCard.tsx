@@ -1,49 +1,59 @@
-import React from 'react'
+
+import React from 'react';
+import { Phone } from '../../types/Phone';
 import styles from './ProductCard.module.scss'
 
-export const ProductCard: React.FC = () => {
+type Props = {
+  phone: Phone,
+}
+
+export const ProductCard:React.FC<Props> = ({ phone }) => {
   return (
-    <div className="product-card">
+    <div className={styles.card}>
       <img
-        className={styles['product-card__image']}
-        src="src/assets/images/phone_demo.png"
+        className={styles.image}
+        src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${phone.image}`}
         alt="phone"
       />
 
-      <h2 className="product-card__title">
-        Apple iPhone 14 Pro 128GB Silver (MQ023)
+      <h2 className={styles.title}>
+        {phone.name}
       </h2>
 
-      <h3 className="product-card__price">
-        $999
+      <h3 className={styles.price}>
+        {phone.price}
       </h3>
 
-      <div className="product-card__line">
+      <span className={styles.line} />
 
+      <div className={styles.info_container}>
+        <p className={styles.info}>
+          <span className={styles.info_name}>Screen</span>
+          <span>{phone.screen}</span>
+        </p>
+
+        <p className={styles.info}>
+          <span className={styles.info_name}>Capacity</span>
+          <span>{phone.capacity}</span>
+        </p>
+
+        <p className={styles.info}>
+          <span className={styles.info_name}>RAM</span>
+          <span>{phone.ram}</span>
+        </p>
+      </div>
       </div>
 
-      <div className="product-card__info">
-        <div>
       <div className={styles.bottom}>
         <button
-          // TODO: to add href
+          //TODO: to add href
           className={styles.buy}
         >
           Add to cart
         </button>
 
-        </div>
+        <div className={styles.favourites} />
       </div>
-      </div>
-
-      <a
-        href="#"
-        className="product-card__buy"
-        data-qa="hover"
-      >
-        Add to cart
-      </a>
-
     </div>
   )
 }
