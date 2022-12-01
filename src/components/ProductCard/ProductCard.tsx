@@ -1,7 +1,6 @@
 import React from 'react';
 import { Phone } from '../../types/Phone';
 import styles from './ProductCard.module.scss'
-import phoneDemo from '../../assets/images/phone_demo.png'
 
 type Props = {
   phone: Phone,
@@ -12,7 +11,7 @@ export const ProductCard:React.FC<Props> = ({ phone }) => {
     <div className={styles.card}>
       <img
         className={styles.image}
-        src={phoneDemo}
+        src={phone.image}
         alt="phone"
       />
 
