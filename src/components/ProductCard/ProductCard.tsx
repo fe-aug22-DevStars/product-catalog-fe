@@ -11,7 +11,7 @@ export const ProductCard:React.FC<Props> = ({ phone }) => {
     <div className={styles.card}>
       <img
         className={styles.image}
-        src={phone.image}
+        src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${phone.image}`}
         alt="phone"
       />
 
