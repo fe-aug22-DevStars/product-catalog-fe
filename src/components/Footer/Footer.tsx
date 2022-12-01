@@ -1,11 +1,11 @@
 import React from 'react'
 import classNames from 'classnames'
 
-import styles from './Footer.module.scss';
-import Up from '../../images/Up.svg';
-import Logo from '../../images/NiceGadgets.svg';
-import ok from '../../images/ok.svg';
-import '../../styles/fonts/Mont-Bold.otf';
+import styles from './Footer.module.scss'
+import Up from '../../images/Up.svg'
+import Logo from '../../images/NiceGadgets.svg'
+import ok from '../../images/ok.svg'
+import '../../styles/fonts/Mont-Bold.otf'
 
 export const Footer: React.FC = () => {
   return (

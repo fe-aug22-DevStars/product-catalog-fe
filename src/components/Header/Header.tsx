@@ -1,11 +1,11 @@
 import React from 'react'
 
-import styles from './Header.module.scss';
-import Logo from '../../images/NiceGadgets.svg';
+import styles from './Header.module.scss'
+import Logo from '../../images/NiceGadgets.svg'
 import ok from '../../images/ok.svg'
 import menu from '../../images/Menu.svg'
-import favourites from '../../images/Favourites.svg';
-import cart from '../../images/ShoppingBag.svg';
+import favourites from '../../images/Favourites.svg'
+import cart from '../../images/ShoppingBag.svg'
 
 export const Header: React.FC = () => (
   <header className={styles.header}>

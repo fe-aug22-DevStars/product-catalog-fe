@@ -1,18 +1,61 @@
+@import '../../styles/main';
+@import '../../styles/utils/colors';
+@import '../../styles/utils/mixins.scss';
+
 .main {
+  box-sizing: border-box;
   font-family: Mont;
-  margin: 16px;
+  padding: 16px;
+  max-width: 1200px;
+  margin: auto;
+  background-color: $greyForBackground;
+  color: $grey;
+
+  @include onTablet {
+    padding: 24px;
+  }
 }
 
 .topMenu {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
+  margin-top: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+
+}
+
+.category__name {
+  font-weight: 600;
+  size: 12px;
+}
+
+.header {
+  margin-top: 25px;
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+  color: $black;
+
+  @include onTablet {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+.subHeader {
+  margin-top: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
 }
 
 .view {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+
 }
 
 .viewByOrder {
@@ -21,10 +64,41 @@
   grid-column: 1 / 3;
 }
 
+.view__title {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.view__select {
+  margin-top: 10px;
+  padding: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  height: 40px;
+  line-height: 21px;
+  border: 1px solid #B4BDC4;
+  border-radius: 8px;
+}
+
 .viewByNumber {
   display: flex;
   flex-direction: column;
   grid-column: 3 / 5;
+}
+
+.goods {
+  margin-top: 24px;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  grid-gap: 16px 40px;
+
+  @include onTablet {
+    grid-template-columns: repeat(auto-fill, minmax(225px, auto));
+  }
+
 }
 
 .bottomMenu {
@@ -33,17 +107,33 @@
   gap: 15px;
 }
 
-.bottomMenuItem {
-  border: 2px black solid;
-  border-radius: 100%;
+.bottomMenuArrow {
+  box-sizing: border-box;
   width: 32px;
   height: 32px;
-  line-height: 32px;
-  text-align: center;
-  text-decoration: none;
+  border: 1px $greyForIcons solid;
+  border-radius: 100%;
 
   &:hover {
-    background-color: purple;
-    color: white;
+    background-color: $black;
+  }
+}
+
+.bottomMenuItem {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  color: $black;
+  font-weight: 600;
+  border: 1px $greyForElements solid;
+  border-radius: 100%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 30px;
+
+  &:hover {
+    color: $white;
+    background-color: $black;
   }
 }

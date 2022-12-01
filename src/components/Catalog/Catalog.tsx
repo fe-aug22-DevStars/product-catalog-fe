@@ -1,30 +1,30 @@
-import React, { useState, useEffect } from "react";
-import { getPaginated } from '../../api/phones';
-import { Phone } from '../../types/Phone';
-import { ProductCard } from "../ProductCard";
+import React, { useState, useEffect } from 'react'
+import { getPaginated } from '../../api/phones'
+import { Phone } from '../../types/Phone'
+import { ProductCard } from '../ProductCard'
 
-import styles from './Catalog.module.scss';
-import homeIcon from '../../images/Home.png';
-import arrowLeft from '../../images/ArrowLeft.png';
-import arrowRight from '../../images/ArrowRight.png';
+import styles from './Catalog.module.scss'
+import homeIcon from '../../images/Home.png'
+import arrowLeft from '../../images/ArrowLeft.png'
+import arrowRight from '../../images/ArrowRight.png'
 
-export const Catalog:React.FC = () => {
-  const [phones, setPhones] = useState<Phone[]>([]);
-  const [selectedAmount, setSelectedAmount] = useState(16);
+export const Catalog: React.FC = () => {
+  const [phones, setPhones] = useState<Phone[]>([])
+  const [selectedAmount, setSelectedAmount] = useState(16)
 
-  async function loadPhones() {
-    const phonesFromServer = await getPaginated(selectedAmount, 1);
+  async function loadPhones (): Promise<any> {
+    const phonesFromServer = await getPaginated(selectedAmount, 1)
 
-    setPhones(phonesFromServer);
+    setPhones(phonesFromServer)
   }
 
-  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedAmount(+event.target.value);
-  };
+  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+    setSelectedAmount(+event.target.value)
+  }
 
   useEffect(() => {
-    loadPhones();
-  });
+    void loadPhones()
+  })
 
   return (
     <main className={styles.main}>
@@ -65,20 +65,20 @@ export const Catalog:React.FC = () => {
       {phones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
 
       <div className={styles.bottomMenu}>
-        <img 
-          src={arrowLeft} 
-          alt="Left" 
+        <img
+          src={arrowLeft}
+          alt="Left"
           className={styles.bottomMenuItem}
         />
         <a href="/" className={styles.bottomMenuItem}>1</a>
         <a href="/" className={styles.bottomMenuItem}>2</a>
         <a href="/" className={styles.bottomMenuItem}>3</a>
-        <img 
+        <img
           src={arrowRight}
-          alt="Right" 
+          alt="Right"
           className={styles.bottomMenuItem}
         />
       </div>
     </main>
-  );
+  )
 }

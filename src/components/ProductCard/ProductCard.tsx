@@ -1,14 +1,14 @@
-
-import React from 'react';
-import { Phone } from '../../types/Phone';
+import React from 'react'
+import { Phone } from '../../types/Phone'
 import styles from './ProductCard.module.scss'
 
-type Props = {
-  phone: Phone,
+interface Props {
+  phone: Phone
 }
 
-export const ProductCard:React.FC<Props> = ({ phone }) => {
+export const ProductCard: React.FC<Props> = ({ phone }) => {
   return (
+    <>
     <div className={styles.card}>
       <img
         className={styles.image}
@@ -46,7 +46,7 @@ export const ProductCard:React.FC<Props> = ({ phone }) => {
 
       <div className={styles.bottom}>
         <button
-          //TODO: to add href
+          // TODO: to add href
           className={styles.buy}
         >
           Add to cart
@@ -54,6 +54,6 @@ export const ProductCard:React.FC<Props> = ({ phone }) => {
 
         <div className={styles.favourites} />
       </div>
-    </div>
+    </>
   )
 }

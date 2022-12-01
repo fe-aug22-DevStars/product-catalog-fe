@@ -1,14 +1,14 @@
 import React from 'react'
 import './styles/main.scss'
 import { Footer } from './components/Footer'
-import { ProductCatalog } from './components/ProductCatalog'
 import { Header } from './components/Header'
+import { Catalog } from './components/Catalog'
 
 const App: React.FC = () => {
   return (
     <div>
       <Header />
-      <ProductCatalog />
+      <Catalog />
       <Footer />
     </div>
   )
