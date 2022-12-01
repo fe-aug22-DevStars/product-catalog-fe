@@ -1,15 +1,14 @@
 import React from 'react';
 import './styles/main.scss';
-
-import { Footer } from './Footer';
+import { Footer } from './components/Footer';
 import { Catalog } from './components/Catalog';
+import { Header } from './components/Header'
+
 
 function App() {
   return (
     <div>
-      <header className='colorPurple'>
-        DevStars
-      </header>
+      <Header />
       <Catalog />
       <Footer />
     </div>

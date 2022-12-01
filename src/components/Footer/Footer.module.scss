@@ -1,0 +1,87 @@
+@import "../../styles/utils/variables";
+@font-face {
+    font-family: "Mont"; 
+    src: local("FontsFree-Net-mont"),
+      url("../../styles/fonts/FontsFree-Net-mont.ttf") format("truetype");
+  }
+
+.footer {
+    height: 257px;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    margin: 0 0 32px 0;   
+}
+
+.logo {
+    width: 89px;
+    margin: 34px 0 0 16px;
+
+    &_container {
+        position: relative;
+    }
+
+    &_ok {
+        position: relative;
+        top: -16px;
+        left: -45px;
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    box-sizing: border-box;
+    
+}
+
+.text {
+    font-family: "Mont";
+    font-weight: 800;
+    text-decoration: none;
+    color: $grey;
+    font-size: 12px;
+
+    &_container {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin: 32px 0 0 16px;
+    }
+
+    &_mobile {
+        padding: 16px 0 16px;
+    }
+
+    &_up {
+        font-weight: 700;
+        margin: 0;
+        text-align: center;
+        padding-right: 16px;
+    }
+}
+
+.up {
+    height: 30px;
+    width: 30px;
+    position: relative;
+    border: 1px solid $greyForIcons;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 32px 0 0 0;
+    }
+
+    &_logo {
+        height: 15px;
+        width: 10px;
+    }
+}
