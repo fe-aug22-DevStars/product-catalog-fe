@@ -1,14 +1,18 @@
 @import '../../styles/main';
 @import '../../styles/utils/colors';
 
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
 .card {
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   height: 440px;
-
-  margin: 16px;
   padding: 0 32px;
 
   border: 1px solid $greyForElements;
@@ -36,6 +40,8 @@
   line-height: 21px;
 
   margin-bottom: 24px;
+
+  color: $black;
 }
 
 .price {
@@ -45,6 +51,13 @@
   font-weight: 800;
 
   margin-bottom: 8px;
+}
+
+.full_price {
+  @extend .price;
+  color: $grey;
+  text-decoration: line-through;
+  font-weight: 600;
 }
 
 .line {
@@ -94,6 +107,10 @@
   transition: color 0.3s ease,
     border 0.3s ease,
     background-color 0.3s ease;
+
+  @include onTablet {
+    width: 118px;
+  }
 }
 
 .bottom {
