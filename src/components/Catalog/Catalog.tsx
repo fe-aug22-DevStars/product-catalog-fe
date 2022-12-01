@@ -61,9 +61,9 @@ export const Catalog: React.FC = () => {
           </select>
         </div>
       </div>
-
-      {phones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
-
+      <div className={styles.goods}>
+        {phones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
+      </div>
       <div className={styles.bottomMenu}>
         <img
           src={arrowLeft}
