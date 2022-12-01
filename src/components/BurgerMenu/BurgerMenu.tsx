@@ -17,8 +17,8 @@ export const BurgerMenu: React.FC<Props> = ({ open }) => {
                     <li className='menu__item'>
                         <a href="/" className='menu__link'>Home</a>
                     </li>
-                    <li className='menu__item'><a href="#" className='menu__link'>Home</a></li>
-                    <li className='menu__item'><a href="#" className='menu__link'>Home</a></li>
+                    <li className='menu__item'><a href="/" className='menu__link'>Home</a></li>
+                    <li className='menu__item'><a href="/" className='menu__link'>Home</a></li>
                     <li className='menu__item'></li>
 
                 </ul>

@@ -59,7 +59,8 @@ export const Header: React.FC = () => {
         <img src={menu} alt="icon" />
         </button>
 
-        <BurgerMenu open={open}/>
+        <BurgerMenu
+         open={open}/>
       {/* </a> */}
     </div>
   </header>
