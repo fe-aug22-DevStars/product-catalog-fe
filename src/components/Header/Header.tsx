@@ -1,10 +1,19 @@
+import React, { useState } from 'react';
 import './Header.scss'
 import Logo from '../../images/NiceGadgets.svg';
 import ok from '../../images/ok.svg'
 import menu from '../../images/Menu.svg'
 import favourites from '../../images/Favourites.svg';
+import { BurgerMenu } from '../BurgerMenu';
 
-export const Header: React.FC = () => (
+export const Header: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setOpen(!open);
+  }
+
+  return (
   <header className="header">
     <div className="header__container">
       <a href="#home" className="logo">
@@ -45,9 +54,14 @@ export const Header: React.FC = () => (
       <a href="#favourites" className="buttons__button favourites-button">
         <img src={favourites} alt="icon" />
       </a>
-      <a href="#home" className="buttons__button">
+      {/* <a href="#home" className="buttons__button"> */}
+      <button type="button" className="buttons__button" onClick={toggleMenu}>
         <img src={menu} alt="icon" />
-      </a>
+        </button>
+
+        <BurgerMenu open={open}/>
+      {/* </a> */}
     </div>
   </header>
-);
+  );
+}
