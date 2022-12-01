@@ -38,4 +38,12 @@
   border-radius: 100%;
   width: 32px;
   height: 32px;
+  line-height: 32px;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    background-color: purple;
+    color: white;
+  }
 }

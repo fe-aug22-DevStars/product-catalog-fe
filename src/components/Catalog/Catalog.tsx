@@ -2,15 +2,18 @@ import React from "react";
 import { ProductCard } from "../ProductCard";
 
 import styles from './Catalog.module.scss';
+import homeIcon from '../../images/Home.png';
+import arrowLeft from '../../images/ArrowLeft.png';
+import arrowRight from '../../images/ArrowRight.png';
 
 export const Catalog:React.FC = () => {
   return (
     <main className={styles.main}>
       <div className={styles.topMenu}>
         <a href="/">
-          <img src="./images/Home.png" alt="Home" />
+          <img src={homeIcon} alt="Home" />
         </a>
-        <img src="./images/ArrowLeft.png" alt="Next" />
+        <img src={arrowLeft} alt="Next" />
         <span>Phones</span>
       </div>
 
@@ -39,7 +42,7 @@ export const Catalog:React.FC = () => {
 
       <div className={styles.bottomMenu}>
         <img 
-          src="./images/ArrowLeft.png" 
+          src={arrowLeft} 
           alt="Left" 
           className={styles.bottomMenuItem}
         />
@@ -47,7 +50,7 @@ export const Catalog:React.FC = () => {
         <a href="/" className={styles.bottomMenuItem}>2</a>
         <a href="/" className={styles.bottomMenuItem}>3</a>
         <img 
-          src="./images/ArrowRight.png"
+          src={arrowRight}
           alt="Right" 
           className={styles.bottomMenuItem}
         />
