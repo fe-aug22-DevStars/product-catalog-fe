@@ -33,7 +33,7 @@ export const Catalog: React.FC = () => {
           <img src={homeIcon} alt="Home" />
         </a>
         <img src={arrowLeft} alt="Next" />
-        <span>Phones</span>
+        <span className={styles.category__name}>Phones</span>
       </div>
 
       <h1 className={styles.header}>Mobile phones</h1>
@@ -42,42 +42,55 @@ export const Catalog: React.FC = () => {
 
       <div className={styles.view}>
         <div className={styles.viewByOrder}>
-          <label htmlFor="sorts">Sort by</label>
-          <select name="sorts" id="sorts">
+          <label htmlFor="sorts" className={styles.view__title}>Sort by</label>
+          <select
+            name="sorts"
+            id="sorts"
+            className={styles.view__select}
+          >
             <option value="Newest">Newest</option>
-            <option value="Oldest">Oldest</option>
+            <option value="Alphabetically">Alphabetically</option>
+            <option value="Cheapest">Cheapest</option>
           </select>
         </div>
         <div className={styles.viewByNumber}>
-          <label htmlFor="number">Items on page</label>
+          <label htmlFor="number" className={styles.view__title}>Items on page</label>
           <select
             name="number"
             id="number"
+            className={styles.view__select}
             value={selectedAmount}
             onChange={handleSelect}
           >
+            <option value="All">All</option>
             <option value="16">16</option>
-            <option value="32">32</option>
+            <option value="8">8</option>
+            <option value="4">4</option>
           </select>
         </div>
       </div>
-
-      {phones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
-
+      <div className={styles.goods}>
+        {phones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
+      </div>
       <div className={styles.bottomMenu}>
-        <img
-          src={arrowLeft}
-          alt="Left"
-          className={styles.bottomMenuItem}
-        />
+        <a href="/">
+          <img
+            src={arrowLeft}
+            alt="Left"
+            className={styles.bottomMenuArrow}
+          />
+        </a>
         <a href="/" className={styles.bottomMenuItem}>1</a>
         <a href="/" className={styles.bottomMenuItem}>2</a>
         <a href="/" className={styles.bottomMenuItem}>3</a>
-        <img
-          src={arrowRight}
-          alt="Right"
-          className={styles.bottomMenuItem}
-        />
+        <a href="/" className={styles.bottomMenuItem}>4</a>
+        <a href="/">
+          <img
+            src={arrowRight}
+            alt="Right"
+            className={styles.bottomMenuArrow}
+          />
+        </a>
       </div>
     </main>
   )
