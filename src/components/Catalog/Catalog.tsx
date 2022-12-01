@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getPaginated } from '../../api/phones';
+import { Phone } from '../../types/Phone';
 import { ProductCard } from "../ProductCard";
 
 import styles from './Catalog.module.scss';
@@ -7,6 +9,23 @@ import arrowLeft from '../../images/ArrowLeft.png';
 import arrowRight from '../../images/ArrowRight.png';
 
 export const Catalog:React.FC = () => {
+  const [phones, setPhones] = useState<Phone[]>([]);
+  const [selectedAmount, setSelectedAmount] = useState(16);
+
+  async function loadPhones() {
+    const phonesFromServer = await getPaginated(selectedAmount, 1);
+
+    setPhones(phonesFromServer);
+  }
+
+  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    setSelectedAmount(+event.target.value);
+  };
+
+  useEffect(() => {
+    loadPhones();
+  });
+
   return (
     <main className={styles.main}>
       <div className={styles.topMenu}>
@@ -31,14 +50,19 @@ export const Catalog:React.FC = () => {
         </div>
         <div className={styles.viewByNumber}>
           <label htmlFor="number">Items on page</label>
-          <select name="number" id="number">
+          <select
+            name="number"
+            id="number"
+            value={selectedAmount}
+            onChange={handleSelect}
+          >
             <option value="16">16</option>
             <option value="32">32</option>
           </select>
         </div>
       </div>
 
-      <ProductCard />
+      {phones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
 
       <div className={styles.bottomMenu}>
         <img 

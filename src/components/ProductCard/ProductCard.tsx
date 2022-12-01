@@ -1,8 +1,13 @@
 import React from 'react';
+import { Phone } from '../../types/Phone';
 import styles from './ProductCard.module.scss'
 import phoneDemo from '../../assets/images/phone_demo.png'
 
-export const ProductCard:React.FC = () => {
+type Props = {
+  phone: Phone,
+}
+
+export const ProductCard:React.FC<Props> = ({ phone }) => {
   return (
     <div className={styles.card}>
       <img
@@ -12,11 +17,11 @@ export const ProductCard:React.FC = () => {
       />
 
       <h2 className={styles.title}>
-        Apple iPhone 14 Pro 128GB Silver (MQ023)
+        {phone.name}
       </h2>
 
       <h3 className={styles.price}>
-        $999
+        {phone.price}
       </h3>
 
       <span className={styles.line} />
@@ -24,17 +29,17 @@ export const ProductCard:React.FC = () => {
       <div className={styles.info_container}>
         <p className={styles.info}>
           <span className={styles.info_name}>Screen</span>
-          <span>6.1” OLED</span>
+          <span>{phone.screen}</span>
         </p>
 
         <p className={styles.info}>
           <span className={styles.info_name}>Capacity</span>
-          <span>128 GB</span>
+          <span>{phone.capacity}</span>
         </p>
 
         <p className={styles.info}>
           <span className={styles.info_name}>RAM</span>
-          <span>6 GB</span>
+          <span>{phone.ram}</span>
         </p>
       </div>
 
