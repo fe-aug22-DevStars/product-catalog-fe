@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Phone } from '../../types/Phone';
 import styles from './ProductCard.module.scss'
@@ -40,6 +41,7 @@ export const ProductCard:React.FC<Props> = ({ phone }) => {
           <span className={styles.info_name}>RAM</span>
           <span>{phone.ram}</span>
         </p>
+      </div>
       </div>
 
       <div className={styles.bottom}>

@@ -1,3 +1,5 @@
+import React from 'react'
+
 import styles from './Header.module.scss';
 import Logo from '../../images/NiceGadgets.svg';
 import ok from '../../images/ok.svg'
@@ -54,4 +56,4 @@ export const Header: React.FC = () => (
       </a>
     </div>
   </header>
-);
+)

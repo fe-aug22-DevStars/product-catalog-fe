@@ -1,6 +1,5 @@
-import React from 'react';
-import classNames from 'classnames';
-
+import React from 'react'
+import classNames from 'classnames'
 
 import styles from './Footer.module.scss';
 import Up from '../../images/Up.svg';
@@ -9,7 +8,7 @@ import ok from '../../images/ok.svg';
 import '../../styles/fonts/Mont-Bold.otf';
 
 export const Footer: React.FC = () => {
-    return (
+  return (
         <footer className={styles.footer}>
             <div className={styles.container}>
                 <a href='/' className={styles.logo_container}>
@@ -17,7 +16,6 @@ export const Footer: React.FC = () => {
                     <img src={ok} alt="Logo" className={styles.logo_ok} />
 
                 </a>
-
 
                 <div className={styles.text_container}>
                     <a href="https://github.com/fe-aug22-DevStars/product-catalog-fe" className={styles.text}>GITHUB</a>
@@ -37,5 +35,5 @@ export const Footer: React.FC = () => {
             </div>
         </footer>
 
-    )
+  )
 }

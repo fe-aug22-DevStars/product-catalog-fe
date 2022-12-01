@@ -1,18 +1,17 @@
-import React from 'react';
-import './styles/main.scss';
-import { Footer } from './components/Footer';
-import { Catalog } from './components/Catalog';
+import React from 'react'
+import './styles/main.scss'
+import { Footer } from './components/Footer'
+import { ProductCatalog } from './components/ProductCatalog'
 import { Header } from './components/Header'
 
-
-function App() {
+const App: React.FC = () => {
   return (
     <div>
       <Header />
-      <Catalog />
+      <ProductCatalog />
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
