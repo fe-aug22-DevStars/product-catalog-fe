@@ -1,20 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 
-import styles from './Header.module.scss'
-import Logo from '../../images/NiceGadgets.svg'
-import ok from '../../images/ok.svg'
-import menu from '../../images/Menu.svg'
-import cancel from '../../images/cancel.svg'
-import favourites from '../../images/Favourites.svg'
-import cart from '../../images/ShoppingBag.svg'
-import { BurgerMenu } from '../BurgerMenu'
+import styles from './Header.module.scss';
+import Logo from '../../images/NiceGadgets.svg';
+import ok from '../../images/ok.svg';
+import menu from '../../images/Menu.svg';
+import cancel from '../../images/cancel.svg';
+import favourites from '../../images/Favourites.svg';
+import cart from '../../images/ShoppingBag.svg';
+import { BurgerMenu } from '../BurgerMenu';
 
 export const Header: React.FC = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
 
   const toggleMenu = (): void => {
-    setOpen(!open)
-  }
+    setOpen(!open);
+  };
 
   return (
     <>
@@ -47,7 +47,7 @@ export const Header: React.FC = () => {
 
               <li>
                 <a href="/accesories" className={`${styles.nav__link} colorGrey`}>
-                  Accesories
+                  Accessories
                 </a>
               </li>
             </ul>
@@ -58,7 +58,11 @@ export const Header: React.FC = () => {
           <a href="/favourites" className={`${styles.buttons__button}`}>
             <img src={favourites} alt="icon" />
           </a>
-          <a href="#menu" className={styles.buttons__button} onClick={toggleMenu}>
+          <a
+            href="#menu"
+            className={styles.buttons__button}
+            onClick={toggleMenu}
+          >
             {!open
               ? <img src={menu} alt="icon" />
               : <img src={cancel} alt="icon" />
@@ -75,5 +79,5 @@ export const Header: React.FC = () => {
         )
       }
     </>
-  )
-}
+  );
+};
