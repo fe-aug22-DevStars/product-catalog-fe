@@ -1,38 +1,34 @@
 import React, { useState, useEffect } from 'react'
-import { getAllPhones } from '../../api/phones'
+import { getPhones } from '../../api/phones'
 import { Phone } from '../../types/Phone'
 import { ProductCard } from '../ProductCard'
 import { Pagination } from '../Pagination'
 
 import styles from './Catalog.module.scss'
 import homeIcon from '../../images/Home.png'
-import arrowLeft from '../../images/ArrowLeft.png'
+import arrowRight from '../../images/ArrowRight.png'
 
 export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([])
   const [currentPage, setCurrentPage] = useState(1)
-  const [phonesPerPage, setPhonesPerPage] = useState(16)
+  const [phonesPerPage, setPhonesPerPage] = useState(4)
+  const [numberOfPages, setNumberOfPages] = useState(0)
 
   async function loadPhones (): Promise<any> {
-    const phonesFromServer = await getAllPhones()
-
-    setPhones(phonesFromServer)
+    const responseFromServer = await getPhones(phonesPerPage, currentPage)
+    setPhones(responseFromServer.products)
+    setNumberOfPages(responseFromServer.numberOfPages)
   }
 
   useEffect(() => {
     void loadPhones()
-  }, [])
+  }, [phonesPerPage, currentPage])
 
   const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     setPhonesPerPage(+event.target.value)
   }
 
-  const lastPhoneIndex = currentPage * phonesPerPage
-  const firstPhoneIndex = lastPhoneIndex - phonesPerPage
-  const currentPhones = [...phones].slice(firstPhoneIndex, lastPhoneIndex)
-  console.log(currentPage)
-
-  const pageChange = (pageNumber: number): any => setCurrentPage(pageNumber)
+  const pageChange = (pageNumber: number): void => setCurrentPage(pageNumber)
 
   return (
     <main className={styles.main}>
@@ -40,7 +36,7 @@ export const Catalog: React.FC = () => {
         <a href="/">
           <img src={homeIcon} alt="Home" />
         </a>
-        <img src={arrowLeft} alt="Next" />
+        <img src={arrowRight} alt="Next" />
         <span className={styles.category__name}>Phones</span>
       </div>
 
@@ -78,12 +74,11 @@ export const Catalog: React.FC = () => {
         </div>
       </div>
       <div className={styles.goods}>
-        {currentPhones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
+        {phones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
       </div>
       <Pagination
-        phonesPerPage={phonesPerPage}
-        totalPhones={phones.length}
         pageChange={pageChange}
+        numberOfPages={numberOfPages}
       />
     </main>
   )

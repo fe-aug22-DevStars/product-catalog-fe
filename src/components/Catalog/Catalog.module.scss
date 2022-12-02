@@ -97,7 +97,7 @@
   grid-gap: 16px 40px;
 
   @include onTablet {
-    // grid-template-columns: repeat(auto-fill, minmax(225px, auto));
+    grid-template-columns: repeat(auto-fill, minmax(225px, auto));
   }
   
 }

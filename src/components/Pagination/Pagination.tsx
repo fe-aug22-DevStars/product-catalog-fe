@@ -5,16 +5,20 @@ import arrowLeft from '../../images/ArrowLeft.png'
 import arrowRight from '../../images/ArrowRight.png'
 
 interface Props {
-  phonesPerPage: number
-  totalPhones: number
   pageChange: (pageNumber: number) => any
+  numberOfPages: number
 }
 
-export const Pagination: React.FC<Props> = ({ phonesPerPage, totalPhones, pageChange }) => {
+export const Pagination: React.FC<Props> = ({ pageChange, numberOfPages }) => {
   const pageNumbers = []
 
-  for (let i = 1; i <= Math.ceil(totalPhones / phonesPerPage); i++) {
+  for (let i = 1; i <= numberOfPages; i++) {
     pageNumbers.push(i)
+  }
+
+  const handleClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, number: number): void => {
+    event.preventDefault()
+    pageChange(number)
   }
 
   return (
@@ -28,12 +32,11 @@ export const Pagination: React.FC<Props> = ({ phonesPerPage, totalPhones, pageCh
         </a>
         {pageNumbers.map(number => (
           <a
-            href={`/phones=${number}`}
+            href={`/phones/?page=${number}`}
             key={number}
             className={styles.bottomMenuItem}
-            onClick={() => {
-              pageChange(number)
-              console.log(number)
+            onClick={(event) => {
+              handleClick(event, number)
             }}
           >
             {number}
