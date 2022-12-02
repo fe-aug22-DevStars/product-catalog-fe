@@ -4,7 +4,9 @@ import './styles/main.scss'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Catalog } from './components/Catalog'
+import { Cart } from './components/Cart'
 import { Favourites } from './components/Favourites'
+
 
 const App: React.FC = () => {
   return (
@@ -17,6 +19,7 @@ const App: React.FC = () => {
       </Routes>
 
       <Footer />
+      <Cart />
     </div>
   )
 }
