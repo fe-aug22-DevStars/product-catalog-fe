@@ -1,0 +1,39 @@
+@import '../../styles/main';
+@import '../../styles/utils/colors';
+
+.bottomMenu {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.bottomMenuArrow {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  border: 1px $greyForIcons solid;
+  border-radius: 100%;
+
+  &:hover {
+    background-color: $black;
+  }
+}
+
+.bottomMenuItem {
+  box-sizing: border-box;
+  width: 32px;
+  height: 32px;
+  font-size: 14px;
+  color: $black;
+  font-weight: 600;
+  border: 1px $greyForElements solid;
+  border-radius: 100%;
+  text-decoration: none;
+  text-align: center;
+  line-height: 30px;
+
+  &:hover {
+    color: $white;
+    background-color: $black;
+  }
+}
