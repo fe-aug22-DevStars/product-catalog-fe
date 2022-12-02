@@ -3,6 +3,7 @@ import './styles/main.scss'
 import { Footer } from './components/Footer'
 import { Header } from './components/Header'
 import { Catalog } from './components/Catalog'
+import { Cart } from './components/Cart'
 
 const App: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const App: React.FC = () => {
       <Header />
       <Catalog />
       <Footer />
+      <Cart />
     </div>
   )
 }
