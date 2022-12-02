@@ -1,12 +1,13 @@
-import React from 'react'
-import styles from './Burger.module.scss'
-import favourites from '../../images/Favourites.svg'
-import shoppingBag from '../../images/ShoppingBag.svg'
+import React from 'react';
+import styles from './Burger.module.scss';
+import favourites from '../../images/Favourites.svg';
+import shoppingBag from '../../images/ShoppingBag.svg';
 
 interface Props {
   open: boolean
 }
 
+// eslint-disable-next-line no-shadow
 export const BurgerMenu: React.FC<Props> = ({ open }) => {
   return (
     <nav className={styles.menu}>
@@ -40,5 +41,5 @@ export const BurgerMenu: React.FC<Props> = ({ open }) => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};

@@ -1,8 +1,8 @@
-import React from 'react'
+import React from 'react';
 
-import homeIcon from '../../images/Home.png'
-import arrowLeft from '../../images/ArrowLeft.png'
-import styles from './Favourites.module.scss'
+import homeIcon from '../../images/Home.png';
+import arrowLeft from '../../images/ArrowLeft.png';
+import styles from './Favourites.module.scss';
 
 export const Favourites: React.FC = () => {
   return (
@@ -15,5 +15,5 @@ export const Favourites: React.FC = () => {
         <span className={styles.category__name}>Favourites</span>
       </div>
     </main>
-  )
-}
+  );
+};
