@@ -1,30 +1,38 @@
 import React, { useState, useEffect } from 'react'
-import { getPaginated } from '../../api/phones'
+import { getAllPhones } from '../../api/phones'
 import { Phone } from '../../types/Phone'
 import { ProductCard } from '../ProductCard'
+import { Pagination } from '../Pagination'
 
 import styles from './Catalog.module.scss'
 import homeIcon from '../../images/Home.png'
 import arrowLeft from '../../images/ArrowLeft.png'
-import arrowRight from '../../images/ArrowRight.png'
 
 export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([])
-  const [selectedAmount, setSelectedAmount] = useState(16)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [phonesPerPage, setPhonesPerPage] = useState(16)
 
   async function loadPhones (): Promise<any> {
-    const phonesFromServer = await getPaginated(selectedAmount, 1)
+    const phonesFromServer = await getAllPhones()
 
     setPhones(phonesFromServer)
   }
 
-  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    setSelectedAmount(+event.target.value)
-  }
-
   useEffect(() => {
     void loadPhones()
-  })
+  }, [])
+
+  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
+    setPhonesPerPage(+event.target.value)
+  }
+
+  const lastPhoneIndex = currentPage * phonesPerPage
+  const firstPhoneIndex = lastPhoneIndex - phonesPerPage
+  const currentPhones = [...phones].slice(firstPhoneIndex, lastPhoneIndex)
+  console.log(currentPage)
+
+  const pageChange = (pageNumber: number): any => setCurrentPage(pageNumber)
 
   return (
     <main className={styles.main}>
@@ -38,7 +46,7 @@ export const Catalog: React.FC = () => {
 
       <h1 className={styles.header}>Mobile phones</h1>
 
-      <h3 className={styles.subHeader}>95 models</h3>
+      <h3 className={styles.subHeader}>{phones.length} models</h3>
 
       <div className={styles.view}>
         <div className={styles.viewByOrder}>
@@ -59,7 +67,7 @@ export const Catalog: React.FC = () => {
             name="number"
             id="number"
             className={styles.view__select}
-            value={selectedAmount}
+            value={phonesPerPage}
             onChange={handleSelect}
           >
             <option value="All">All</option>
@@ -70,28 +78,13 @@ export const Catalog: React.FC = () => {
         </div>
       </div>
       <div className={styles.goods}>
-        {phones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
+        {currentPhones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
       </div>
-      <div className={styles.bottomMenu}>
-        <a href="/">
-          <img
-            src={arrowLeft}
-            alt="Left"
-            className={styles.bottomMenuArrow}
-          />
-        </a>
-        <a href="/" className={styles.bottomMenuItem}>1</a>
-        <a href="/" className={styles.bottomMenuItem}>2</a>
-        <a href="/" className={styles.bottomMenuItem}>3</a>
-        <a href="/" className={styles.bottomMenuItem}>4</a>
-        <a href="/">
-          <img
-            src={arrowRight}
-            alt="Right"
-            className={styles.bottomMenuArrow}
-          />
-        </a>
-      </div>
+      <Pagination
+        phonesPerPage={phonesPerPage}
+        totalPhones={phones.length}
+        pageChange={pageChange}
+      />
     </main>
   )
 }
