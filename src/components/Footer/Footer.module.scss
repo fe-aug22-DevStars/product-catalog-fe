@@ -1,54 +1,55 @@
 @import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
 @font-face {
-    font-family: "Mont"; 
-    src: local("FontsFree-Net-mont"),
-      url("../../styles/fonts/Mont-Bold.otf") format("truetype");
-  }
-
-.footer {
-    height: 257px;
-    box-sizing: border-box;
-    bottom: 0;
-    width: 100%;
-    margin: 0 0 32px 0;   
-
-    @media (min-width: 640px) {
-        height: 96px;
-    }
+  font-family: "Mont";
+  src: local("FontsFree-Net-mont"),
+  url("../../styles/fonts/Mont-Bold.otf") format("truetype");
 }
 
-.logo {
+.footer {
+  height: 257px;
+  box-sizing: border-box;
+  bottom: 0;
+  width: 100%;
+
+  @include onTablet {
+    height: 96px;
+  }
+
+  .logo {
     width: 89px;
     margin: 34px 0 0 16px;
 
     &_container {
-        position: relative;
+      position: relative;
     }
 
     &_ok {
-        position: relative;
-        top: -16px;
-        left: -45px;
+      position: relative;
+      top: -16px;
+      left: -45px;
     }
-}
+  }
 
-.container {
+  .container {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
     box-sizing: border-box;
-    
-    @media (min-width: 640px) {
-        flex-direction: row;
-        // justify-content: space-around;
-        margin: 0 32px 0 32px;
-    }
-    @media (min-width: 1200px) {
-        margin: 0 150px 0 150px;
-    }
-}
 
-.text {
+    @include onTablet {
+      flex-direction: row;
+
+      margin: 0 32px 0 32px;
+    }
+
+    @include onDesktop {
+      margin: 0 150px 0 150px;
+    }
+  }
+
+  .text {
     font-family: "Mont";
     font-weight: 800;
     text-decoration: none;
@@ -56,43 +57,39 @@
     font-size: 12px;
 
     &_container {
-        display: flex;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      margin: 32px 0 0 16px;
+
+      @include onTablet {
+        flex-direction: row;
         justify-content: space-between;
-        flex-direction: column;
-        margin: 32px 0 0 16px;
-
-        @media (min-width: 640px) {
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
-            // width: 100px;
-            // margin: 0;
-        }
-
-      
+        align-items: center;
+      }
     }
 
     &_mobile {
-        padding: 16px 0 16px;
+      padding: 16px 0 16px;
 
-        @media (min-width: 640px) {
-            padding: 0 14px 0 14px;
-        }
+      @include onTablet {
+        padding: 0 14px 0 14px;
+      }
 
-        @media (min-width: 1200px) {
-            padding: 0 106px 0 106px;
-        }
+      @include onDesktop {
+        padding: 0 106px 0 106px;
+      }
     }
 
     &_up {
-        font-weight: 700;
-        margin: 0;
-        text-align: center;
-        padding-right: 16px;
+      font-weight: 700;
+      margin: 0;
+      text-align: center;
+      padding-right: 16px;
     }
-}
+  }
 
-.up {
+  .up {
     height: 30px;
     width: 30px;
     position: relative;
@@ -103,14 +100,15 @@
     align-items: center;
 
     &_container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin: 32px 0 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 32px 0 0 0;
     }
 
     &_logo {
-        height: 15px;
-        width: 10px;
+      height: 15px;
+      width: 10px;
     }
+  }
 }
