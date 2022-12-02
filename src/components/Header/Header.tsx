@@ -28,25 +28,25 @@ export const Header: React.FC = () => {
           <nav className="nav">
             <ul className={styles.nav__list}>
               <li>
-                <a href="#home" className={`${styles.nav__link} colorGrey`}>
+                <a href="/home" className={`${styles.nav__link} colorGrey`}>
                   Home
                 </a>
               </li>
 
               <li>
-                <a href="#phones" className={`${styles.nav__link} ${styles['is-active']} colorGrey`}>
+                <a href="/phones" className={`${styles.nav__link} ${styles['is-active']} colorGrey`}>
                   Phones
                 </a>
               </li>
 
               <li>
-                <a href="#tablets" className={`${styles.nav__link} colorGrey`}>
+                <a href="/tablets" className={`${styles.nav__link} colorGrey`}>
                   Tablets
                 </a>
               </li>
 
               <li>
-                <a href="#accesories" className={`${styles.nav__link} colorGrey`}>
+                <a href="/accesories" className={`${styles.nav__link} colorGrey`}>
                   Accesories
                 </a>
               </li>
@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
         </div>
 
         <div className={styles.buttons}>
-          <a href="#favourites" className={`${styles.buttons__button}`}>
+          <a href="/favourites" className={`${styles.buttons__button}`}>
             <img src={favourites} alt="icon" />
           </a>
           <a href="#menu" className={styles.buttons__button} onClick={toggleMenu}>

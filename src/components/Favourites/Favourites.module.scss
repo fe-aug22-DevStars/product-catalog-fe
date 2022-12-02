@@ -1,0 +1,30 @@
+@import '../../styles/main';
+@import '../../styles/utils/colors';
+@import '../../styles/utils/mixins.scss';
+
+.main {
+  box-sizing: border-box;
+  font-family: Mont;
+  padding: 16px;
+  max-width: 1200px;
+  margin: auto;
+  background-color: $greyForBackground;
+  color: $grey;
+
+  @include onTablet {
+    padding: 24px;
+  }
+}
+
+.topMenu {
+  margin-top: 15px;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  
+}
+
+.category__name {
+  font-weight: 600;
+  size: 12px;
+}
