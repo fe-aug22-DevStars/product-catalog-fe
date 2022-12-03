@@ -23,7 +23,6 @@ const App: React.FC = () => {
       </Routes>
 
       <Footer />
-      <Cart />
     </div>
   );
 };
