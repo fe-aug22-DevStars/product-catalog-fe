@@ -5,8 +5,8 @@ import { ProductCard } from '../ProductCard';
 import { Pagination } from '../Pagination';
 
 import styles from './Catalog.module.scss';
-import homeIcon from '../../images/Home.png';
-import arrowRight from '../../images/ArrowRight.png';
+import homeIcon from '../../images/Home.svg';
+import arrowRight from '../../images/ArrowRight.svg';
 
 export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -25,9 +25,8 @@ export const Catalog: React.FC = () => {
     void loadPhones();
   }, [phonesPerPage, currentPage]);
 
-  // eslint-disable-next-line no-shadow
-  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    setPhonesPerPage(+event.target.value);
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setPhonesPerPage(+e.target.value);
   };
 
   const pageChange = (pageNumber: number): void => setCurrentPage(pageNumber);

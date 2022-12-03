@@ -1,8 +1,8 @@
 import React from 'react';
 
 import styles from './Pagination.module.scss';
-import arrowLeft from '../../images/ArrowLeft.png';
-import arrowRight from '../../images/ArrowRight.png';
+import arrowLeft from '../../images/ArrowLeft.svg';
+import arrowRight from '../../images/ArrowRight.svg';
 
 interface Props {
   pageChange: (pageNumber: number) => any
@@ -37,9 +37,8 @@ export const Pagination: React.FC<Props> = ({ pageChange, numberOfPages }) => {
           href={`/phones/?page=${number}`}
           key={number}
           className={styles.bottomMenuItem}
-          /* eslint-disable-next-line no-shadow */
-          onClick={(event) => {
-            handleClick(event, number);
+          onClick={(e) => {
+            handleClick(e, number);
           }}
         >
           {number}

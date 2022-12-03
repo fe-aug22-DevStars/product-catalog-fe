@@ -8,6 +8,7 @@ import cancel from '../../images/cancel.svg';
 import favourites from '../../images/Favourites.svg';
 import cart from '../../images/ShoppingBag.svg';
 import { BurgerMenu } from '../BurgerMenu';
+import { NavLink } from 'react-router-dom';
 
 export const Header: React.FC = () => {
   // eslint-disable-next-line no-shadow
@@ -19,66 +20,74 @@ export const Header: React.FC = () => {
 
   return (
     <>
-      <header className={styles.header} id='header'>
+      <header className={styles.header} id="header">
         <div className={styles.header__container}>
-          <a href="#home" className={styles.logo}>
-            <img src={Logo} alt="Nice gadgets logo" />
+          <NavLink to="/" className={styles.logo}>
+            <img src={Logo} alt="Logo" />
             <img src={ok} alt="Logo" className={styles.header__okIcon} />
-          </a>
+          </NavLink>
 
           <nav className="nav">
             <ul className={styles.nav__list}>
               <li>
-                <a href="/home" className={`${styles.nav__link} colorGrey`}>
+                <NavLink to="/" className={`${styles.nav__link} colorGrey`}>
                   Home
-                </a>
+                </NavLink>
               </li>
 
               <li>
-                <a href="/phones" className={`${styles.nav__link} ${styles['is-active']} colorGrey`}>
+                <NavLink
+                  to="phones"
+                  className={`${styles.nav__link} ${styles['is-active']} colorGrey`}
+                >
                   Phones
-                </a>
+                </NavLink>
               </li>
 
               <li>
-                <a href="/tablets" className={`${styles.nav__link} colorGrey`}>
+                <NavLink
+                  to="tablets"
+                  className={`${styles.nav__link} colorGrey`}
+                >
                   Tablets
-                </a>
+                </NavLink>
               </li>
 
               <li>
-                <a href="/accesories" className={`${styles.nav__link} colorGrey`}>
+                <NavLink
+                  to="accessories"
+                  className={`${styles.nav__link} colorGrey`}
+                >
                   Accessories
-                </a>
+                </NavLink>
               </li>
             </ul>
           </nav>
         </div>
 
         <div className={styles.buttons}>
-          <a href="/favourites" className={`${styles.buttons__button}`}>
+          <NavLink to="favourites" className={`${styles.buttons__button}`}>
             <img src={favourites} alt="icon" />
-          </a>
-          <a
-            href="#menu"
+          </NavLink>
+
+          <NavLink
+            to="menu"
             className={styles.buttons__button}
             onClick={toggleMenu}
           >
-            {!open
-              ? <img src={menu} alt="icon" />
-              : <img src={cancel} alt="icon" />
-            }
-          </a>
-          <a href="#cart" className={styles.buttons__button}>
+            {!open ? (
+              <img src={menu} alt="icon" />
+            ) : (
+              <img src={cancel} alt="icon" />
+            )}
+          </NavLink>
+
+          <NavLink to="cart" className={styles.buttons__button}>
             <img src={cart} alt="icon" />
-          </a>
+          </NavLink>
         </div>
       </header>
-      {
-        open && (
-          <BurgerMenu open={open} />
-        )
-      }
+      {open && <BurgerMenu open={open} />}
     </>
   );
 };
