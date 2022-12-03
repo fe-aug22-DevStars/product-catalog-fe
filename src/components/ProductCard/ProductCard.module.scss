@@ -20,14 +20,17 @@
   background-color: $white;
 }
 
+.image_container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
 .image {
   width: 224px;
   height: 130px;
 
   object-fit: contain;
   display: block;
-
-  margin-bottom: 24px;
 }
 
 .title {
@@ -103,10 +106,19 @@
 
   text-decoration: none;
   color: $white;
+  cursor: pointer;
 
-  transition: color 0.3s ease,
-    border 0.3s ease,
-    background-color 0.3s ease;
+  transition: all 0.3s ease;
+
+  &:hover {
+    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
+  }
+
+  &_active {
+    color: $purple;
+    background-color: $white;
+    border: 1px solid #E2E6E9;
+  }
 
   @include onTablet {
     width: 118px;
@@ -125,6 +137,19 @@
   border: 1px solid $greyForIcons;
   border-radius: 50%;
 
+  cursor: pointer;
+
   background: url("../../images/Favourites.svg") center no-repeat;
   object-fit: contain;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    border: 1px solid $black;
+  }
+
+  &_active {
+    border: 1px solid $greyForIcons;
+    background: url("../../images/FavouritesFilled.svg") center no-repeat;
+  }
 }

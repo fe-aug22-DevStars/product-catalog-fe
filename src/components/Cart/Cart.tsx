@@ -1,6 +1,7 @@
-import React from 'react'
-import styles from './Cart.module.scss'
-import right from '../../images/right.svg'
+import React from 'react';
+import styles from './Cart.module.scss';
+import right from '../../images/right.svg';
+
 // import { Phone } from '../../types/Phone'
 // import { getAllPhones } from '../../api/phones'
 // import { ProductCard } from '../ProductCard'
@@ -33,20 +34,20 @@ export const Cart: React.FC = () => {
         </p>
         <div className={styles.total_container}>
 
-        <div className={styles.phones_container}>
+          <div className={styles.phones_container}>
 
-        </div>
-        <div className={styles.sum_container}>
-          <p className={styles.price}>2556$</p>
+          </div>
+          <div className={styles.sum_container}>
+            <p className={styles.price}>2556$</p>
 
-          <p className={styles.amount}>Total for 3 items</p>
-          <div className={styles.line}></div>
-          <button className={styles.checkout}>
+            <p className={styles.amount}>Total for 3 items</p>
+            <div className={styles.line}></div>
+            <button className={styles.checkout}>
             Checkout
-          </button>
-        </div>
+            </button>
+          </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};

@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react'
-import { ProductCard } from '../ProductCard'
-import { getAllPhones } from '../../api/phones'
-import { Phone } from '../../types/Phone'
 
-import homeIcon from '../../images/Home.png'
-import arrowRight from '../../images/ArrowRight.png'
-import styles from './Favourites.module.scss'
+import React, { useState, useEffect } from 'react';
+import { ProductCard } from '../ProductCard';
+import { getAllPhones } from '../../api/phones';
+import { Phone } from '../../types/Phone';
+
+import homeIcon from '../../images/Home.png';
+import arrowRight from '../../images/ArrowRight.png';
+import styles from './Favourites.module.scss';
 
 export const Favourites: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([])
@@ -39,5 +40,5 @@ export const Favourites: React.FC = () => {
         </div>
       </div>
     </main>
-  )
-}
+  );
+};

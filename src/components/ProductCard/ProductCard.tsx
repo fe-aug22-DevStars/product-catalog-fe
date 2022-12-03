@@ -1,27 +1,36 @@
-import React from 'react'
-import { Phone } from '../../types/Phone'
-import styles from './ProductCard.module.scss'
+import React, { useState } from 'react';
+import { Phone } from '../../types/Phone';
+import styles from './ProductCard.module.scss';
+import classNames from 'classnames';
 
 interface Props {
   phone: Phone
 }
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
+  const [toCart, setToCart] = useState(false);
+  const [toFavourites, setToFavourites] = useState(false);
+
   return (
     <>
       <div className={styles.card}>
-        <img
-          className={styles.image}
-          src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${phone.image}`}
-          alt="phone"
-        />
+        <div className={styles.image_container}>
+          <img
+            className={styles.image}
+            src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${phone.image}`}
+            alt="phone"
+          />
+        </div>
 
         <h2 className={styles.title}>
           {phone.name}
         </h2>
 
         <h3 className={styles.price}>
-          ${phone.price} <span className={styles.full_price}>${phone.fullPrice}</span>
+          ${phone.price}&nbsp;
+          <span className={styles.full_price}>
+            ${phone.fullPrice}
+          </span>
         </h3>
 
         <span className={styles.line}/>
@@ -45,17 +54,30 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
 
         <div className={styles.bottom}>
           <button
-            // TODO: to add href
-            className={styles.buy}
+            onClick={() => {
+              setToCart(!toCart);
+            }}
+            className={classNames(styles.buy, {
+              [styles.buy_active]: toCart,
+            })}
           >
-            Add to cart
+            {!toCart
+              ? 'Add to cart'
+              : 'Added to cart'
+            }
           </button>
 
-          <div className={styles.favourites}>
-
+          <div
+            onClick={() => {
+              setToFavourites(!toFavourites);
+            }}
+            className={classNames(styles.favourites, {
+              [styles.favourites_active]: toFavourites,
+            })}
+          >
           </div>
         </div>
       </div>
     </>
-  )
-}
+  );
+};

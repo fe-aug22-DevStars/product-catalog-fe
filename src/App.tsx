@@ -1,11 +1,11 @@
-import React from 'react'
-import { Routes, Route } from 'react-router-dom'
-import './styles/main.scss'
-import { Footer } from './components/Footer'
-import { Header } from './components/Header'
-import { Catalog } from './components/Catalog'
-import { Cart } from './components/Cart'
-import { Favourites } from './components/Favourites'
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import './styles/main.scss';
+import { Footer } from './components/Footer';
+import { Header } from './components/Header';
+import { Catalog } from './components/Catalog';
+import { Cart } from './components/Cart';
+import { Favourites } from './components/Favourites';
 
 const App: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ const App: React.FC = () => {
 
       <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
