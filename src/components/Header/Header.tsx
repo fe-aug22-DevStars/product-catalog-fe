@@ -83,13 +83,6 @@ export const Header: React.FC = () => {
           </NavLink>
 
           <NavLink to="cart" className={styles.buttons__button}>
-            {!open
-              ? <img src={menu} alt="icon" />
-              : <img src={cancel} alt="icon" />
-            }
-          </NavLink>
-
-          <NavLink to="cart" className={styles.buttons__button}>
             <img src={cart} alt="icon" />
           </NavLink>
         </div>
