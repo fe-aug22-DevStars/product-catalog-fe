@@ -1,7 +1,5 @@
 import React from 'react'
 import styles from './Cart.module.scss'
-import { Header } from '../Header'
-import { Footer } from '../Footer'
 import right from '../../images/right.svg'
 // import { Phone } from '../../types/Phone'
 // import { getAllPhones } from '../../api/phones'
@@ -22,7 +20,6 @@ export const Cart: React.FC = () => {
 
   return (
     <>
-      <Header />
       <div className={styles.container}>
         <div className={styles.back_container}>
           <a href='/'>
@@ -50,7 +47,6 @@ export const Cart: React.FC = () => {
         </div>
         </div>
       </div>
-      <Footer />
     </>
   )
 }

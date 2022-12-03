@@ -7,7 +7,6 @@ import { Catalog } from './components/Catalog'
 import { Cart } from './components/Cart'
 import { Favourites } from './components/Favourites'
 
-
 const App: React.FC = () => {
   return (
     <div>
@@ -16,10 +15,10 @@ const App: React.FC = () => {
       <Routes>
         <Route path='phones' element={<Catalog />} />
         <Route path='favourites' element={<Favourites />} />
+        <Route path='cart' element={<Cart />} />
       </Routes>
 
       <Footer />
-      <Cart />
     </div>
   )
 }
