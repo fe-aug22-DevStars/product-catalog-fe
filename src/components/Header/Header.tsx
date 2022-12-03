@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
               : <img src={cancel} alt="icon" />
             }
           </a>
-          <a href="#cart" className={styles.buttons__button}>
+          <a href="/cart" className={styles.buttons__button}>
             <img src={cart} alt="icon" />
           </a>
         </div>

@@ -5,19 +5,24 @@
 .main {
   box-sizing: border-box;
   font-family: Mont;
-  padding: 16px;
-  max-width: 1200px;
-  margin: auto;
+  padding: 25px 16px 60px;
+
   background-color: $greyForBackground;
   color: $grey;
 
   @include onTablet {
-    padding: 24px;
+    padding: 25px 24px 80px;
   }
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 .topMenu {
-  margin-top: 15px;
+  margin-bottom: 40px;
+
   display: flex;
   align-items: flex-start;
   gap: 15px;
@@ -27,4 +32,44 @@
 .category__name {
   font-weight: 600;
   size: 12px;
+}
+
+.header {
+  font-weight: 800;
+  font-size: 32px;
+  line-height: 41px;
+  letter-spacing: -0.01em;
+  color: $black;
+
+  margin-bottom: 10px;
+
+  @include onTablet {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+.subHeader {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+
+  margin-bottom: 32px;
+
+  @include onTablet {
+    margin-bottom: 40px;
+  }
+}
+
+.goods {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  grid-gap: 16px 40px;
+
+  @include onTablet {
+    grid-template-columns: repeat(auto-fill, minmax(225px, auto));
+  }
+  
 }
