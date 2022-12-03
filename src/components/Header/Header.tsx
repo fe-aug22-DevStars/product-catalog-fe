@@ -88,7 +88,8 @@ export const Header: React.FC = () => {
               : <img src={cancel} alt="icon" />
             }
           </NavLink>
-          
+
+          <NavLink to="cart" className={styles.buttons__button}>
             <img src={cart} alt="icon" />
           </NavLink>
         </div>
