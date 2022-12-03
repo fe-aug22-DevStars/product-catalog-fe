@@ -25,6 +25,7 @@ export const Catalog: React.FC = () => {
     void loadPhones();
   }, [phonesPerPage, currentPage]);
 
+  // eslint-disable-next-line no-shadow
   const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
     setPhonesPerPage(+event.target.value);
   };

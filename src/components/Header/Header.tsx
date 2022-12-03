@@ -10,6 +10,7 @@ import cart from '../../images/ShoppingBag.svg';
 import { BurgerMenu } from '../BurgerMenu';
 
 export const Header: React.FC = () => {
+  // eslint-disable-next-line no-shadow
   const [open, setOpen] = useState(false);
 
   const toggleMenu = (): void => {

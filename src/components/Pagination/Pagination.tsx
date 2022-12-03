@@ -37,6 +37,7 @@ export const Pagination: React.FC<Props> = ({ pageChange, numberOfPages }) => {
           href={`/phones/?page=${number}`}
           key={number}
           className={styles.bottomMenuItem}
+          /* eslint-disable-next-line no-shadow */
           onClick={(event) => {
             handleClick(event, number);
           }}
