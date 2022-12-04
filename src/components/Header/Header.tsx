@@ -11,11 +11,10 @@ import { BurgerMenu } from '../BurgerMenu';
 import { NavLink } from 'react-router-dom';
 
 export const Header: React.FC = () => {
-  // eslint-disable-next-line no-shadow
-  const [open, setOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = (): void => {
-    setOpen(!open);
+    setIsMenuOpen(!isMenuOpen);
   };
 
   return (
@@ -75,7 +74,7 @@ export const Header: React.FC = () => {
             className={styles.buttons__button}
             onClick={toggleMenu}
           >
-            {!open ? (
+            {!isMenuOpen ? (
               <img src={menu} alt="icon" />
             ) : (
               <img src={cancel} alt="icon" />
@@ -87,7 +86,10 @@ export const Header: React.FC = () => {
           </NavLink>
         </div>
       </header>
-      {open && <BurgerMenu open={open} />}
+      {isMenuOpen && <BurgerMenu
+        isMenuOpen={isMenuOpen}
+        setIsMenuOpen={setIsMenuOpen}
+      />}
     </>
   );
 };
