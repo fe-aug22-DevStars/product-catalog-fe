@@ -24,8 +24,10 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "deploy": "gh-pages -d build",
+    "predeploy": "npm run build",
+    "build": "react-scripts build",
     "start": "react-scripts start",
+    "deploy": "gh-pages -d build",
     "lint-staged": "lint-staged",
     "eslint": "eslint --ext .tsx,.ts --fix ./src -c .eslintrc.cjs",
     "prepare": "husky install"
