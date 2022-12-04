@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Phone } from '../../types/Phone';
 import styles from './ProductCard.module.scss';
 import classNames from 'classnames';
+import { formatCapacity } from '../../utilities/formatCapacity';
 
 interface Props {
   phone: Phone
@@ -43,12 +44,18 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
 
           <p className={styles.info}>
             <span className={styles.info_name}>Capacity</span>
-            <span className={styles.info_value}>{phone.capacity}</span>
+            <span
+              className={styles.info_value}>
+              {formatCapacity(phone.capacity)}
+            </span>
           </p>
 
           <p className={styles.info}>
             <span className={styles.info_name}>RAM</span>
-            <span className={styles.info_value}>{phone.ram}</span>
+            <span
+              className={styles.info_value}>
+              {formatCapacity(phone.capacity)}
+            </span>
           </p>
         </div>
 

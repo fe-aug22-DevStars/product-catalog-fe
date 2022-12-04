@@ -9,16 +9,17 @@ import arrowRight from '../../images/ArrowRight.png';
 import styles from './Favourites.module.scss';
 
 export const Favourites: React.FC = () => {
-  const [phones, setPhones] = useState<Phone[]>([])
+  const [phones, setPhones] = useState<Phone[]>([]);
 
-  async function loadPhones (): Promise<any> {
-    const responseFromServer = await getAllPhones()
-    setPhones(responseFromServer.slice(0, 5))
+  async function loadPhones(): Promise<any> {
+    const responseFromServer = await getAllPhones();
+
+    setPhones(responseFromServer.slice(0, 5));
   }
 
   useEffect(() => {
-    void loadPhones()
-  }, [])
+    void loadPhones();
+  }, []);
 
   return (
     <main className={styles.main}>
