@@ -1,8 +1,7 @@
 import { Phone } from '../types/Phone';
 
 // eslint-disable-next-line max-len
-// const BASE_URL = 'https://delightful-granita-7b1065.netlify.app/.netlify/functions/server/products';
-const BASE_URL = 'http://localhost:9000/.netlify/functions/server/products';
+const BASE_URL = 'https://delightful-granita-7b1065.netlify.app/.netlify/functions/server/products';
 
 export const getAllPhones = async(): Promise<Phone[]> => {
   const response = await fetch(BASE_URL);
