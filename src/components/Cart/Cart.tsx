@@ -1,22 +1,22 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from './Cart.module.scss'
 import right from '../../images/right.svg'
-// import { Phone } from '../../types/Phone'
-// import { getAllPhones } from '../../api/phones'
-// import { ProductCard } from '../ProductCard'
+import { Phone } from '../../types/Phone'
+import { getAllPhones } from '../../api/phones'
+import { CartCard } from '../CartCard'
 
 export const Cart: React.FC = () => {
-  // const [phones, setPhones] = useState<Phone[]>([])
-  //
-  // async function loadPhones (): Promise<any> {
-  //   const phonesFromServer = await getAllPhones()
-  //
-  //   setPhones(phonesFromServer)
-  // }
+  const [phones, setPhones] = useState<Phone[]>([])
 
-  // useEffect(() => {
-  //   void loadPhones()
-  // }, [])
+  async function loadPhones (): Promise<any> {
+    const phonesFromServer = await getAllPhones()
+
+    setPhones(phonesFromServer)
+  }
+
+  useEffect(() => {
+    void loadPhones()
+  }, [])
 
   return (
     <>
@@ -36,6 +36,7 @@ export const Cart: React.FC = () => {
 
         <div className={styles.phones_container}>
 
+          {phones.map(phone => <CartCard key={phone.id} phone={phone}/>)}
         </div>
         <div className={styles.sum_container}>
           <p className={styles.price}>2556$</p>

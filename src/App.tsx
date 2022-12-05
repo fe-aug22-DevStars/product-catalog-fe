@@ -17,7 +17,6 @@ const App: React.FC = () => {
         <Route path='favourites' element={<Favourites />} />
         <Route path='cart' element={<Cart />} />
       </Routes>
-
       <Footer />
     </div>
   )
