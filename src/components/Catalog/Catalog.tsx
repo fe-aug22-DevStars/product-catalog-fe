@@ -1,34 +1,35 @@
-import React, { useState, useEffect } from 'react'
-import { getPhones } from '../../api/phones'
-import { Phone } from '../../types/Phone'
-import { ProductCard } from '../ProductCard'
-import { Pagination } from '../Pagination'
+import React, { useState, useEffect } from 'react';
+import { getPhones } from '../../api/phones';
+import { Phone } from '../../types/Phone';
+import { ProductCard } from '../ProductCard';
+import { Pagination } from '../Pagination';
 
-import styles from './Catalog.module.scss'
-import homeIcon from '../../images/Home.png'
-import arrowRight from '../../images/ArrowRight.png'
+import styles from './Catalog.module.scss';
+import homeIcon from '../../images/Home.svg';
+import arrowRight from '../../images/ArrowRight.svg';
 
 export const Catalog: React.FC = () => {
-  const [phones, setPhones] = useState<Phone[]>([])
-  const [currentPage, setCurrentPage] = useState(1)
-  const [phonesPerPage, setPhonesPerPage] = useState(4)
-  const [numberOfPages, setNumberOfPages] = useState(0)
+  const [phones, setPhones] = useState<Phone[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [phonesPerPage, setPhonesPerPage] = useState(4);
+  const [numberOfPages, setNumberOfPages] = useState(0);
 
-  async function loadPhones (): Promise<any> {
-    const responseFromServer = await getPhones(phonesPerPage, currentPage)
-    setPhones(responseFromServer.products)
-    setNumberOfPages(responseFromServer.numberOfPages)
+  async function loadPhones(): Promise<any> {
+    const responseFromServer = await getPhones(phonesPerPage, currentPage);
+
+    setPhones(responseFromServer.products);
+    setNumberOfPages(responseFromServer.numberOfPages);
   }
 
   useEffect(() => {
-    void loadPhones()
-  }, [phonesPerPage, currentPage])
+    void loadPhones();
+  }, [phonesPerPage, currentPage]);
 
-  const handleSelect = (event: React.ChangeEvent<HTMLSelectElement>): void => {
-    setPhonesPerPage(+event.target.value)
-  }
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setPhonesPerPage(+e.target.value);
+  };
 
-  const pageChange = (pageNumber: number): void => setCurrentPage(pageNumber)
+  const pageChange = (pageNumber: number): void => setCurrentPage(pageNumber);
 
   return (
     <main className={styles.main}>
@@ -58,7 +59,12 @@ export const Catalog: React.FC = () => {
           </select>
         </div>
         <div className={styles.viewByNumber}>
-          <label htmlFor="number" className={styles.view__title}>Items on page</label>
+          <label
+            htmlFor="number"
+            className={styles.view__title}
+          >
+            Items on page
+          </label>
           <select
             name="number"
             id="number"
@@ -81,5 +87,5 @@ export const Catalog: React.FC = () => {
         numberOfPages={numberOfPages}
       />
     </main>
-  )
-}
+  );
+};

@@ -5,6 +5,12 @@ import { Phone } from '../../types/Phone'
 import { getAllPhones } from '../../api/phones'
 import { CartCard } from '../CartCard'
 
+
+// import { Phone } from '../../types/Phone'
+// import { getAllPhones } from '../../api/phones'
+// import { ProductCard } from '../ProductCard'
+
+
 export const Cart: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([])
 
@@ -34,22 +40,25 @@ export const Cart: React.FC = () => {
         </p>
         <div className={styles.total_container}>
 
-        <div className={styles.phones_container}>
+          <div className={styles.phones_container}>
+
 
           {phones.map(phone => <CartCard key={phone.id} phone={phone}/>)}
         </div>
-        <div className={styles.sum_container}>
-          <p className={styles.price}>2556$</p>
 
-          <p className={styles.amount}>Total for 3 items</p>
-          <div className={styles.line}></div>
-          <button className={styles.checkout}>
+          <div className={styles.sum_container}>
+            <p className={styles.price}>2556$</p>
+
+
+            <p className={styles.amount}>Total for 3 items</p>
+            <div className={styles.line}></div>
+            <button className={styles.checkout}>
             Checkout
-          </button>
-        </div>
+            </button>
+          </div>
         </div>
       </div>
 
     </>
-  )
-}
+  );
+};
