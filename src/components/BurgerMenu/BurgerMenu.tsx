@@ -1,44 +1,72 @@
-import React from 'react'
-import styles from './Burger.module.scss'
-import favourites from '../../images/Favourites.svg'
-import shoppingBag from '../../images/ShoppingBag.svg'
+import React from 'react';
+import styles from './Burger.module.scss';
+import favourites from '../../images/Favourites.svg';
+import shoppingBag from '../../images/ShoppingBag.svg';
+import { NavLink } from 'react-router-dom';
 
 interface Props {
-  open: boolean
+  isMenuOpen: boolean;
+  setIsMenuOpen: (arg: boolean) => void;
 }
 
-export const BurgerMenu: React.FC<Props> = ({ open }) => {
+export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className={styles.menu}>
       <div className={styles.container}>
         <div className={styles.content}>
           <ul className={styles.menu__content}>
             <li className={styles.menu__item}>
-              <a href="/" className={styles.menu__link}>HOME</a>
+              <NavLink
+                to="/"
+                className={styles.menu__link}
+                onClick={() => closeMenu()}
+              >
+                HOME
+              </NavLink>
             </li>
             <li className={styles.menu__item}>
-              <a href="/" className={styles.menu__link}>PHONES</a>
+              <NavLink
+                to="phones"
+                className={styles.menu__link}
+                onClick={() => closeMenu()}
+              >
+                PHONES
+              </NavLink>
             </li>
             <li className={styles.menu__item}>
-              <a href="/" className={styles.menu__link}>TABLETS</a>
+              <NavLink
+                to="tablets"
+                className={styles.menu__link}
+                onClick={() => closeMenu()}
+              >
+                TABLETS
+              </NavLink>
             </li>
             <li className={styles.menu__item}>
-              <a href="/" className={styles.menu__link}>ACCESSORIES</a>
+              <NavLink
+                to="accessories"
+                className={styles.menu__link}
+                onClick={() => closeMenu()}
+              >
+                ACCESSORIES
+              </NavLink>
             </li>
-
           </ul>
         </div>
         <div className={styles.footer__block}>
-          <a href="#favourites" className={styles.footer__icon}>
+          <NavLink to="favourites" className={styles.footer__icon}>
             <img src={favourites} alt="icon" />
-          </a>
+          </NavLink>
 
-          <a href="#shoppingCard" className={styles.footer__icon}>
+          <NavLink to="shoppingCard" className={styles.footer__icon}>
             <img src={shoppingBag} alt="icon" />
-          </a>
-
+          </NavLink>
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};
