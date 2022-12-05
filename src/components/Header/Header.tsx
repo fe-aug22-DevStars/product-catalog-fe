@@ -67,6 +67,7 @@ export const Header: React.FC = () => {
         <div className={styles.buttons}>
           <NavLink to="favourites" className={`${styles.buttons__button}`}>
             <img src={favourites} alt="icon" />
+
           </NavLink>
 
           <NavLink
@@ -82,6 +83,7 @@ export const Header: React.FC = () => {
           </NavLink>
 
           <NavLink to="cart" className={styles.buttons__button}>
+          
             <img src={cart} alt="icon" />
           </NavLink>
         </div>

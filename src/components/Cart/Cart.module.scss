@@ -10,13 +10,14 @@
 
 .container {
   height: 100vh;
+  box-sizing: border-box;
   background-color: $greyForBackground;
   display: flex;
   flex-direction: column;
-  margin: 25px 16px 0 16px;
+  padding: 25px 16px 0 16px;
 
   @include onTablet {
-    margin: 40px 24px 0 24px;
+    padding: 40px 24px 0 24px;
   }
 }
 

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './styles/main.scss';
@@ -19,7 +20,9 @@ const App: React.FC = () => {
         <Route path='phones' element={<Catalog />} />
         <Route path='favourites' element={<Favourites />} />
         <Route path='cart' element={<Cart />} />
+
         <Route path='*' element={<ErrorPage />} />
+
       </Routes>
 
       <Footer />

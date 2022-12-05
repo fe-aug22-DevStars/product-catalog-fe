@@ -1,3 +1,4 @@
+
 import React from 'react';
 import styles from './Cart.module.scss';
 import right from '../../images/right.svg';
@@ -21,6 +22,7 @@ export const Cart: React.FC = () => {
 
   return (
     <>
+
       <div className={styles.container}>
         <div className={styles.back_container}>
           <a href='/'>
@@ -48,6 +50,7 @@ export const Cart: React.FC = () => {
           </div>
         </div>
       </div>
+
     </>
   );
 };
