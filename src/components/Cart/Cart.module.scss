@@ -10,13 +10,13 @@
 .cart {
   background-color: $greyForBackground;
   padding: 25px 16px 60px;
+
 }
 .container {
   max-width: 1200px;
   box-sizing: border-box;
   background-color: $greyForBackground;
-  //display: flex;
-  //flex-direction: column;
+
 
   @include onTablet {
     margin: 40px 24px 0 24px;

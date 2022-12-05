@@ -6,16 +6,26 @@ import Minus from '../../images/minus.svg';
 import Plus from '../../images/plus.svg';
 
 interface Props {
-  phone: Phone
+  phone: Phone;
+  handleRemove: (value: string)=>void;
+  handlePlus: (value: string)=>void;
+  handleMinus: (value: string)=>void;
+  phonesSum: Phone[];
 }
 
-export const CartCard: React.FC<Props> = ({ phone }) => (
+export const CartCard: React.FC<Props> = ({
+  phone,
+  handlePlus,
+  handleMinus,
+  handleRemove,
+  phonesSum,
+}) => (
   <>
     <div className={styles.cart}></div>
     <div className={styles.container}>
       <div className={styles.mobile_phone}>
-        <a >
-          <img src={remove} alt="Logo" className={styles.remove} />
+        <a onClick={() => handleRemove(phone.id)}>
+          <img src={remove} alt="Logo" className={styles.remove}/>
         </a>
         <img
           className={styles.image}
@@ -29,16 +39,18 @@ export const CartCard: React.FC<Props> = ({ phone }) => (
 
       <div className={styles.mobile_add}>
         <div className={styles.add}>
-          <a >
-            <img src={Minus} alt="Logo" className={styles.minus} />
+          <a onClick={() => handleMinus(phone.id)}>
+            <img src={Minus} alt="Logo" className={styles.minus}/>
           </a>
-          <div className={styles.amount}>1</div>
-          <a >
-            <img src={Plus} alt="Logo" className={styles.plus} />
+          <div className={styles.amount}>
+            {phonesSum.filter(item => item.id === phone.id).length}
+          </div>
+          <a onClick={() => handlePlus(phone.id)}>
+            <img src={Plus} alt="Logo" className={styles.plus}/>
           </a>
         </div>
         <h3 className={styles.price}>
-        ${phone.price}
+          ${phone.price}
         </h3>
       </div>
     </div>
