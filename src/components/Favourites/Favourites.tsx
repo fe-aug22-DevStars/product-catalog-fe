@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ProductCard } from '../ProductCard';
 import { getFavourites } from '../../api/phones';
@@ -7,7 +6,6 @@ import { Phone } from '../../types/Phone';
 import homeIcon from '../../images/Home.png';
 import arrowRight from '../../images/ArrowRight.png';
 import styles from './Favourites.module.scss';
-import { Link } from 'react-router-dom';
 
 export const Favourites: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -23,16 +21,16 @@ export const Favourites: React.FC = () => {
   }
 
   useEffect(() => {
-    void loadPhones();
-  }, []);
+    loadPhones();
+  }, [phones]);
 
   return (
     <main className={styles.main}>
       <div className={styles.container}>
         <div className={styles.topMenu}>
-          <Link to="/">
+          <a href="/">
             <img src={homeIcon} alt="Home" />
-          </Link>
+          </a>
           <img src={arrowRight} alt="Next" />
           <span className={styles.category__name}>Favourites</span>
         </div>
@@ -42,7 +40,9 @@ export const Favourites: React.FC = () => {
         <h3 className={styles.subHeader}>{phones.length} items</h3>
 
         <div className={styles.goods}>
-          {phones.map(phone => <ProductCard key={phone.id} phone={phone} />)}
+          {phones.length > 0
+          && phones.map(phone => <ProductCard key={phone.id} phone={phone} />)
+          }
         </div>
       </div>
     </main>

@@ -15,6 +15,7 @@ export const Catalog: React.FC = () => {
   const [phonesPerPage, setPhonesPerPage] = useState('All');
   const [numberOfPages, setNumberOfPages] = useState(0);
   const [fieldForSorting, setFieldForSorting] = useState('Newest');
+  const [totalNumber, setTotalNumber] = useState(0);
 
   async function loadPhones(): Promise<any> {
     const responseFromServer = await getPhones(
@@ -25,7 +26,11 @@ export const Catalog: React.FC = () => {
 
     setPhones(responseFromServer.products);
     setNumberOfPages(responseFromServer.numberOfPages);
+    setTotalNumber(responseFromServer.numberOfProducts);
   }
+
+  // eslint-disable-next-line no-console
+  // console.log(totalNumber);
 
   useEffect(() => {
     loadPhones();
@@ -56,7 +61,7 @@ export const Catalog: React.FC = () => {
 
       <h1 className={styles.header}>Mobile phones</h1>
 
-      <h3 className={styles.subHeader}>{phones.length} models</h3>
+      <h3 className={styles.subHeader}>{totalNumber} models</h3>
 
       <div className={styles.view}>
         <div className={styles.viewByOrder}>
