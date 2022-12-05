@@ -7,7 +7,7 @@ import { Pagination } from '../Pagination';
 import styles from './Catalog.module.scss';
 import homeIcon from '../../images/Home.svg';
 import arrowRight from '../../images/ArrowRight.svg';
-import { Link } from 'react-router-dom';
+/* import { Link } from 'react-router-dom'; */
 
 export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
