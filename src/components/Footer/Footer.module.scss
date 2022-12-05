@@ -55,6 +55,7 @@
     text-decoration: none;
     color: $grey;
     font-size: 12px;
+    transition: $transition-time;
 
     &_container {
       display: flex;
@@ -88,6 +89,10 @@
       padding-right: 16px;
     }
   }
+
+  .text:hover {
+    color: $black;
+}
 
   .up {
     height: 30px;
