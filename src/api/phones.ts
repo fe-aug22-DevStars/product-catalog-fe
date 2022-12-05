@@ -9,11 +9,15 @@ export const getAllPhones = async(): Promise<Phone[]> => {
   return response.json();
 };
 
-export const getPhones = async(phonesAmount: number, pageId: number): Promise<{
+export const getPhones = async(
+  phonesAmount: string,
+  pageId: number,
+  sortBy: string,
+): Promise<{
   'products': Phone[]
   'numberOfPages': number
 }> => {
-  const response = await fetch(`${BASE_URL}/${phonesAmount}/${pageId}`);
+  const response = await fetch(`${BASE_URL}/${phonesAmount}/${pageId}/${sortBy}`);
 
   return response.json();
 };

@@ -3,13 +3,19 @@ import React from 'react';
 import styles from './Pagination.module.scss';
 import arrowLeft from '../../images/ArrowLeft.svg';
 import arrowRight from '../../images/ArrowRight.svg';
+import classNames from 'classnames';
 
 interface Props {
   pageChange: (pageNumber: number) => any
   numberOfPages: number
+  currentPage: number
 }
 
-export const Pagination: React.FC<Props> = ({ pageChange, numberOfPages }) => {
+export const Pagination: React.FC<Props> = ({
+  pageChange,
+  numberOfPages,
+  currentPage,
+}) => {
   const pageNumbers = [];
 
   for (let i = 1; i <= numberOfPages; i++) {
@@ -36,7 +42,9 @@ export const Pagination: React.FC<Props> = ({ pageChange, numberOfPages }) => {
         <a
           href={`/phones/?page=${number}`}
           key={number}
-          className={styles.bottomMenuItem}
+          className={
+            classNames(styles.bottomMenuItem,
+              { [styles.isActive]: (currentPage === number) })}
           onClick={(e) => {
             handleClick(e, number);
           }}

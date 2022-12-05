@@ -32,9 +32,9 @@
   text-decoration: none;
   text-align: center;
   line-height: 30px;
+}
 
-  &:hover {
-    color: $white;
-    background-color: $black;
-  }
+.isActive{
+  color: $white;
+  background-color: $black;
 }

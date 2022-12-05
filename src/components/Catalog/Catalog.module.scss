@@ -57,12 +57,24 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
 
+    @include onTablet {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(24, 1fr);
+    }
+
 }
 
 .viewByOrder {
   display: flex;
   flex-direction: column;
   grid-column: 1 / 3;
+
+  @include onTablet {
+    grid-column: 1 / 5;
+  }
 }
 
 .view__title {
@@ -86,10 +98,14 @@
   display: flex;
   flex-direction: column;
   grid-column: 3 / 5;
+
+  @include onTablet {
+    grid-column: 5 / 8;
+  }
 }
 
 .goods {
-  margin-top: 24px;
+  margin: 24px 0;
   box-sizing: border-box;
   display: grid;
   grid-template-columns: auto;
@@ -101,41 +117,3 @@
   }
   
 }
-
-.bottomMenu {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-}
-
-.bottomMenuArrow {
-  box-sizing: border-box;
-  width: 32px;
-  height: 32px;
-  border: 1px $greyForIcons solid;
-  border-radius: 100%;
-
-  &:hover {
-    background-color: $black;
-  }
-}
-
-.bottomMenuItem {
-  box-sizing: border-box;
-  width: 32px;
-  height: 32px;
-  font-size: 14px;
-  color: $black;
-  font-weight: 600;
-  border: 1px $greyForElements solid;
-  border-radius: 100%;
-  text-decoration: none;
-  text-align: center;
-  line-height: 30px;
-
-  &:hover {
-    color: $white;
-    background-color: $black;
-  }
-}
-
