@@ -11,22 +11,34 @@ import arrowRight from '../../images/ArrowRight.svg';
 export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [phonesPerPage, setPhonesPerPage] = useState(4);
+  const [phonesPerPage, setPhonesPerPage] = useState('All');
   const [numberOfPages, setNumberOfPages] = useState(0);
+  const [fieldForSorting, setFieldForSorting] = useState('Newest');
 
   async function loadPhones(): Promise<any> {
-    const responseFromServer = await getPhones(phonesPerPage, currentPage);
+    const responseFromServer = await getPhones(
+      phonesPerPage,
+      currentPage,
+      fieldForSorting,
+    );
 
     setPhones(responseFromServer.products);
     setNumberOfPages(responseFromServer.numberOfPages);
   }
 
   useEffect(() => {
-    void loadPhones();
-  }, [phonesPerPage, currentPage]);
+    loadPhones();
+  }, [phonesPerPage, currentPage, fieldForSorting]);
 
-  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>): void => {
-    setPhonesPerPage(+e.target.value);
+  const handleSelectNumber
+    = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+      setPhonesPerPage(e.target.value);
+      setCurrentPage(1);
+    };
+
+  const handleSelectSort = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setFieldForSorting(e.target.value);
+    setCurrentPage(1);
   };
 
   const pageChange = (pageNumber: number): void => setCurrentPage(pageNumber);
@@ -52,6 +64,8 @@ export const Catalog: React.FC = () => {
             name="sorts"
             id="sorts"
             className={styles.view__select}
+            value={fieldForSorting}
+            onChange={handleSelectSort}
           >
             <option value="Newest">Newest</option>
             <option value="Alphabetically">Alphabetically</option>
@@ -70,22 +84,25 @@ export const Catalog: React.FC = () => {
             id="number"
             className={styles.view__select}
             value={phonesPerPage}
-            onChange={handleSelect}
+            onChange={handleSelectNumber}
           >
-            <option value="All">All</option>
-            <option value="16">16</option>
-            <option value="8">8</option>
-            <option value="4">4</option>
+            <option value='All'>All</option>
+            <option value='16'>16</option>
+            <option value='8'>8</option>
+            <option value='4'>4</option>
           </select>
         </div>
       </div>
       <div className={styles.goods}>
         {phones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
       </div>
-      <Pagination
+      {phonesPerPage !== 'All'
+      && <Pagination
         pageChange={pageChange}
         numberOfPages={numberOfPages}
+        currentPage={currentPage}
       />
+      }
     </main>
   );
 };
