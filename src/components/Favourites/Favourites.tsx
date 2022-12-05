@@ -22,8 +22,8 @@ export const Favourites: React.FC = () => {
   }
 
   useEffect(() => {
-    void loadPhones();
-  }, []);
+    loadPhones();
+  }, [phones]);
 
   return (
     <main className={styles.main}>
@@ -41,7 +41,9 @@ export const Favourites: React.FC = () => {
         <h3 className={styles.subHeader}>{phones.length} items</h3>
 
         <div className={styles.goods}>
-          {phones.map(phone => <ProductCard key={phone.id} phone={phone} />)}
+          {phones.length > 0
+          && phones.map(phone => <ProductCard key={phone.id} phone={phone} />)
+          }
         </div>
       </div>
     </main>

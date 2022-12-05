@@ -16,6 +16,7 @@ export const getPhones = async(
 ): Promise<{
   'products': Phone[]
   'numberOfPages': number
+  'numberOfProducts': number
 }> => {
   const response = await fetch(`${BASE_URL}/${phonesAmount}/${pageId}/${sortBy}`);
 

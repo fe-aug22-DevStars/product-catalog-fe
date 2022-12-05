@@ -1,0 +1,11 @@
+{
+  "short_name": "Device Shop",
+  "name": "Create React Device Shop",
+  "icons": [
+    {
+      "src": "ng-favicon.png",
+      "size": "64x64",
+      "type": "image/png"
+    }
+  ]
+}
