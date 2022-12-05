@@ -4,19 +4,12 @@
 .header {
   display: flex;
   justify-content: space-between;
-  
 
   box-shadow: 0px 1px 0px $greyForElements;
   overflow: hidden;
 
   font-family: "Mont";
   font-weight: 800;
-
-  &__okIcon {
-    position: relative;
-    top: -16px;
-    left: -45px;
-  }
 }
 
 .logo {
@@ -63,6 +56,11 @@
     font-weight: 800;
 
     padding: 11px 0;
+    transition: color $transition-time;
+  }
+
+  &__link:hover {
+    color: $black;
   }
 }
 

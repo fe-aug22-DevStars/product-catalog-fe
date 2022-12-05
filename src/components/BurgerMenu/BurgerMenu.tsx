@@ -62,7 +62,7 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
             <img src={favourites} alt="icon" />
           </NavLink>
 
-          <NavLink to="shoppingCard" className={styles.footer__icon}>
+          <NavLink to="cart" className={styles.footer__icon}>
             <img src={shoppingBag} alt="icon" />
           </NavLink>
         </div>

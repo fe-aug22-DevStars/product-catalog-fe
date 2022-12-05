@@ -7,6 +7,7 @@ import { Phone } from '../../types/Phone';
 import homeIcon from '../../images/Home.png';
 import arrowRight from '../../images/ArrowRight.png';
 import styles from './Favourites.module.scss';
+import { Link } from 'react-router-dom';
 
 export const Favourites: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -29,9 +30,9 @@ export const Favourites: React.FC = () => {
     <main className={styles.main}>
       <div className={styles.container}>
         <div className={styles.topMenu}>
-          <a href="/">
+          <Link to="/">
             <img src={homeIcon} alt="Home" />
-          </a>
+          </Link>
           <img src={arrowRight} alt="Next" />
           <span className={styles.category__name}>Favourites</span>
         </div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './styles/main.scss';
@@ -12,7 +11,7 @@ import { ErrorPage } from './components/ErrorPage';
 
 const App: React.FC = () => {
   return (
-    <div>
+    <main>
       <Header />
 
       <Routes>
@@ -20,12 +19,11 @@ const App: React.FC = () => {
         <Route path='phones' element={<Catalog />} />
         <Route path='favourites' element={<Favourites />} />
         <Route path='cart' element={<Cart />} />
-
         <Route path='*' element={<ErrorPage />} />
-
       </Routes>
+
       <Footer />
-    </div>
+    </main>
   );
 };
 
