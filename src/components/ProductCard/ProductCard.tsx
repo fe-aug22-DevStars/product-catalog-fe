@@ -9,8 +9,44 @@ interface Props {
 }
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
-  const [toCart, setToCart] = useState(false);
-  const [toFavourites, setToFavourites] = useState(false);
+  const [toCart, setToCart]
+    = useState<string[]>(localStorage.getItem('cart')?.split('&') || []);
+  const [toFavourites, setToFavourites]
+    = useState<string[]>(localStorage.getItem('favourites')?.split('&') || []);
+
+  const changeToFavourites = (phoneId: string) => {
+    const checkFavourites = localStorage.getItem('favourites');
+    let favourites;
+
+    if (!toFavourites.includes(phoneId)) {
+      favourites = !checkFavourites
+        ? phoneId
+        : checkFavourites + '&' + phoneId;
+    } else {
+      favourites = checkFavourites?.split('&')
+        .filter(item => item !== phoneId)
+        .join('&');
+    }
+
+    localStorage.setItem('favourites', favourites || '');
+  };
+
+  const changeToCart = (phoneId: string) => {
+    const checkCart = localStorage.getItem('cart');
+    let cart;
+
+    if (!toCart.includes(phoneId)) {
+      cart = !checkCart
+        ? phoneId
+        : checkCart + '&' + phoneId;
+    } else {
+      cart = checkCart?.split('&')
+        .filter(item => item !== phoneId)
+        .join('&');
+    }
+
+    localStorage.setItem('cart', cart || '');
+  };
 
   return (
     <>
@@ -62,13 +98,18 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
         <div className={styles.bottom}>
           <button
             onClick={() => {
-              setToCart(!toCart);
+              setToCart(currValues => (
+                currValues.includes(phone.id)
+                  ? currValues.filter(item => item !== phone.id)
+                  : [...currValues, phone.id]
+              ));
+              changeToCart(phone.id);
             }}
             className={classNames(styles.buy, {
-              [styles.buy_active]: toCart,
+              [styles.buy_active]: toCart.includes(phone.id),
             })}
           >
-            {!toCart
+            {!toCart.includes(phone.id)
               ? 'Add to cart'
               : 'Added to cart'
             }
@@ -76,10 +117,15 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
 
           <div
             onClick={() => {
-              setToFavourites(!toFavourites);
+              setToFavourites(currValues => (
+                currValues.includes(phone.id)
+                  ? currValues.filter(item => item !== phone.id)
+                  : [...currValues, phone.id]
+              ));
+              changeToFavourites(phone.id);
             }}
             className={classNames(styles.favourites, {
-              [styles.favourites_active]: toFavourites,
+              [styles.favourites_active]: toFavourites.includes(phone.id),
             })}
           >
           </div>
