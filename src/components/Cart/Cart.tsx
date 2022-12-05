@@ -1,64 +1,60 @@
-import React, { useState, useEffect } from 'react'
-import styles from './Cart.module.scss'
-import right from '../../images/right.svg'
-import { Phone } from '../../types/Phone'
-import { getAllPhones } from '../../api/phones'
-import { CartCard } from '../CartCard'
-
+import React, { useState, useEffect } from 'react';
+import styles from './Cart.module.scss';
+import right from '../../images/right.svg';
+import { Phone } from '../../types/Phone';
+import { getAllPhones } from '../../api/phones';
+import { CartCard } from '../CartCard';
 
 // import { Phone } from '../../types/Phone'
 // import { getAllPhones } from '../../api/phones'
 // import { ProductCard } from '../ProductCard'
 
-
 export const Cart: React.FC = () => {
-  const [phones, setPhones] = useState<Phone[]>([])
+  const [phones, setPhones] = useState<Phone[]>([]);
 
-  async function loadPhones (): Promise<any> {
-    const phonesFromServer = await getAllPhones()
+  async function loadPhones(): Promise<any> {
+    const phonesFromServer = await getAllPhones();
 
-    setPhones(phonesFromServer)
+    setPhones(phonesFromServer);
   }
 
   useEffect(() => {
-    void loadPhones()
-  }, [])
+    void loadPhones();
+  }, []);
 
   return (
     <>
+      <div className={styles.cart}>
+        <div className={styles.container}>
+          <div className={styles.back_container}>
+            <a href='/'>
+              <img src={right} alt="Up" className={styles.back} />
+            </a>
+            <a href='/' className={styles.back_name}>Back</a>
+          </div>
 
-      <div className={styles.container}>
-        <div className={styles.back_container}>
-          <a href='/'>
-            <img src={right} alt="Up" className={styles.back} />
-          </a>
-          <a href='/' className={styles.back_name}>Back</a>
-        </div>
-
-        <p className={styles.name}>
+          <p className={styles.name}>
           Cart
-        </p>
-        <div className={styles.total_container}>
+          </p>
+          <div className={styles.total_container}>
 
-          <div className={styles.phones_container}>
+            <div className={styles.phones_container}>
 
+              {phones.map(phone => <CartCard key={phone.id} phone={phone}/>)}
+            </div>
 
-          {phones.map(phone => <CartCard key={phone.id} phone={phone}/>)}
-        </div>
+            <div className={styles.sum_container}>
+              <p className={styles.price}>2556$</p>
 
-          <div className={styles.sum_container}>
-            <p className={styles.price}>2556$</p>
-
-
-            <p className={styles.amount}>Total for 3 items</p>
-            <div className={styles.line}></div>
-            <button className={styles.checkout}>
+              <p className={styles.amount}>Total for 3 items</p>
+              <div className={styles.line}></div>
+              <button className={styles.checkout}>
             Checkout
-            </button>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-
     </>
   );
 };
