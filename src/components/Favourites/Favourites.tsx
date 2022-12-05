@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ProductCard } from '../ProductCard';
-import { getAllPhones } from '../../api/phones';
+import { getFavourites } from '../../api/phones';
 import { Phone } from '../../types/Phone';
 
 import homeIcon from '../../images/Home.png';
@@ -12,9 +12,13 @@ export const Favourites: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
 
   async function loadPhones(): Promise<any> {
-    const responseFromServer = await getAllPhones();
+    const favourites = localStorage.getItem('favourites');
 
-    setPhones(responseFromServer.slice(0, 5));
+    if (favourites) {
+      const responseFromServer = await getFavourites(favourites);
+
+      setPhones(responseFromServer);
+    }
   }
 
   useEffect(() => {

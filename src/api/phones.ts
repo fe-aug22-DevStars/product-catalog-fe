@@ -17,3 +17,9 @@ export const getPhones = async(phonesAmount: number, pageId: number): Promise<{
 
   return response.json();
 };
+
+export const getFavourites = async(phoneIds: string) => {
+  const response = await fetch(`${BASE_URL}/${phoneIds}`);
+
+  return response.json();
+};
