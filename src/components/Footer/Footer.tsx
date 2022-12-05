@@ -5,14 +5,15 @@ import styles from './Footer.module.scss';
 import Up from '../../images/Up.svg';
 import Logo from '../../images/logo.svg';
 import '../../styles/fonts/Mont-Bold.otf';
+import { Link } from 'react-router-dom';
 
 export const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        <a href='/' className={styles.logo_container}>
+        <Link to='/' className={styles.logo_container}>
           <img src={Logo} alt="Logo" className={styles.logo} />
-        </a>
+        </Link>
 
         <div className={styles.text_container}>
           <a
@@ -21,13 +22,13 @@ export const Footer: React.FC = () => {
           >
             GITHUB
           </a>
-          <a
-            href="/"
+          <Link
+            to="/"
             className={classNames(styles.text, styles.text_mobile)}
           >
             CONTACTS
-          </a>
-          <a href="/" className={styles.text}>RIGHTS</a>
+          </Link>
+          <Link to="/" className={styles.text}>RIGHTS</Link>
         </div>
 
         <div className={styles.up_container}>

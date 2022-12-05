@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 import styles from './Header.module.scss';
-import Logo from '../../images/NiceGadgets.svg';
-import ok from '../../images/ok.svg';
+import logo from '../../images/logo.svg';
 import menu from '../../images/Menu.svg';
 import cancel from '../../images/cancel.svg';
 import favourites from '../../images/Favourites.svg';
 import cart from '../../images/ShoppingBag.svg';
 import { BurgerMenu } from '../BurgerMenu';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import cn from 'classnames';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,23 +21,33 @@ export const Header: React.FC = () => {
     <>
       <header className={styles.header} id="header">
         <div className={styles.header__container}>
-          <NavLink to="/" className={styles.logo}>
-            <img src={Logo} alt="Logo" />
-            <img src={ok} alt="Logo" className={styles.header__okIcon} />
-          </NavLink>
+          <Link to="/" className={styles.logo}>
+            <img src={logo} alt="Nice gadgets logo" />
+          </Link>
 
           <nav className="nav">
             <ul className={styles.nav__list}>
               <li>
-                <NavLink to="/" className={`${styles.nav__link} colorGrey`}>
+                <NavLink
+                  to={'/'}
+                  className={({ isActive }) =>
+                    cn(`${styles.nav__link} colorGrey`, {
+                      [styles['is-active']]: isActive,
+                    })
+                  }
+                >
                   Home
                 </NavLink>
               </li>
 
               <li>
                 <NavLink
-                  to="phones"
-                  className={`${styles.nav__link} ${styles['is-active']} colorGrey`}
+                  to={'/phones'}
+                  className={({ isActive }) =>
+                    cn(`${styles.nav__link} colorGrey`, {
+                      [styles['is-active']]: isActive,
+                    })
+                  }
                 >
                   Phones
                 </NavLink>
@@ -45,8 +55,12 @@ export const Header: React.FC = () => {
 
               <li>
                 <NavLink
-                  to="tablets"
-                  className={`${styles.nav__link} colorGrey`}
+                  to={'/tablets'}
+                  className={({ isActive }) =>
+                    cn(`${styles.nav__link} colorGrey`, {
+                      [styles['is-active']]: isActive,
+                    })
+                  }
                 >
                   Tablets
                 </NavLink>
@@ -54,10 +68,14 @@ export const Header: React.FC = () => {
 
               <li>
                 <NavLink
-                  to="accessories"
-                  className={`${styles.nav__link} colorGrey`}
+                  to={'/accesories'}
+                  className={({ isActive }) =>
+                    cn(`${styles.nav__link} colorGrey`, {
+                      [styles['is-active']]: isActive,
+                    })
+                  }
                 >
-                  Accessories
+                  Accesories
                 </NavLink>
               </li>
             </ul>
@@ -65,9 +83,13 @@ export const Header: React.FC = () => {
         </div>
 
         <div className={styles.buttons}>
-          <NavLink to="favourites" className={`${styles.buttons__button}`}>
+          <NavLink
+            to="/favourites"
+            className={({ isActive }) =>
+              cn(styles.buttons__button, { [styles['is-active']]: isActive })
+            }
+          >
             <img src={favourites} alt="icon" />
-
           </NavLink>
 
           <NavLink
@@ -82,15 +104,19 @@ export const Header: React.FC = () => {
             )}
           </NavLink>
 
-          <NavLink to="cart" className={styles.buttons__button}>
+          <NavLink
+            to="/cart"
+            className={({ isActive }) =>
+              cn(styles.buttons__button, { [styles['is-active']]: isActive })
+            }
+          >
             <img src={cart} alt="icon" />
           </NavLink>
         </div>
       </header>
-      {isMenuOpen && <BurgerMenu
-        isMenuOpen={isMenuOpen}
-        setIsMenuOpen={setIsMenuOpen}
-      />}
+      {isMenuOpen && (
+        <BurgerMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+      )}
     </>
   );
 };
