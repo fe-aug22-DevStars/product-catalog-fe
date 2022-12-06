@@ -1,0 +1,65 @@
+@import '../../styles/utils/colors';
+@import "../../styles/utils/mixins";
+
+@font-face {
+  font-family: "Mont";
+  src: local("FontsFree-Net-mont"),
+  url("../../styles/fonts/Mont-Bold.otf") format("truetype");
+}
+
+.block {
+  max-width: 1300px;
+  margin: 0 auto;
+
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.title {
+  font-family: "Mont";
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 31px;
+  color: $black;
+
+  @include onTablet {
+    font-size: 32px;
+    line-height: 41px;
+  }
+
+  @include onDesktop {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}
+
+.button_container {
+display: flex;
+  align-items: flex-start;
+
+}
+
+.button {
+  display: flex;
+ align-items: center;
+  justify-content: center;
+
+  &_1{
+
+    margin-right: 16px;
+  }
+}
+
+.arrow {
+  width: 32px;
+  height: 32px;
+}
+
+.phones {
+  margin: 30px;
+  width: 1200px;
+}
+
