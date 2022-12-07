@@ -11,7 +11,7 @@ export const HotPrices: React.FC = () => {
   async function loadPhones(): Promise<any> {
     const responseFromServer = await getAllPhones();
     const filteredPhones = responseFromServer
-      .filter(phone => phone.price % 2 === 0).slice(0, 9);
+      .filter(phone => phone.price % 2 !== 0).slice(0, 9);
 
     setPhones(filteredPhones);
   }
