@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Cart.module.scss';
 import right from '../../images/right.svg';
 import { Phone } from '../../types/Phone';
-import { getFromCart } from '../../api/phones';
+import { getPhonesByIds } from '../../api/phones';
 import { CartCard } from '../CartCard';
 
 export const Cart: React.FC = () => {
@@ -16,7 +16,7 @@ export const Cart: React.FC = () => {
     console.log(itemsFromCart);
 
     if (itemsFromCart) {
-      const responseFromServer = await getFromCart(itemsFromCart);
+      const responseFromServer = await getPhonesByIds(itemsFromCart);
 
       setPhones(responseFromServer);
       setPhonesSum(responseFromServer);
@@ -24,7 +24,7 @@ export const Cart: React.FC = () => {
   }
 
   useEffect(() => {
-    void loadPhones();
+    loadPhones();
   }, []);
 
   const handlePlus = (id: string) => {
