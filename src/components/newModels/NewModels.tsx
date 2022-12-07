@@ -5,13 +5,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { Sliders } from '../Slider';
 
-export const HotPrices: React.FC = () => {
+export const NewModels:React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
 
   async function loadPhones(): Promise<any> {
     const responseFromServer = await getAllPhones();
     const filteredPhones = responseFromServer
-      .filter(phone => phone.price % 2 === 0).slice(0, 9);
+      .filter(phone => phone.fullPrice >= 1400).sort().slice(0, 9);
 
     setPhones(filteredPhones);
   }
@@ -21,6 +21,6 @@ export const HotPrices: React.FC = () => {
   }, []);
 
   return (
-    <Sliders phones={phones} title={'Hot Prices'}/>
+    <Sliders phones={phones} title={'Brand new models'}/>
   );
 };
