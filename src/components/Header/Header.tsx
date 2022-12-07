@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
 
               <li>
                 <NavLink
-                  to={'/accesories'}
+                  to={'/accessories'}
                   className={({ isActive }) =>
                     cn(`${styles.nav__link} colorGrey`, {
                       [styles['is-active']]: isActive,
