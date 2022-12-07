@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ProductCard } from '../ProductCard';
-import { getFavourites } from '../../api/phones';
+import { getPhonesByIds } from '../../api/phones';
 import { Phone } from '../../types/Phone';
 
 import homeIcon from '../../images/Home.png';
@@ -14,7 +14,7 @@ export const Favourites: React.FC = () => {
     const favourites = localStorage.getItem('favourites');
 
     if (favourites) {
-      const responseFromServer = await getFavourites(favourites);
+      const responseFromServer = await getPhonesByIds(favourites);
 
       setPhones(responseFromServer);
     }

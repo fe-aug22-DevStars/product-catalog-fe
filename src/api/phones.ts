@@ -24,14 +24,14 @@ export const getPhones = async(
   return response.json();
 };
 
-export const getFavourites = async(phoneIds: string) => {
+export const getPhonesByIds = async(phoneIds: string) => {
   const response = await fetch(`${BASE_URL}/${phoneIds}`);
 
   return response.json();
 };
 
-export const getFromCart = async(phoneIds: string) => {
-  const response = await fetch(`${BASE_URL}/${phoneIds}`);
+// export const getFromCart = async(phoneIds: string) => {
+//   const response = await fetch(`${BASE_URL}/${phoneIds}`);
 
-  return response.json();
-};
+//   return response.json();
+// };
