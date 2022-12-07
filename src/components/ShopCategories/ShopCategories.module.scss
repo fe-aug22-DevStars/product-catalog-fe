@@ -1,0 +1,80 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
+@import '../../styles/utils/colors.scss';
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 22px;
+  line-height: 140%;
+  font-family: 'Mont';
+  font-weight: 800;
+  padding: 24px 16px 64px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+  margin-top: 24px;
+
+  @include onTablet {
+    flex-direction: row;
+    gap: 16px;
+  }
+}
+
+.subheading {
+  letter-spacing: -0.01em;
+  line-height: 31px;
+
+  @include onTablet {
+    font-size: 32px;
+    line-height: 41px;
+  }
+}
+
+.picture {
+  border-radius: 8px;
+  width: 288px;
+  transition: all $transition-time ease;
+  transition-property: transform, filter;
+
+  @include onTablet {
+    width: 187px;
+  }
+
+  @include onDesktop {
+    width: 368px;
+    border-radius: 0;
+  }
+}
+
+.picture:hover {
+  transform: scale(1.04);
+  filter: drop-shadow(0 0 0.75rem $purple);
+}
+
+.title {
+  margin-top: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+
+  @include onTablet {
+    margin-top: 24px;
+  }
+}
+
+.productAmount {
+  margin-top: 4px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+
+  @include onDesktop {
+    font-weight: 500;
+  }
+}
