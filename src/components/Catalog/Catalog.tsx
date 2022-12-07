@@ -7,6 +7,7 @@ import { Pagination } from '../Pagination';
 import styles from './Catalog.module.scss';
 import homeIcon from '../../images/Home.svg';
 import arrowRight from '../../images/ArrowRight.svg';
+import { Link } from 'react-router-dom';
 
 export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -28,6 +29,9 @@ export const Catalog: React.FC = () => {
     setTotalNumber(responseFromServer.numberOfProducts);
   }
 
+  // eslint-disable-next-line no-console
+  // console.log(totalNumber);
+
   useEffect(() => {
     loadPhones();
   }, [phonesPerPage, currentPage, fieldForSorting]);
@@ -48,9 +52,9 @@ export const Catalog: React.FC = () => {
   return (
     <main className={styles.main}>
       <div className={styles.topMenu}>
-        <a href="/">
+        <Link to="/">
           <img src={homeIcon} alt="Home" />
-        </a>
+        </Link>
         <img src={arrowRight} alt="Next" />
         <span className={styles.category__name}>Phones</span>
       </div>

@@ -1,4 +1,5 @@
 {
   "singleQuote": true,
-  "endOfLine": "crlf"
+  "endOfLine": "crlf",
+  "indent_size": 2
 }

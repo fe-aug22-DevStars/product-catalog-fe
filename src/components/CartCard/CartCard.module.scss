@@ -1,0 +1,145 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+@font-face {
+  font-family: "Mont";
+  src: local("FontsFree-Net-mont"),
+  url("../../styles/fonts/Mont-Regular.otf") format("truetype");
+}
+
+.cart {
+  background-color: $white;
+  width: 288px;
+  box-sizing: border-box;
+
+  @include onTablet {
+    width: 592px;
+  }
+
+  @include onDesktop {
+    width: 752px;
+  }
+}
+
+.container {
+  display: flex;
+align-items: center;
+  flex-direction: column;
+
+  border: 1px solid $greyForElements;
+  border-radius: 16px;
+  justify-content: space-around;
+
+  padding: 16px;
+  margin-bottom: 16px ;
+
+  @include onTablet {
+    flex-direction: row;
+    margin: 0 16px 16px 0;
+    justify-content: space-between;
+  }
+
+  @include onDesktop {
+
+    flex-direction: row;
+    padding: 30px;
+    align-items: center;
+  }
+
+}
+
+.image {
+  height: 66px;
+  width: 66px;
+  margin-right: 26px;
+
+  @include  onTablet {
+    margin-right: 30px;
+  }
+  @include onDesktop {
+    margin-right: 30px;
+  }
+}
+
+.title {
+  font-family: "Mont";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: $black;
+  max-width: 336px;
+
+  //@include onTablet {
+  //  width: 176px;
+  //}
+  //
+  //@include onDesktop {
+  //  width: 336px;
+  //}
+}
+
+.price {
+  font-family: "Mont";
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 31px;
+  color: $black;
+}
+
+.add {
+  display: flex;
+  width: 96px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.amount {
+  font-family: "Mont";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: $black;
+}
+
+.mobile_phone {
+display: flex;
+  flex-direction: row;
+  align-items: center;
+  //justify-content: space-around;
+  margin-bottom: 25px;
+
+  @include onTablet {
+    align-items: center;
+    width: 300px;
+    margin: 0;
+  }
+
+  @include onDesktop {
+    width: 470px;
+    align-items: center;
+    //justify-content: space-between;
+    margin: 0 24px 0 0;
+  }
+}
+
+.mobile_add {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+width: 100%;
+  @include onTablet {
+    width: 200px;
+    align-items: center;
+  }
+}
+
+.remove {
+  margin-right: 23px;
+
+  @include onTablet {
+    margin-right: 34px;
+  }
+  @include onDesktop {
+    margin-right: 34px;
+  }
+}

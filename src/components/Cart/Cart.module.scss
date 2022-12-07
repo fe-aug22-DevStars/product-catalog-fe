@@ -7,17 +7,23 @@
   url("../../styles/fonts/Mont-Regular.otf") format("truetype");
 }
 
+.cart {
+  background-color: $greyForBackground;
+  padding: 25px 16px 60px;
 
+}
 .container {
-  height: 100vh;
+  max-width: 1200px;
   box-sizing: border-box;
   background-color: $greyForBackground;
-  display: flex;
-  flex-direction: column;
-  padding: 25px 16px 0 16px;
+
 
   @include onTablet {
-    padding: 40px 24px 0 24px;
+    margin: 40px 24px 0 24px;
+  }
+
+  @include onDesktop {
+    margin: 0 auto;
   }
 }
 
@@ -76,6 +82,7 @@
 
   @include onDesktop {
     align-items: flex-start;
+    flex-direction: row;
   }
 }
 
@@ -88,6 +95,7 @@
   border: 1px solid $greyForElements;
   border-radius: 16px;
   justify-content: center;
+  box-sizing: border-box;
 
   @include onTablet {
     width: 592px;

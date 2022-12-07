@@ -68,7 +68,7 @@ export const Header: React.FC = () => {
 
               <li>
                 <NavLink
-                  to={'/accesories'}
+                  to={'/accessories'}
                   className={({ isActive }) =>
                     cn(`${styles.nav__link} colorGrey`, {
                       [styles['is-active']]: isActive,
@@ -110,6 +110,7 @@ export const Header: React.FC = () => {
               cn(styles.buttons__button, { [styles['is-active']]: isActive })
             }
           >
+
             <img src={cart} alt="icon" />
           </NavLink>
         </div>

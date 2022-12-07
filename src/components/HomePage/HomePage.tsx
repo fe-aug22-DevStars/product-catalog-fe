@@ -1,5 +1,12 @@
+import { ShopCategories } from '../ShopCategories';
+import { HotPrices } from '../HotPrices';
+
 export const HomePage = () => {
   return (
-    <h1>Home page</h1>
+    <>
+      <ShopCategories />
+      <HotPrices />
+    </>
+
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import styles from './Pagination.module.scss';
 import arrowLeft from '../../images/ArrowLeft.svg';
@@ -23,7 +24,7 @@ export const Pagination: React.FC<Props> = ({
   }
 
   const handleClick
-    // eslint-disable-next-line max-len,no-shadow
+    // eslint-disable-next-line max-len, no-shadow
     = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, number: number): void => {
       event.preventDefault();
       pageChange(number);
@@ -51,7 +52,7 @@ export const Pagination: React.FC<Props> = ({
 
   return (
     <div className={styles.bottomMenu}>
-      <a href="/">
+      <Link to="/" >
         <img
           src={arrowLeft}
           alt="Left"
@@ -60,10 +61,10 @@ export const Pagination: React.FC<Props> = ({
             handleClickPrev(e, currentPage);
           }}
         />
-      </a>
+      </Link>
       {pageNumbers.map(number => (
-        <a
-          href={`/phones/?page=${number}`}
+        <Link
+          to="/"
           key={number}
           className={
             classNames(styles.bottomMenuItem,
@@ -73,9 +74,9 @@ export const Pagination: React.FC<Props> = ({
           }}
         >
           {number}
-        </a>
+        </Link>
       ))}
-      <a href="/">
+      <Link to="/">
         <img
           src={arrowRight}
           alt="Right"
@@ -84,7 +85,7 @@ export const Pagination: React.FC<Props> = ({
             handleClickNext(e, currentPage);
           }}
         />
-      </a>
+      </Link>
     </div>
   );
 };
