@@ -29,6 +29,26 @@ export const Pagination: React.FC<Props> = ({
       pageChange(number);
     };
 
+  const handleClickPrev
+    // eslint-disable-next-line max-len, no-shadow
+    = (event: React.MouseEvent<HTMLImageElement, MouseEvent>, number: number): void => {
+      event.preventDefault();
+
+      if (number > 1) {
+        pageChange(number - 1);
+      }
+    };
+
+  const handleClickNext
+    // eslint-disable-next-line max-len, no-shadow
+    = (event: React.MouseEvent<HTMLImageElement, MouseEvent>, number: number): void => {
+      event.preventDefault();
+
+      if (number < numberOfPages) {
+        pageChange(number + 1);
+      }
+    };
+
   return (
     <div className={styles.bottomMenu}>
       <a href="/">
@@ -36,6 +56,9 @@ export const Pagination: React.FC<Props> = ({
           src={arrowLeft}
           alt="Left"
           className={styles.bottomMenuArrow}
+          onClick={e => {
+            handleClickPrev(e, currentPage);
+          }}
         />
       </a>
       {pageNumbers.map(number => (
@@ -57,6 +80,9 @@ export const Pagination: React.FC<Props> = ({
           src={arrowRight}
           alt="Right"
           className={styles.bottomMenuArrow}
+          onClick={e => {
+            handleClickNext(e, currentPage);
+          }}
         />
       </a>
     </div>
