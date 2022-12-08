@@ -5,11 +5,13 @@ import { Phone } from '../../types/Phone';
 import { getPhonesByIds } from '../../api/phones';
 import { CartCard } from '../CartCard';
 import { Loader } from '../Loader';
+import { Modal } from '../Modal';
 
 export const Cart: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesSum, setPhonesSum] = useState<Phone[]>(phones);
   const [isLoading, setIsLoading] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   async function loadPhones(): Promise<any> {
     setIsLoading(true);
@@ -79,6 +81,14 @@ export const Cart: React.FC = () => {
     removeFromCartStorage(id);
   };
 
+  const handleCheckout = () => {
+    localStorage.removeItem('cart');
+
+    setPhones([]);
+    setModalOpen(true);
+    setPhonesSum([]);
+  };
+
   return (
     <>
       <div className={styles.cart}>
@@ -99,20 +109,21 @@ export const Cart: React.FC = () => {
 
             {!isLoading
               && <>
-                <div className={styles.phones_container}>
+              <div className={styles.phones_container}>
 
-                  {phones.map(phone =>
-                    <CartCard
-                      key={phone.id}
-                      phone={phone}
-                      handlePlus={handlePlus}
-                      handleMinus={handleMinus}
-                      handleRemove={handleRemove}
-                      phonesSum={phonesSum}
-                    />)}
-                </div>
-              </>
-            }
+              {phones.length > 0
+                ? phones.map(phone =>
+                  <CartCard
+                    key={phone.id}
+                    phone={phone}
+                    handlePlus={handlePlus}
+                    handleMinus={handleMinus}
+                    handleRemove={handleRemove}
+                    phonesSum={phonesSum}
+                  />)
+                : <p className={styles.emptyTitle}>Your cart is empty</p>
+              }
+            </div>
 
             <div className={styles.sum_container}>
               <p className={styles.price}>
@@ -123,9 +134,10 @@ export const Cart: React.FC = () => {
                 Total for {phonesSum.length} items
               </p>
               <div className={styles.line}></div>
-              <button className={styles.checkout}>
+              <button className={styles.checkout} onClick={handleCheckout}>
             Checkout
               </button>
+              {modalOpen && <Modal setOpenModal={setModalOpen} />}
             </div>
           </div>
         </div>
