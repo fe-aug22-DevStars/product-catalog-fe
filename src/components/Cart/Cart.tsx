@@ -4,24 +4,26 @@ import right from '../../images/right.svg';
 import { Phone } from '../../types/Phone';
 import { getPhonesByIds } from '../../api/phones';
 import { CartCard } from '../CartCard';
+import { Loader } from '../Loader';
 import { Modal } from '../Modal';
 
 export const Cart: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesSum, setPhonesSum] = useState<Phone[]>(phones);
+  const [isLoading, setIsLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
 
   async function loadPhones(): Promise<any> {
-    const itemsFromCart = localStorage.getItem('cart');
+    setIsLoading(true);
 
-    // eslint-disable-next-line no-console
-    console.log(itemsFromCart);
+    const itemsFromCart = localStorage.getItem('cart');
 
     if (itemsFromCart) {
       const responseFromServer = await getPhonesByIds(itemsFromCart);
 
       setPhones(responseFromServer);
       setPhonesSum(responseFromServer);
+      setIsLoading(false);
     }
   }
 
@@ -103,7 +105,11 @@ export const Cart: React.FC = () => {
           </p>
           <div className={styles.total_container}>
 
-            <div className={styles.phones_container}>
+            {isLoading && <Loader /> }
+
+            {!isLoading
+              && <>
+              <div className={styles.phones_container}>
 
               {phones.length > 0
                 ? phones.map(phone =>
