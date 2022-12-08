@@ -4,22 +4,24 @@ import right from '../../images/right.svg';
 import { Phone } from '../../types/Phone';
 import { getPhonesByIds } from '../../api/phones';
 import { CartCard } from '../CartCard';
+import { Loader } from '../Loader';
 
 export const Cart: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesSum, setPhonesSum] = useState<Phone[]>(phones);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function loadPhones(): Promise<any> {
-    const itemsFromCart = localStorage.getItem('cart');
+    setIsLoading(true);
 
-    // eslint-disable-next-line no-console
-    console.log(itemsFromCart);
+    const itemsFromCart = localStorage.getItem('cart');
 
     if (itemsFromCart) {
       const responseFromServer = await getPhonesByIds(itemsFromCart);
 
       setPhones(responseFromServer);
       setPhonesSum(responseFromServer);
+      setIsLoading(false);
     }
   }
 
@@ -93,18 +95,24 @@ export const Cart: React.FC = () => {
           </p>
           <div className={styles.total_container}>
 
-            <div className={styles.phones_container}>
+            {isLoading && <Loader /> }
 
-              {phones.map(phone =>
-                <CartCard
-                  key={phone.id}
-                  phone={phone}
-                  handlePlus={handlePlus}
-                  handleMinus={handleMinus}
-                  handleRemove={handleRemove}
-                  phonesSum={phonesSum}
-                />)}
-            </div>
+            {!isLoading
+              && <>
+                <div className={styles.phones_container}>
+
+                  {phones.map(phone =>
+                    <CartCard
+                      key={phone.id}
+                      phone={phone}
+                      handlePlus={handlePlus}
+                      handleMinus={handleMinus}
+                      handleRemove={handleRemove}
+                      phonesSum={phonesSum}
+                    />)}
+                </div>
+              </>
+            }
 
             <div className={styles.sum_container}>
               <p className={styles.price}>

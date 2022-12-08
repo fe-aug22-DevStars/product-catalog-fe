@@ -8,6 +8,7 @@ import styles from './Catalog.module.scss';
 import homeIcon from '../../images/Home.svg';
 import arrowRight from '../../images/ArrowRight.svg';
 import { Link } from 'react-router-dom';
+import { Loader } from '../Loader';
 
 export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -16,8 +17,11 @@ export const Catalog: React.FC = () => {
   const [numberOfPages, setNumberOfPages] = useState(0);
   const [fieldForSorting, setFieldForSorting] = useState('Newest');
   const [totalNumber, setTotalNumber] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   async function loadPhones(): Promise<any> {
+    setIsLoading(true);
+
     const responseFromServer = await getPhones(
       phonesPerPage,
       currentPage,
@@ -27,10 +31,8 @@ export const Catalog: React.FC = () => {
     setPhones(responseFromServer.products);
     setNumberOfPages(responseFromServer.numberOfPages);
     setTotalNumber(responseFromServer.numberOfProducts);
+    setIsLoading(false);
   }
-
-  // eslint-disable-next-line no-console
-  // console.log(totalNumber);
 
   useEffect(() => {
     loadPhones();
@@ -38,11 +40,13 @@ export const Catalog: React.FC = () => {
 
   const handleSelectNumber
     = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+      setIsLoading(true);
       setPhonesPerPage(e.target.value);
       setCurrentPage(1);
     };
 
   const handleSelectSort = (e: React.ChangeEvent<HTMLSelectElement>): void => {
+    setIsLoading(true);
     setFieldForSorting(e.target.value);
     setCurrentPage(1);
   };
@@ -99,15 +103,27 @@ export const Catalog: React.FC = () => {
           </select>
         </div>
       </div>
-      <div className={styles.goods}>
-        {phones.map(phone => <ProductCard key={phone.id} phone={phone}/>)}
-      </div>
-      {phonesPerPage !== 'All'
-      && <Pagination
-        pageChange={pageChange}
-        numberOfPages={numberOfPages}
-        currentPage={currentPage}
-      />
+
+      {isLoading && <Loader /> }
+
+      {!isLoading
+        && <>
+          <div className={styles.goods}>
+            {phones.length > 0
+            && phones.map(phone =>
+              <ProductCard
+                key={phone.id}
+                phone={phone}
+              />)}
+          </div>
+          {phonesPerPage !== 'All'
+            && <Pagination
+              pageChange={pageChange}
+              numberOfPages={numberOfPages}
+              currentPage={currentPage}
+            />
+          }
+        </>
       }
     </main>
   );
