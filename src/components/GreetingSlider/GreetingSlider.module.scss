@@ -1,0 +1,162 @@
+@import '../../styles/utils/variables';
+@import '../../styles/utils/_mixins.scss';
+
+.slider {
+  width: 100%;
+  margin-bottom: 88px;
+
+  @include onTablet {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 96px;
+  }
+
+  @include onDesktop {
+    max-width: 1200px;
+  }
+
+  :global(.swiper-pagination) {
+    position: fixed;
+    bottom: -30px;
+  }
+
+  :global(.swiper-pagination-bullet) {
+    width: 14px;
+    height: 4px;
+    border-radius: 0;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background-color: #0f0f11;
+  }
+}
+
+.wrapper {
+  transform: translate(0, 0);
+
+  @include onTablet {
+    padding: 0 50px;
+    // -------
+    height: 190px;
+    width: 490px;
+  }
+
+  @include onDesktop {
+    height: 100%;
+    width: 90%;
+  }
+}
+
+.swiper {
+  width: 100%;
+  padding-top: 100%;
+
+  @include onTablet {
+    padding-top: 0;
+    height: 200px;
+    border-radius: 8px;
+    // ------
+    height: 190px;
+    width: 490px;
+  }
+
+  @include onDesktop {
+    width: 100%;
+    height: 400px;
+  }
+}
+
+.image {
+  width: 100%;
+  padding-top: 100%;
+  margin-top: -100%;
+  display: block;
+  background-size: cover;
+  background-position: top center;
+
+  @include onTablet {
+    padding-top: 0;
+    margin-top: 0;
+    height: 100%;
+  }
+
+  @include onDesktop {
+    background-size: contain;
+  }
+
+  &_1 {
+    background-image: url(../../images/iphoneMobile.jpg);
+
+    @include onTablet {
+      background-image: url(../../images/iphoneDesktop.jpg);
+    }
+  }
+
+  &_2 {
+    background-image: url(../../images/ipadMobile.jpg);
+
+    @include onTablet {
+      background-image: url(../../images/ipadDesktop.png);
+    }
+  }
+
+  &_3 {
+    background-image: url(../../images/accessoriesMobile.jpg);
+
+    @include onTablet {
+      background-image: url(../../images/accessoriesDesktop.jpg);
+    }
+  }
+}
+
+:global(.swiper-button-prev),
+:global(.swiper-button-next) {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+:global(.swiper-button-prev::after),
+:global(.swiper-button-next::after) {
+  display: none;
+
+  position: fixed;
+
+  width: 32px;
+  border: 1px solid #89939a;
+  border-radius: 48px;
+
+  font-size: 14px;
+  color: $black;
+  text-align: center;
+
+  @include onTablet {
+    display: block;
+
+    height: 190px;
+    line-height: 200px;
+    box-sizing: border-box;
+  }
+
+  @include onDesktop {
+    height: 400px;
+    line-height: 400px;
+  }
+}
+
+:global(.swiper-button-prev::after) {
+  left: 0;
+}
+
+:global(.swiper-button-next::after) {
+  right: 0;
+}
