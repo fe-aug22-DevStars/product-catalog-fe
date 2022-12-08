@@ -1,0 +1,103 @@
+@import "../../styles/utils/variables";
+@import "../../styles/utils/mixins";
+
+@font-face {
+  font-family: "Mont";
+  src: local("FontsFree-Net-mont"),
+  url("../../styles/fonts/Mont-Regular.otf") format("truetype");
+}
+
+.container {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  margin: 0 auto;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  @include onDesktop {
+    flex-direction: row;
+  }
+}
+
+.about_container {
+  max-width: 559px;
+}
+
+.title {
+  font-family: 'Mont';
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 31px;
+  color: $black;
+  margin-bottom: 16px;
+}
+
+.small_title {
+  font-family: 'Mont';
+
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  color: $black;
+}
+
+.paragraph {
+  font-family: 'Mont';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: $grey;
+}
+
+.line {
+  width: 100%;
+  height: 1px;
+  background-color: $greyForElements;
+  margin-bottom: 32px;
+}
+
+.tech_container {
+  width: 100%;
+}
+
+.specs {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  gap: 15px;
+
+}
+
+.small_container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.name {
+  font-family: 'Mont';
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+  color: $grey;
+}
+
+.parameters {
+  font-family: 'Mont';
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 21px;
+  color: $black;
+}
+
+.small_title {
+  margin-bottom: 16px;
+}
+
+.paragraph {
+  margin-bottom: 32px;
+}
