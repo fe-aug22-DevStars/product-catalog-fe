@@ -15,13 +15,13 @@ export const Favourites: React.FC = () => {
   async function loadPhones(): Promise<void> {
     try {
       setIsLoading(true);
-  
-  const favourites = localStorage.getItem('favourites') || '';
 
-    if (favourites === '[]') {
-      setPhones([]);
-    } else if (favourites) {
-      const responseFromServer = await getPhonesByIds(favourites);
+      const favourites = localStorage.getItem('favourites');
+
+      if (favourites === '[]') {
+        setPhones([]);
+      } else if (favourites) {
+        const responseFromServer = await getPhonesByIds(favourites);
 
         setPhones(responseFromServer);
       }
