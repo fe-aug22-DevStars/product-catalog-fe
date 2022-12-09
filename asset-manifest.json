@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/product-catalog-fe/static/css/main.2bc84589.css",
-    "main.js": "/product-catalog-fe/static/js/main.8dc7e39a.js",
+    "main.css": "/product-catalog-fe/static/css/main.adb03ead.css",
+    "main.js": "/product-catalog-fe/static/js/main.43e9bb17.js",
     "static/media/iphoneDesktop.jpg": "/product-catalog-fe/static/media/iphoneDesktop.a8c435336693d2864bad.jpg",
     "static/media/ipadDesktop.png": "/product-catalog-fe/static/media/ipadDesktop.bac34472c382c45f566a.png",
     "static/media/logo.svg": "/product-catalog-fe/static/media/logo.4792bfb674e5be2c13535742c49d70ca.svg",
@@ -29,18 +29,17 @@
     "static/media/Close.svg": "/product-catalog-fe/static/media/Close.50c10c10972396ba023825c21cea3b47.svg",
     "static/media/plus.svg": "/product-catalog-fe/static/media/plus.06d12a88979bb4d0e73baf8200a0c569.svg",
     "static/media/Menu.svg": "/product-catalog-fe/static/media/Menu.73ddde2c093f9fb313b993eaba038f9a.svg",
-    "static/media/leftBack.svg": "/product-catalog-fe/static/media/leftBack.1df9d29e9833a4558be481d86067dab7.svg",
     "static/media/rightNext.svg": "/product-catalog-fe/static/media/rightNext.7ffcefc8a05f790580550e5622d9d123.svg",
     "static/media/Up.svg": "/product-catalog-fe/static/media/Up.e673b855d43ff2b7e92da0b0ca914d7e.svg",
     "static/media/right.svg": "/product-catalog-fe/static/media/right.eb1c510df76614e8387069c610f145e5.svg",
     "static/media/ArrowLeft.svg": "/product-catalog-fe/static/media/ArrowLeft.7460d67936be8c4491a8997e5e905650.svg",
     "static/media/ArrowRight.svg": "/product-catalog-fe/static/media/ArrowRight.e028d3889646e0b5e56cf54f47bb701a.svg",
     "static/media/minus.svg": "/product-catalog-fe/static/media/minus.9ce0234cad51cfbee3d1861996de0d45.svg",
-    "main.2bc84589.css.map": "/product-catalog-fe/static/css/main.2bc84589.css.map",
-    "main.8dc7e39a.js.map": "/product-catalog-fe/static/js/main.8dc7e39a.js.map"
+    "main.adb03ead.css.map": "/product-catalog-fe/static/css/main.adb03ead.css.map",
+    "main.43e9bb17.js.map": "/product-catalog-fe/static/js/main.43e9bb17.js.map"
   },
   "entrypoints": [
-    "static/css/main.2bc84589.css",
-    "static/js/main.8dc7e39a.js"
+    "static/css/main.adb03ead.css",
+    "static/js/main.43e9bb17.js"
   ]
 }
