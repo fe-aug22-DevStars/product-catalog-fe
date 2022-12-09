@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './styles/main.scss';
+import { StorageProvider } from './context/StorageContext';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Catalog } from './components/Catalog';
@@ -11,19 +12,21 @@ import { ErrorPage } from './components/ErrorPage';
 
 const App: React.FC = () => {
   return (
-    <main>
-      <Header />
+    <StorageProvider>
+      <main>
+        <Header />
 
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='phones' element={<Catalog />} />
-        <Route path='favourites' element={<Favourites />} />
-        <Route path='cart' element={<Cart />} />
-        <Route path='*' element={<ErrorPage />} />
-      </Routes>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='phones' element={<Catalog />} />
+          <Route path='favourites' element={<Favourites />} />
+          <Route path='cart' element={<Cart />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
 
-      <Footer />
-    </main>
+        <Footer />
+      </main>
+    </StorageProvider>
   );
 };
 

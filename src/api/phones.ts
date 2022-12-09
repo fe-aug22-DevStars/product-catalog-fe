@@ -29,9 +29,3 @@ export const getPhonesByIds = async(phoneIds: string) => {
 
   return response.json();
 };
-
-// export const getFromCart = async(phoneIds: string) => {
-//   const response = await fetch(`${BASE_URL}/${phoneIds}`);
-
-//   return response.json();
-// };

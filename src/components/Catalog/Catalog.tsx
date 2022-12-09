@@ -29,7 +29,8 @@ export const Catalog: React.FC = () => {
     setTotalNumber(responseFromServer.numberOfProducts);
   }
 
-  // eslint-disable-next-line no-console
+  /* eslint-disable-next-line no-console */
+  console.log(localStorage);
   // console.log(totalNumber);
 
   useEffect(() => {

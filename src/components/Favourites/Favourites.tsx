@@ -13,7 +13,9 @@ export const Favourites: React.FC = () => {
   async function loadPhones(): Promise<any> {
     const favourites = localStorage.getItem('favourites');
 
-    if (favourites) {
+    if (favourites === '[]') {
+      setPhones([]);
+    } else if (favourites) {
       const responseFromServer = await getPhonesByIds(favourites);
 
       setPhones(responseFromServer);
@@ -41,7 +43,12 @@ export const Favourites: React.FC = () => {
 
         <div className={styles.goods}>
           {phones.length > 0
-          && phones.map(phone => <ProductCard key={phone.id} phone={phone} />)
+          && phones.map(phone => (
+            <ProductCard
+              key={phone.id}
+              phone={phone}
+            />
+          ))
           }
         </div>
       </div>
