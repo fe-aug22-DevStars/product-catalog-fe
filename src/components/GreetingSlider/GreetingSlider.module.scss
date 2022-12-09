@@ -37,7 +37,6 @@
 
   @include onTablet {
     padding: 0 50px;
-    // -------
     height: 190px;
     width: 490px;
   }
@@ -54,9 +53,7 @@
 
   @include onTablet {
     padding-top: 0;
-    height: 200px;
     border-radius: 8px;
-    // ------
     height: 190px;
     width: 490px;
   }
