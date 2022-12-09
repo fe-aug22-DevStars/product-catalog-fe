@@ -14,15 +14,20 @@ export const Cart: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
 
   async function loadPhones(): Promise<any> {
-    setIsLoading(true);
+    try {
+      setIsLoading(true);
 
-    const itemsFromCart = localStorage.getItem('cart');
+      const itemsFromCart = localStorage.getItem('cart');
 
-    if (itemsFromCart) {
-      const responseFromServer = await getPhonesByIds(itemsFromCart);
+      if (itemsFromCart) {
+        const responseFromServer = await getPhonesByIds(itemsFromCart);
 
-      setPhones(responseFromServer);
-      setPhonesSum(responseFromServer);
+        setPhones(responseFromServer);
+        setPhonesSum(responseFromServer);
+      }
+    } catch (error) {
+      throw new Error('No phones loaded');
+    } finally {
       setIsLoading(false);
     }
   }
@@ -109,8 +114,9 @@ export const Cart: React.FC = () => {
           {!isLoading
               && <div className={styles.phones_container}>
 
-                {phones.length > 0
-                  ? phones.map(phone =>
+                  {phones.length > 0
+                  && phones.map(phone =>
+
                     <CartCard
                       key={phone.id}
                       phone={phone}
@@ -131,6 +137,7 @@ export const Cart: React.FC = () => {
 
             <p className={styles.amount}>
                 Total for {phonesSum.length} items
+
             </p>
             <div className={styles.line}></div>
             <button className={styles.checkout} onClick={handleCheckout}>
