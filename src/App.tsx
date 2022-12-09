@@ -13,10 +13,12 @@ import { AboutPhones } from './components/AboutPhones';
 
 const App: React.FC = () => {
   return (
-    <StorageProvider>
-      <main>
+  <StorageProvider>
+    <div className='app'>
+      <header>
         <Header />
-
+      </header>
+      <main className='content'>
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='phones' element={<Catalog />} />
@@ -25,9 +27,11 @@ const App: React.FC = () => {
           <Route path='about' element={<AboutPhones />} />
           <Route path='*' element={<ErrorPage />} />
         </Routes>
-
-        <Footer />
       </main>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
     </StorageProvider>
   );
 };
