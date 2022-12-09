@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+// import ReactPaginate from 'react-paginate';
 
 import styles from './Pagination.module.scss';
 import arrowLeft from '../../images/ArrowLeft.svg';
 import arrowRight from '../../images/ArrowRight.svg';
+import dots from '../../images/more.png';
 import classNames from 'classnames';
 
 interface Props {
@@ -19,19 +21,21 @@ export const Pagination: React.FC<Props> = ({
 }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i <= numberOfPages; i++) {
-    pageNumbers.push(i);
+  for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+    if (i >= 1 && i <= numberOfPages) {
+      pageNumbers.push(i);
+    }
   }
 
   const handleClick
-    // eslint-disable-next-line max-len, no-shadow
+  // eslint-disable-next-line max-len, no-shadow
     = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, number: number): void => {
       event.preventDefault();
       pageChange(number);
     };
 
   const handleClickPrev
-    // eslint-disable-next-line max-len, no-shadow
+  // eslint-disable-next-line max-len, no-shadow
     = (event: React.MouseEvent<HTMLImageElement, MouseEvent>, number: number): void => {
       event.preventDefault();
 
@@ -41,7 +45,7 @@ export const Pagination: React.FC<Props> = ({
     };
 
   const handleClickNext
-    // eslint-disable-next-line max-len, no-shadow
+  // eslint-disable-next-line max-len, no-shadow
     = (event: React.MouseEvent<HTMLImageElement, MouseEvent>, number: number): void => {
       event.preventDefault();
 
@@ -62,7 +66,17 @@ export const Pagination: React.FC<Props> = ({
           }}
         />
       </Link>
-      {pageNumbers.map(number => (
+      <Link to='/' >
+        <img
+          src={dots}
+          alt="Left"
+          className={styles.bottomMenuItem}
+          onClick={e => {
+            handleClickPrev(e, currentPage);
+          }}
+        />
+      </Link>
+      {pageNumbers.map(number =>
         <Link
           to="/"
           key={number}
@@ -74,8 +88,18 @@ export const Pagination: React.FC<Props> = ({
           }}
         >
           {number}
-        </Link>
-      ))}
+        </Link>)
+      }
+      <Link to='/' >
+        <img
+          src={dots}
+          alt="Right"
+          className={styles.bottomMenuItem}
+          onClick={e => {
+            handleClickNext(e, currentPage);
+          }}
+        />
+      </Link>
       <Link to="/">
         <img
           src={arrowRight}
