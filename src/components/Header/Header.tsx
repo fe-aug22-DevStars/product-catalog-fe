@@ -116,7 +116,7 @@ export const Header: React.FC = () => {
         </div>
       </header>
       {isMenuOpen && (
-        <BurgerMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <BurgerMenu setIsMenuOpen={setIsMenuOpen} />
       )}
     </>
   );
