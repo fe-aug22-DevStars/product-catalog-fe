@@ -116,8 +116,8 @@ export const Cart: React.FC = () => {
 
               && <div className={styles.phones_container}>
 
-                  {phones.length > 0
-                  && phones.map(phone =>
+                {phones.length > 0
+                  ? phones.map(phone =>
 
                     <CartCard
                       key={phone.id}
