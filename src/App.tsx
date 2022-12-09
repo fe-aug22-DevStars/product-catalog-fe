@@ -12,20 +12,24 @@ import { AboutPhones } from './components/AboutPhones';
 
 const App: React.FC = () => {
   return (
-    <main>
-      <Header />
-
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        <Route path='phones' element={<Catalog />} />
-        <Route path='favourites' element={<Favourites />} />
-        <Route path='cart' element={<Cart />} />
-        <Route path='about' element={<AboutPhones />} />
-        <Route path='*' element={<ErrorPage />} />
-      </Routes>
-
-      <Footer />
-    </main>
+    <div className='app'>
+      <header>
+        <Header />
+      </header>
+      <main className='content'>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='phones' element={<Catalog />} />
+          <Route path='favourites' element={<Favourites />} />
+          <Route path='cart' element={<Cart />} />
+          <Route path='about' element={<AboutPhones />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
   );
 };
 

@@ -55,76 +55,80 @@ export const Catalog: React.FC = () => {
 
   return (
     <main className={styles.main}>
-      <div className={styles.topMenu}>
-        <Link to="/">
-          <img src={homeIcon} alt="Home" />
-        </Link>
-        <img src={arrowRight} alt="Next" />
-        <span className={styles.category__name}>Phones</span>
-      </div>
-
-      <h1 className={styles.header}>Mobile phones</h1>
-
-      <h3 className={styles.subHeader}>{totalNumber} models</h3>
-
-      <div className={styles.view}>
-        <div className={styles.viewByOrder}>
-          <label htmlFor="sorts" className={styles.view__title}>Sort by</label>
-          <select
-            name="sorts"
-            id="sorts"
-            className={styles.view__select}
-            value={fieldForSorting}
-            onChange={handleSelectSort}
-          >
-            <option value="Newest">Newest</option>
-            <option value="Alphabetically">Alphabetically</option>
-            <option value="Cheapest">Cheapest</option>
-          </select>
+      <div className={styles.container}>
+        <div className={styles.topMenu}>
+          <Link to="/">
+            <img src={homeIcon} alt="Home" />
+          </Link>
+          <img src={arrowRight} alt="Next" />
+          <span className={styles.category__name}>Phones</span>
         </div>
-        <div className={styles.viewByNumber}>
-          <label
-            htmlFor="number"
-            className={styles.view__title}
-          >
-            Items on page
-          </label>
-          <select
-            name="number"
-            id="number"
-            className={styles.view__select}
-            value={phonesPerPage}
-            onChange={handleSelectNumber}
-          >
-            <option value='All'>All</option>
-            <option value='16'>16</option>
-            <option value='8'>8</option>
-            <option value='4'>4</option>
-          </select>
-        </div>
-      </div>
 
-      {isLoading && <Loader /> }
+        <h1 className={styles.header}>Mobile phones</h1>
 
-      {!isLoading
-        && <>
-          <div className={styles.goods}>
-            {phones.length > 0
-            && phones.map(phone =>
-              <ProductCard
-                key={phone.id}
-                phone={phone}
-              />)}
+        <h3 className={styles.subHeader}>{totalNumber} models</h3>
+
+        <div className={styles.view}>
+          <div className={styles.viewByOrder}>
+            <label htmlFor="sorts" className={styles.view__title}>
+              Sort by
+            </label>
+            <select
+              name="sorts"
+              id="sorts"
+              className={styles.view__select}
+              value={fieldForSorting}
+              onChange={handleSelectSort}
+            >
+              <option value="Newest">Newest</option>
+              <option value="Alphabetically">Alphabetically</option>
+              <option value="Cheapest">Cheapest</option>
+            </select>
           </div>
-          {phonesPerPage !== 'All'
-            && <Pagination
-              pageChange={pageChange}
-              numberOfPages={numberOfPages}
-              currentPage={currentPage}
-            />
-          }
-        </>
-      }
+          <div className={styles.viewByNumber}>
+            <label
+              htmlFor="number"
+              className={styles.view__title}
+            >
+              Items on page
+            </label>
+            <select
+              name="number"
+              id="number"
+              className={styles.view__select}
+              value={phonesPerPage}
+              onChange={handleSelectNumber}
+            >
+              <option value='All'>All</option>
+              <option value='16'>16</option>
+              <option value='8'>8</option>
+              <option value='4'>4</option>
+            </select>
+          </div>
+        </div>
+
+        {isLoading && <Loader /> }
+
+        {!isLoading
+          && <>
+            <div className={styles.goods}>
+              {phones.length > 0
+              && phones.map(phone =>
+                <ProductCard
+                  key={phone.id}
+                  phone={phone}
+                />)}
+            </div>
+            {phonesPerPage !== 'All'
+              && <Pagination
+                pageChange={pageChange}
+                numberOfPages={numberOfPages}
+                currentPage={currentPage}
+              />
+            }
+          </>
+        }
+      </div>
     </main>
   );
 };
