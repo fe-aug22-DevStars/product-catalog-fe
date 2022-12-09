@@ -1,14 +1,15 @@
 @import '../../styles/main';
 @import '../../styles/utils/colors';
+@import '../../styles/utils/mixins';
 
-@mixin onTablet {
-  @media (min-width: 768px) {
-    @content;
-  }
-}
+//@mixin onTablet {
+//  @media (min-width: 768px) {
+//    @content;
+//  }
+//}
 
 .card {
-  max-width: 272px;
+  width: 232px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
@@ -20,6 +21,14 @@
   border: 1px solid $greyForElements;
   border-radius: 8px;
   background-color: $white;
+
+  @include onTablet {
+    width: 237px;
+  }
+
+  @include onDesktop {
+    width: 272px;
+  }
 }
 
 .image_container {

@@ -4,22 +4,31 @@ import right from '../../images/right.svg';
 import { Phone } from '../../types/Phone';
 import { getPhonesByIds } from '../../api/phones';
 import { CartCard } from '../CartCard';
+import { Loader } from '../Loader';
+import { Modal } from '../Modal';
 
 export const Cart: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesSum, setPhonesSum] = useState<Phone[]>(phones);
+  const [isLoading, setIsLoading] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   async function loadPhones(): Promise<any> {
-    const itemsFromCart = localStorage.getItem('cart');
+    try {
+      setIsLoading(true);
 
-    // eslint-disable-next-line no-console
-    console.log(itemsFromCart);
+      const itemsFromCart = localStorage.getItem('cart');
 
-    if (itemsFromCart) {
-      const responseFromServer = await getPhonesByIds(itemsFromCart);
+      if (itemsFromCart) {
+        const responseFromServer = await getPhonesByIds(itemsFromCart);
 
-      setPhones(responseFromServer);
-      setPhonesSum(responseFromServer);
+        setPhones(responseFromServer);
+        setPhonesSum(responseFromServer);
+      }
+    } catch (error) {
+      throw new Error('No phones loaded');
+    } finally {
+      setIsLoading(false);
     }
   }
 
@@ -77,51 +86,72 @@ export const Cart: React.FC = () => {
     removeFromCartStorage(id);
   };
 
+  const handleCheckout = () => {
+    localStorage.removeItem('cart');
+
+    setPhones([]);
+    setModalOpen(true);
+    setPhonesSum([]);
+  };
+
   return (
-    <>
-      <div className={styles.cart}>
-        <div className={styles.container}>
-          <div className={styles.back_container}>
-            <a href='/'>
-              <img src={right} alt="right" className={styles.back} />
-            </a>
-            <a href='/' className={styles.back_name}>Back</a>
-          </div>
+    <div className={styles.cart}>
+      <div className={styles.container}>
+        <div className={styles.back_container}>
+          <a href='/'>
+            <img src={right} alt="right" className={styles.back} />
+          </a>
+          <a href='/' className={styles.back_name}>Back</a>
+        </div>
 
-          <p className={styles.name}>
-          Cart
-          </p>
-          <div className={styles.total_container}>
+        <p className={styles.name}>
+        Cart
 
-            <div className={styles.phones_container}>
+        </p>
+        <div className={styles.total_container}>
 
-              {phones.map(phone =>
-                <CartCard
-                  key={phone.id}
-                  phone={phone}
-                  handlePlus={handlePlus}
-                  handleMinus={handleMinus}
-                  handleRemove={handleRemove}
-                  phonesSum={phonesSum}
-                />)}
-            </div>
+          {isLoading && <Loader /> }
 
-            <div className={styles.sum_container}>
-              <p className={styles.price}>
-                {phonesSum.reduce((acc, item) => acc + item.price, 0)} $
-              </p>
+          {!isLoading
 
-              <p className={styles.amount}>
+              && <div className={styles.phones_container}>
+
+                {phones.length > 0
+                  ? phones.map(phone =>
+
+                    <CartCard
+                      key={phone.id}
+                      phone={phone}
+                      handlePlus={handlePlus}
+                      handleMinus={handleMinus}
+                      handleRemove={handleRemove}
+                      phonesSum={phonesSum}
+                    />)
+                  : <p className={styles.emptyTitle}>Your cart is empty</p>
+                }
+              </div>
+          }
+
+          <div className={styles.sum_container}>
+            <p className={styles.price}>
+              {phonesSum.reduce((acc, item) => acc + item.price, 0)} $
+            </p>
+
+            <p className={styles.amount}>
+
                 Total for {phonesSum.length} items
-              </p>
-              <div className={styles.line}></div>
-              <button className={styles.checkout}>
-            Checkout
-              </button>
+
+            </p>
+            <div className={styles.line}>
             </div>
+            <button className={styles.checkout} onClick={handleCheckout}>
+              Checkout
+
+            </button>
+            {modalOpen && <Modal setOpenModal={setModalOpen} />}
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
