@@ -1,7 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { Phone } from '../../types/Phone';
-import leftBack from '../../images/leftBack.svg';
 import rightNext from '../../images/rightNext.svg';
 import { ProductCard } from '../ProductCard';
 import styles from './Sliders.module.scss';
@@ -89,7 +88,7 @@ export const Sliders: React.FC<Props> = ({ phones, title }) => {
           <a className={styles.button_1}
             onClick={() => gotoPrev()}
           >
-            <img src={leftBack} alt="leftBack" className={styles.arrow} />
+            <img src={rightNext} alt="leftBack" className={styles.arrow1} />
           </a>
           <a className={styles.button}
             onClick={() => gotoNext()}

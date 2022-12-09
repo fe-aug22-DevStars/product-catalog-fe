@@ -11,6 +11,10 @@
 
   font-family: "Mont";
   font-weight: 800;
+  position: sticky;
+  background-color: $white;
+  top: 0;
+  z-index: 2;
 }
 
 .logo {
