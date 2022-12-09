@@ -19,7 +19,7 @@ export const Catalog: React.FC = () => {
   const [totalNumber, setTotalNumber] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
 
-  async function loadPhones(): Promise<any> {
+  async function loadPhones(): Promise<void> {
     setIsLoading(true);
 
     const responseFromServer = await getPhones(

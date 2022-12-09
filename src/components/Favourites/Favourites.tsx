@@ -16,9 +16,11 @@ export const Favourites: React.FC = () => {
     try {
       setIsLoading(true);
 
-      const favourites = localStorage.getItem('favourites') || '';
+      const favourites = localStorage.getItem('favourites');
 
-      if (favourites) {
+      if (favourites === '[]') {
+        setPhones([]);
+      } else if (favourites) {
         const responseFromServer = await getPhonesByIds(favourites);
 
         setPhones(responseFromServer);

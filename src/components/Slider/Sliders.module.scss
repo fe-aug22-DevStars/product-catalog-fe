@@ -8,7 +8,7 @@
 }
 
 .block {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
 
 }
@@ -54,11 +54,18 @@
 }
 
 .arrow {
-  width: 32px;
-  height: 32px;
+  //width: 32px;
+  //height: 32px;
+  cursor: pointer;
+
+  &1 {
+    transform: rotate(180deg);
+    cursor: pointer;
+  }
 }
 
 .phones {
+  max-width: 1250px;
   margin: 30px;
 }
 

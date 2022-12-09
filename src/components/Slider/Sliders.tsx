@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import Slider from 'react-slick';
 import { Phone } from '../../types/Phone';
-import leftBack from '../../images/leftBack.svg';
 import rightNext from '../../images/rightNext.svg';
 import { ProductCard } from '../ProductCard';
 import styles from './Sliders.module.scss';
@@ -12,10 +11,19 @@ type Props = {
 }
 
 export const Sliders: React.FC<Props> = ({ phones, title }) => {
-  const sliderRef = useRef(null);
+  const customSlider = React.createRef();
+
+  const gotoNext = () => {
+    // @ts-ignore
+    customSlider.current.slickNext();
+  };
+
+  const gotoPrev = () => {
+    // @ts-ignore
+    customSlider.current.slickPrev();
+  };
 
   const settings = {
-    ref: sliderRef,
     slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
@@ -24,6 +32,23 @@ export const Sliders: React.FC<Props> = ({ phones, title }) => {
         settings: {
           slidesToShow: 4,
           slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 820,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          infinite: true,
         },
       },
       {
@@ -31,7 +56,15 @@ export const Sliders: React.FC<Props> = ({ phones, title }) => {
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          initialSlide: 2,
+          initialSlide: 1,
+        },
+      },
+      {
+        breakpoint: 450,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
       {
@@ -39,6 +72,7 @@ export const Sliders: React.FC<Props> = ({ phones, title }) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          initialSlide: 1,
         },
       },
     ],
@@ -52,14 +86,12 @@ export const Sliders: React.FC<Props> = ({ phones, title }) => {
         </h1>
         <div className={styles.button_container}>
           <a className={styles.button_1}
-            // @ts-ignore
-            onClick={() => sliderRef.current.slickPrev()}
+            onClick={() => gotoPrev()}
           >
-            <img src={leftBack} alt="leftBack" className={styles.arrow} />
+            <img src={rightNext} alt="leftBack" className={styles.arrow1} />
           </a>
           <a className={styles.button}
-            // @ts-ignore
-            onClick={() => sliderRef.current.slickNext()}
+            onClick={() => gotoNext()}
           >
             <img src={rightNext} alt="rightNext" className={styles.arrow} />
           </a>
@@ -68,6 +100,8 @@ export const Sliders: React.FC<Props> = ({ phones, title }) => {
       <div className={styles.phones}>
         <Slider
           {...settings}
+          // @ts-ignore
+          ref={customSlider}
         >
 
           {phones.map(phone =>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
 import styles from './Header.module.scss';
 import logo from '../../images/logo.svg';
@@ -9,13 +9,25 @@ import cart from '../../images/ShoppingBag.svg';
 import { BurgerMenu } from '../BurgerMenu';
 import { Link, NavLink } from 'react-router-dom';
 import cn from 'classnames';
+import { StorageContext } from '../../context/StorageContext';
 
 export const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [favouritesAmount, setFavouritesAmount] = useState(0);
+  const [cartAmount, setCartAmount] = useState(0);
+  const { toFavourites, toCart } = useContext(StorageContext);
 
   const toggleMenu = (): void => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    setFavouritesAmount(toFavourites.length);
+  }, [toFavourites]);
+
+  useEffect(() => {
+    setCartAmount(toCart.length);
+  }, [toCart]);
 
   return (
     <>
@@ -90,6 +102,11 @@ export const Header: React.FC = () => {
             }
           >
             <img src={favourites} alt="icon" />
+            {favouritesAmount > 0 && (
+              <span>
+                {favouritesAmount}
+              </span>
+            )}
           </NavLink>
 
           <NavLink
@@ -112,11 +129,16 @@ export const Header: React.FC = () => {
           >
 
             <img src={cart} alt="icon" />
+            {cartAmount > 0 && (
+              <span>
+                {cartAmount}
+              </span>
+            )}
           </NavLink>
         </div>
       </header>
       {isMenuOpen && (
-        <BurgerMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
+        <BurgerMenu setIsMenuOpen={setIsMenuOpen} />
       )}
     </>
   );

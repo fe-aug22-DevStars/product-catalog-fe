@@ -1,6 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './styles/main.scss';
+import { StorageProvider } from './context/StorageContext';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 import { Catalog } from './components/Catalog';
@@ -12,6 +13,7 @@ import { AboutPhones } from './components/AboutPhones';
 
 const App: React.FC = () => {
   return (
+  <StorageProvider>
     <div className='app'>
       <header>
         <Header />
@@ -30,6 +32,7 @@ const App: React.FC = () => {
         <Footer />
       </footer>
     </div>
+    </StorageProvider>
   );
 };
 

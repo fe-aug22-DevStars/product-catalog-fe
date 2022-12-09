@@ -11,6 +11,10 @@
 
   font-family: "Mont";
   font-weight: 800;
+  position: sticky;
+  background-color: $white;
+  top: 0;
+  z-index: 2;
 }
 
 .logo {
@@ -31,6 +35,12 @@
 
     width: 48px;
     height: 48px;
+
+    &--count {
+      background-color: #4219D0;
+      border-radius: 50%;
+      color: #fff;
+    }
   }
 
   &__button:nth-child(1),
