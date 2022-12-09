@@ -101,24 +101,30 @@ export const Cart: React.FC = () => {
 
         <p className={styles.name}>
         Cart
+
         </p>
         <div className={styles.total_container}>
 
           {isLoading && <Loader /> }
 
           {!isLoading
-            && <div className={styles.phones_container}>
 
-              {phones.length > 0
-                ? phones.map(phone => <CartCard
-                  key={phone.id}
-                  phone={phone}
-                  handlePlus={handlePlus}
-                  handleMinus={handleMinus}
-                  handleRemove={handleRemove}
-                  phonesSum={phonesSum} />)
-                : <p className={styles.emptyTitle}>Your cart is empty</p>}
-            </div>}
+              && <div className={styles.phones_container}>
+
+                {phones.length > 0
+                  ? phones.map(phone =>
+                    <CartCard
+                      key={phone.id}
+                      phone={phone}
+                      handlePlus={handlePlus}
+                      handleMinus={handleMinus}
+                      handleRemove={handleRemove}
+                      phonesSum={phonesSum}
+                    />)
+                  : <p className={styles.emptyTitle}>Your cart is empty</p>
+                }
+              </div>
+          }
 
           <div className={styles.sum_container}>
             <p className={styles.price}>
@@ -126,12 +132,14 @@ export const Cart: React.FC = () => {
             </p>
 
             <p className={styles.amount}>
+
               Total for {phonesSum.length} items
             </p>
             <div className={styles.line}>
             </div>
             <button className={styles.checkout} onClick={handleCheckout}>
               Checkout
+
             </button>
             {modalOpen && <Modal setOpenModal={setModalOpen} />}
           </div>
