@@ -4,6 +4,12 @@ import { Phone } from '../types/Phone';
 const BASE_URL = 'https://delightful-granita-7b1065.netlify.app/.netlify/functions/server/products';
 // const BASE_URL = 'http://localhost:9000/.netlify/functions/server/products';
 
+export interface Req {
+  'products': Phone[]
+  'numberOfPages': number
+  'numberOfProducts': number
+}
+
 export const getAllPhones = async(): Promise<Phone[]> => {
   const response = await fetch(BASE_URL);
 
@@ -14,24 +20,14 @@ export const getPhones = async(
   phonesAmount: string,
   pageId: number,
   sortBy: string,
-): Promise<{
-  'products': Phone[]
-  'numberOfPages': number
-  'numberOfProducts': number
-}> => {
+): Promise<Req> => {
   const response = await fetch(`${BASE_URL}/${phonesAmount}/${pageId}/${sortBy}`);
 
   return response.json();
 };
 
-export const getPhonesByIds = async(phoneIds: string) => {
+export const getPhonesByIds = async(phoneIds: string): Promise<Phone[]> => {
   const response = await fetch(`${BASE_URL}/${phoneIds}`);
 
   return response.json();
 };
-
-// export const getFromCart = async(phoneIds: string) => {
-//   const response = await fetch(`${BASE_URL}/${phoneIds}`);
-
-//   return response.json();
-// };
