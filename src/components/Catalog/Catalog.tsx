@@ -12,7 +12,7 @@ import { Loader } from '../Loader';
 
 export const Catalog: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
-  const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(0);
   const [phonesPerPage, setPhonesPerPage] = useState('All');
   const [numberOfPages, setNumberOfPages] = useState(0);
   const [fieldForSorting, setFieldForSorting] = useState('Newest');
@@ -24,7 +24,7 @@ export const Catalog: React.FC = () => {
 
     const responseFromServer = await getPhones(
       phonesPerPage,
-      currentPage,
+      currentPage + 1,
       fieldForSorting,
     );
 
@@ -42,15 +42,16 @@ export const Catalog: React.FC = () => {
     = (e: React.ChangeEvent<HTMLSelectElement>): void => {
       setIsLoading(true);
       setPhonesPerPage(e.target.value);
-      setCurrentPage(1);
+      setCurrentPage(0);
     };
 
   const handleSelectSort = (e: React.ChangeEvent<HTMLSelectElement>): void => {
     setIsLoading(true);
     setFieldForSorting(e.target.value);
-    setCurrentPage(1);
+    setCurrentPage(0);
   };
 
+  // eslint-disable-next-line max-len
   const pageChange = (pageNumber: number): void => setCurrentPage(pageNumber);
 
   return (
