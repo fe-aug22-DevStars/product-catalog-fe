@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ProductCard } from '../ProductCard';
 import { getPhonesByIds } from '../../api/phones';
 import { Phone } from '../../types/Phone';
@@ -7,10 +7,13 @@ import homeIcon from '../../images/Home.png';
 import arrowRight from '../../images/ArrowRight.png';
 import styles from './Favourites.module.scss';
 import { Loader } from '../Loader';
+import { StorageContext } from '../../context/StorageContext';
 
 export const Favourites: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [favouritesAmount, setFavouritesAmount] = useState(0);
+  const { toFavourites } = useContext(StorageContext);
 
   async function loadPhones(): Promise<void> {
     try {
@@ -34,7 +37,11 @@ export const Favourites: React.FC = () => {
 
   useEffect(() => {
     loadPhones();
-  }, []);
+  }, [favouritesAmount]);
+
+  useEffect(() => {
+    setFavouritesAmount(toFavourites.length);
+  }, [toFavourites]);
 
   return (
     <main className={styles.main}>

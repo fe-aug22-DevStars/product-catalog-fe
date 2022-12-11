@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styles from './Cart.module.scss';
 import right from '../../images/right.svg';
 import { Phone } from '../../types/Phone';
@@ -6,12 +6,15 @@ import { getPhonesByIds } from '../../api/phones';
 import { CartCard } from '../CartCard';
 import { Loader } from '../Loader';
 import { Modal } from '../Modal';
+import { StorageContext } from '../../context/StorageContext';
 
 export const Cart: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
   const [phonesSum, setPhonesSum] = useState<Phone[]>(phones);
   const [isLoading, setIsLoading] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
+  const [cartAmount, setCartAmount] = useState(0);
+  const { toCart, setToCart } = useContext(StorageContext);
 
   async function loadPhones(): Promise<any> {
     try {
@@ -19,7 +22,9 @@ export const Cart: React.FC = () => {
 
       const itemsFromCart = localStorage.getItem('cart');
 
-      if (itemsFromCart) {
+      if (itemsFromCart === '[]') {
+        setPhones([]);
+      } else if (itemsFromCart) {
         const responseFromServer = await getPhonesByIds(itemsFromCart);
 
         setPhones(responseFromServer);
@@ -34,7 +39,11 @@ export const Cart: React.FC = () => {
 
   useEffect(() => {
     loadPhones();
-  }, []);
+  }, [cartAmount]);
+
+  useEffect(() => {
+    setCartAmount(toCart.length);
+  }, [toCart]);
 
   const handlePlus = (id: string) => {
     const addItems = phones.find(phone => phone.id === id) || null;
@@ -70,10 +79,7 @@ export const Cart: React.FC = () => {
       return;
     }
 
-    const filteredArray = itemsFromCart.split('&')
-      .filter((v) => v !== id).join('&');
-
-    localStorage.setItem('cart', filteredArray);
+    setToCart(id);
   }
 
   const handleRemove = (id: string) => {

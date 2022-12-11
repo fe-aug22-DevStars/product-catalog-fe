@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-/* import { useLocalStorage } from '../../hooks/useLocalStorage'; */
 import { StorageContext } from '../../context/StorageContext';
 import { Phone } from '../../types/Phone';
 import styles from './ProductCard.module.scss';
