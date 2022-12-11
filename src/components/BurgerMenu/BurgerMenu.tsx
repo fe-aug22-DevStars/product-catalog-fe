@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import styles from './Burger.module.scss';
 import favourites from '../../images/Favourites.svg';
 import shoppingBag from '../../images/ShoppingBag.svg';
 import { NavLink } from 'react-router-dom';
+import { StorageContext } from '../../context/StorageContext';
 
 interface Props {
   setIsMenuOpen: (arg: boolean) => void;
 }
 
 export const BurgerMenu: React.FC<Props> = ({ setIsMenuOpen }) => {
+  const [favouritesAmount, setFavouritesAmount] = useState(0);
+  const [cartAmount, setCartAmount] = useState(0);
+  const { toFavourites, toCart } = useContext(StorageContext);
+
+  useEffect(() => {
+    setFavouritesAmount(toFavourites.length);
+  }, [toFavourites]);
+
+  useEffect(() => {
+    setCartAmount(toCart.length);
+  }, [toCart]);
+
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
@@ -63,6 +76,11 @@ export const BurgerMenu: React.FC<Props> = ({ setIsMenuOpen }) => {
             onClick={() => closeMenu()}
           >
             <img src={favourites} alt="icon" />
+            {favouritesAmount > 0 && (
+              <span className={styles.counter}>
+                {favouritesAmount}
+              </span>
+            )}
           </NavLink>
 
           <NavLink
@@ -71,6 +89,11 @@ export const BurgerMenu: React.FC<Props> = ({ setIsMenuOpen }) => {
             onClick={() => closeMenu()}
           >
             <img src={shoppingBag} alt="icon" />
+            {cartAmount > 0 && (
+              <span className={styles.counter}>
+                {cartAmount}
+              </span>
+            )}
           </NavLink>
         </div>
       </div>

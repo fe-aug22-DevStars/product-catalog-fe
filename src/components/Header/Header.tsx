@@ -103,7 +103,7 @@ export const Header: React.FC = () => {
           >
             <img src={favourites} alt="icon" />
             {favouritesAmount > 0 && (
-              <span>
+              <span className={styles.counter}>
                 {favouritesAmount}
               </span>
             )}
@@ -130,7 +130,7 @@ export const Header: React.FC = () => {
 
             <img src={cart} alt="icon" />
             {cartAmount > 0 && (
-              <span>
+              <span className={styles.counter}>
                 {cartAmount}
               </span>
             )}
