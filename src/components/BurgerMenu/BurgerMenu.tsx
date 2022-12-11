@@ -5,11 +5,10 @@ import shoppingBag from '../../images/ShoppingBag.svg';
 import { NavLink } from 'react-router-dom';
 
 interface Props {
-  isMenuOpen: boolean;
   setIsMenuOpen: (arg: boolean) => void;
 }
 
-export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
+export const BurgerMenu: React.FC<Props> = ({ setIsMenuOpen }) => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
@@ -58,11 +57,19 @@ export const BurgerMenu: React.FC<Props> = ({ isMenuOpen, setIsMenuOpen }) => {
           </ul>
         </div>
         <div className={styles.footer__block}>
-          <NavLink to="favourites" className={styles.footer__icon}>
+          <NavLink
+            to="favourites"
+            className={styles.footer__icon}
+            onClick={() => closeMenu()}
+          >
             <img src={favourites} alt="icon" />
           </NavLink>
 
-          <NavLink to="cart" className={styles.footer__icon}>
+          <NavLink
+            to="cart"
+            className={styles.footer__icon}
+            onClick={() => closeMenu()}
+          >
             <img src={shoppingBag} alt="icon" />
           </NavLink>
         </div>

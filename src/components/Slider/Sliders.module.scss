@@ -54,8 +54,14 @@
 }
 
 .arrow {
-  width: 32px;
-  height: 32px;
+  //width: 32px;
+  //height: 32px;
+  cursor: pointer;
+
+  &1 {
+    transform: rotate(180deg);
+    cursor: pointer;
+  }
 }
 
 .phones {

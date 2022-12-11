@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactPaginate from 'react-paginate';
-
 import styles from './Pagination.module.scss';
 
 interface Props {
@@ -14,20 +13,8 @@ export const Pagination: React.FC<Props> = ({
   numberOfPages,
   currentPage,
 }) => {
-  // eslint-disable-next-line no-console
-  console.log('currentPage', currentPage);
-
-  const pageNumbers = [];
-
-  for (let i = 1; i <= numberOfPages; i++) {
-    pageNumbers.push(i);
-  }
-
   const handlePageClick = (e: { selected: number; }) => {
     pageChange(e.selected);
-
-    // eslint-disable-next-line no-console
-    console.log(currentPage, 'e.selected', e.selected);
   };
 
   return (
