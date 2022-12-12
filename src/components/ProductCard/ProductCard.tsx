@@ -3,28 +3,30 @@ import { Phone } from '../../types/Phone';
 import styles from './ProductCard.module.scss';
 import classNames from 'classnames';
 import { formatCapacity } from '../../utilities/formatCapacity';
+import { NavLink } from 'react-router-dom';
 
 interface Props {
-  phone: Phone
+  phone: Phone;
 }
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
-  const [toCart, setToCart]
-    = useState<string[]>(localStorage.getItem('cart')?.split('&') || []);
-  const [toFavourites, setToFavourites]
-    = useState<string[]>(localStorage.getItem('favourites')?.split('&') || []);
+  const [toCart, setToCart] = useState<string[]>(
+    localStorage.getItem('cart')?.split('&') || [],
+  );
+  const [toFavourites, setToFavourites] = useState<string[]>(
+    localStorage.getItem('favourites')?.split('&') || [],
+  );
 
   const changeToFavourites = (phoneId: string) => {
     const checkFavourites = localStorage.getItem('favourites');
     let favourites;
 
     if (!toFavourites.includes(phoneId)) {
-      favourites = !checkFavourites
-        ? phoneId
-        : checkFavourites + '&' + phoneId;
+      favourites = !checkFavourites ? phoneId : checkFavourites + '&' + phoneId;
     } else {
-      favourites = checkFavourites?.split('&')
-        .filter(item => item !== phoneId)
+      favourites = checkFavourites
+        ?.split('&')
+        .filter((item) => item !== phoneId)
         .join('&');
     }
 
@@ -36,41 +38,48 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
     let cart;
 
     if (!toCart.includes(phoneId)) {
-      cart = !checkCart
-        ? phoneId
-        : checkCart + '&' + phoneId;
+      cart = !checkCart ? phoneId : checkCart + '&' + phoneId;
     } else {
-      cart = checkCart?.split('&')
-        .filter(item => item !== phoneId)
+      cart = checkCart
+        ?.split('&')
+        .filter((item) => item !== phoneId)
         .join('&');
     }
 
     localStorage.setItem('cart', cart || '');
   };
 
+  const handleClickToCart = () => {
+    setToCart((currValues) =>
+      currValues.includes(phone.id)
+        ? currValues.filter((item) => item !== phone.id)
+        : [...currValues, phone.id]);
+    changeToCart(phone.id);
+  };
+
   return (
     <>
       <div className={styles.card}>
         <div className={styles.image_container}>
-          <img
-            className={styles.image}
-            src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${phone.image}`}
-            alt="phone"
-          />
+          <NavLink to={`/product/${phone.phoneId}`}>
+            <img
+              className={styles.image}
+              src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${phone.image}`}
+              alt="phone"
+            />
+          </NavLink>
         </div>
 
-        <h2 className={styles.title}>
-          {phone.name}
-        </h2>
+        <NavLink to={`/product/${phone.phoneId}`}>
+          <h2 className={styles.title}>{phone.name}</h2>
+        </NavLink>
 
         <h3 className={styles.price}>
           ${phone.price}&nbsp;
-          <span className={styles.full_price}>
-            ${phone.fullPrice}
-          </span>
+          <span className={styles.full_price}>${phone.fullPrice}</span>
         </h3>
 
-        <span className={styles.line}/>
+        <span className={styles.line} />
 
         <div className={styles.info_container}>
           <p className={styles.info}>
@@ -80,55 +89,41 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
 
           <p className={styles.info}>
             <span className={styles.info_name}>Capacity</span>
-            <span
-              className={styles.info_value}>
+            <span className={styles.info_value}>
               {formatCapacity(phone.capacity)}
             </span>
           </p>
 
           <p className={styles.info}>
             <span className={styles.info_name}>RAM</span>
-            <span
-              className={styles.info_value}>
-              {formatCapacity(phone.capacity)}
+            <span className={styles.info_value}>
+              {formatCapacity(phone.ram)}
             </span>
           </p>
         </div>
 
         <div className={styles.bottom}>
           <button
-            onClick={() => {
-              setToCart(currValues => (
-                currValues.includes(phone.id)
-                  ? currValues.filter(item => item !== phone.id)
-                  : [...currValues, phone.id]
-              ));
-              changeToCart(phone.id);
-            }}
+            onClick={handleClickToCart}
             className={classNames(styles.buy, {
               [styles.buy_active]: toCart.includes(phone.id),
             })}
           >
-            {!toCart.includes(phone.id)
-              ? 'Add to cart'
-              : 'Added to cart'
-            }
+            {!toCart.includes(phone.id) ? 'Add to cart' : 'Added to cart'}
           </button>
 
           <div
             onClick={() => {
-              setToFavourites(currValues => (
+              setToFavourites((currValues) =>
                 currValues.includes(phone.id)
-                  ? currValues.filter(item => item !== phone.id)
-                  : [...currValues, phone.id]
-              ));
+                  ? currValues.filter((item) => item !== phone.id)
+                  : [...currValues, phone.id]);
               changeToFavourites(phone.id);
             }}
             className={classNames(styles.favourites, {
               [styles.favourites_active]: toFavourites.includes(phone.id),
             })}
-          >
-          </div>
+          ></div>
         </div>
       </div>
     </>

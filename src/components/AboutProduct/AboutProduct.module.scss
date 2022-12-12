@@ -1,0 +1,104 @@
+@import '../../styles/utils/mixins.scss';
+@import '../../styles/utils/variables.scss';
+
+.about_block {
+  display: flex;
+  flex-direction: column;
+
+  @include onDesktop {
+    flex-direction: row;
+  }
+}
+
+.about {
+  flex-basis: 50%;
+
+  @include onDesktop {
+    margin-right: 32px;
+  }
+}
+
+.title {
+  font-family: Mont-Bold, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+  color: $black;
+  margin: 56px 0 8px;
+
+  @include onTablet {
+    font-weight: 800;
+    font-size: 22px;
+    line-height: 140%;
+    margin: 64px 0 8px;
+  }
+
+  @include onDesktop {
+    margin: 80px 0 8px;
+  }
+}
+
+.line {
+  border: 1px solid $greyForElements;
+}
+
+.subtitle {
+  font-family: Mont-Bold, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  color: $black;
+  margin: 32px 0 16px;
+
+  @include onTablet {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+.list {
+  margin: 25px 0 0;
+  padding: 0;
+}
+
+.text {
+  font-family: Mont-Regular, sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  color: $grey;
+
+  &:not(:last-child) {
+    margin-bottom: 16px;
+  }
+}
+
+.tech_specs {
+  flex-basis: 50%;
+
+  @include onDesktop {
+    margin-left: 32px;
+  }
+}
+
+.specs {
+  font-family: Mont-Regular, sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 21px;
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+}
+
+.spec {
+  color: $grey;
+}
+
+.numbers {
+  color: $black;
+}
