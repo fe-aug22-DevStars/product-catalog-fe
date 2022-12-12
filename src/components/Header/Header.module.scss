@@ -1,5 +1,5 @@
 @import '../../styles/utils/variables';
-@import '../../styles/utils/mixins.scss';
+@import '../../styles/utils/_mixins.scss';
 @import '../../styles/utils/colors.scss';
 
 .header {
@@ -15,6 +15,10 @@
   background-color: $white;
   top: 0;
   z-index: 2;
+
+  @include onDesktopPlus {
+    justify-content: space-evenly;
+  }
 }
 
 .logo {
@@ -106,11 +110,14 @@
 }
 
 @include onTablet {
-
   .buttons__button:nth-child(1),
   .buttons__button:nth-child(3),
   .nav__list {
     display: flex;
+  }
+
+  .buttons__button:nth-child(3) {
+    box-shadow: -1px 0px 0px $greyForElements;
   }
 
   .buttons__button:nth-child(2) {
@@ -134,5 +141,11 @@
 
   .nav__link {
     padding: 19px 0;
+  }
+}
+
+@include onDesktopPlus {
+  .buttons__button:nth-child(3) {
+    border-right: 1.5px solid $greyForElements;
   }
 }
