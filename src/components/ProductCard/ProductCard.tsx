@@ -25,7 +25,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
         <div className={styles.image_container}>
           <img
             className={styles.image}
-            src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${phone.image}`}
+            src={`https://delightful-granita-7b1065.netlify.app/${phone.image}`}
             alt="phone"
           />
         </div>
