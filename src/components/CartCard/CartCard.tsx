@@ -29,7 +29,7 @@ export const CartCard: React.FC<Props> = ({
         </a>
         <img
           className={styles.image}
-          src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${phone.image}`}
+          src={`https://delightful-granita-7b1065.netlify.app/${phone.image}`}
           alt="phone"
         />
         <h2 className={styles.title}>
