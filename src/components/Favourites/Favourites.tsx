@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { ProductCard } from '../ProductCard';
 import { getPhonesByIds } from '../../api/phones';
 import { Phone } from '../../types/Phone';
@@ -6,23 +6,42 @@ import { Phone } from '../../types/Phone';
 import homeIcon from '../../images/Home.svg';
 import arrowRight from '../../images/ArrowRight.svg';
 import styles from './Favourites.module.scss';
+import { Loader } from '../Loader';
+import { StorageContext } from '../../context/StorageContext';
 
 export const Favourites: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [favouritesAmount, setFavouritesAmount] = useState(0);
+  const { toFavourites } = useContext(StorageContext);
 
-  async function loadPhones(): Promise<any> {
-    const favourites = localStorage.getItem('favourites');
+  async function loadPhones(): Promise<void> {
+    try {
+      setIsLoading(true);
 
-    if (favourites) {
-      const responseFromServer = await getPhonesByIds(favourites);
+      const favourites = localStorage.getItem('favourites');
 
-      setPhones(responseFromServer);
+      if (favourites === '[]') {
+        setPhones([]);
+      } else if (favourites) {
+        const responseFromServer = await getPhonesByIds(favourites);
+
+        setPhones(responseFromServer);
+      }
+    } catch (error) {
+      throw new Error('No phones loaded');
+    } finally {
+      setIsLoading(false);
     }
   }
 
   useEffect(() => {
     loadPhones();
-  }, [phones]);
+  }, [favouritesAmount]);
+
+  useEffect(() => {
+    setFavouritesAmount(toFavourites.length);
+  }, [toFavourites]);
 
   return (
     <main className={styles.main}>
@@ -39,11 +58,19 @@ export const Favourites: React.FC = () => {
 
         <h3 className={styles.subHeader}>{phones.length} items</h3>
 
-        <div className={styles.goods}>
-          {phones.length > 0
-          && phones.map(phone => <ProductCard key={phone.id} phone={phone} />)
-          }
-        </div>
+        {isLoading && <Loader /> }
+
+        {!isLoading
+          && <div className={styles.goods}>
+            {phones.length > 0
+            && phones.map(phone =>
+              <ProductCard
+                key={phone.id}
+                phone={phone}
+              />)
+            }
+          </div>
+        }
       </div>
     </main>
   );

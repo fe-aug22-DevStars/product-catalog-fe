@@ -1,15 +1,12 @@
 @import './utils/reset';
 @import './utils/typografy';
 @import './utils/colors.scss';
-
-header {
-  font-family: Mont;
-  font-weight: 800;
-}
+@import '/src/styles/utils/variables';
 
 html {
   scroll-behavior: smooth;
 }
+
 
 body {
   margin: 0;
@@ -24,3 +21,22 @@ body {
     text-decoration: none;
   }
 }
+
+.app {
+  font-family: Mont;
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  min-height: 100vh;
+}
+
+main {
+  position: relative;
+  flex-grow: 1;
+  background-color: $greyForBackground;
+}
+
+// footer {
+//   max-width: 1200px;
+//   text-align: center;
+// }

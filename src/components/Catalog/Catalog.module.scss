@@ -3,11 +3,8 @@
 @import '../../styles/utils/mixins.scss';
 
 .main {
-  box-sizing: border-box;
   font-family: Mont;
   padding: 16px;
-  max-width: 1200px;
-  margin: auto;
   background-color: $greyForBackground;
   color: $grey;
  
@@ -15,6 +12,13 @@
   @include onTablet {
     padding: 24px;
   }
+}
+
+.container {
+  box-sizing: border-box;
+  margin: 0 auto;
+
+  max-width: 1200px;
 }
 
 .topMenu {

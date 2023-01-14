@@ -14,9 +14,13 @@
   height: 32px;
   border: 1px $greyForIcons solid;
   border-radius: 100%;
+  font-size: 24px;
+  text-align: center;
+  line-height: 30px;
 
   &:hover {
     background-color: $black;
+    cursor: pointer;
   }
 }
 
@@ -32,7 +36,14 @@
   text-decoration: none;
   text-align: center;
   line-height: 30px;
+
+  &:hover {
+    background-color: $black;
+    color: $white;
+    cursor: pointer;
+  }
 }
+
 
 .isActive{
   color: $white;

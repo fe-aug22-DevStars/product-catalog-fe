@@ -11,6 +11,10 @@
 
   font-family: "Mont";
   font-weight: 800;
+  position: sticky;
+  background-color: $white;
+  top: 0;
+  z-index: 2;
 }
 
 .logo {
@@ -31,11 +35,18 @@
 
     width: 48px;
     height: 48px;
+
+    &--count {
+      background-color: #4219D0;
+      border-radius: 50%;
+      color: #fff;
+    }
   }
 
   &__button:nth-child(1),
   &__button:nth-child(3) {
     display: none;
+    text-decoration: none;
   }
 }
 
@@ -74,6 +85,24 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.counter {
+  position: relative;
+  left: -10%;
+  top: -10%;
+  width: 12px;
+  height: 12px;
+  
+  
+  color: $white;
+  font-size: 9px;
+  line-height: 12px;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 100%;
+  background-color: $purple;
+  
 }
 
 @include onTablet {
