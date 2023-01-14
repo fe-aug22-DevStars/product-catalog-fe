@@ -103,6 +103,35 @@
   margin-bottom: 16px;
 }
 
+.bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.favourites {
+  height: 40px;
+  width: 40px;
+
+  border: 1px solid $greyForIcons;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  background: url("../../images/Favourites.svg") center no-repeat;
+  object-fit: contain;
+
+  transition: all 0.3s ease;
+
+  &:hover {
+    border: 1px solid $black;
+  }
+
+  &_active {
+    border: 1px solid $greyForIcons;
+    background: url("../../images/FavouritesFilled.svg") center no-repeat;
+  }
+}
+
 .buy {
   width: 176px;
   height: 40px;
@@ -133,34 +162,5 @@
 
   @include onTablet {
     width: 118px;
-  }
-}
-
-.bottom {
-  display: flex;
-  justify-content: space-between;
-}
-
-.favourites {
-  height: 40px;
-  width: 40px;
-
-  border: 1px solid $greyForIcons;
-  border-radius: 50%;
-
-  cursor: pointer;
-
-  background: url("../../images/Favourites.svg") center no-repeat;
-  object-fit: contain;
-
-  transition: all 0.3s ease;
-
-  &:hover {
-    border: 1px solid $black;
-  }
-
-  &_active {
-    border: 1px solid $greyForIcons;
-    background: url("../../images/FavouritesFilled.svg") center no-repeat;
   }
 }

@@ -9,6 +9,7 @@ import { Cart } from './components/Cart';
 import { Favourites } from './components/Favourites';
 import { HomePage } from './components/HomePage';
 import { ErrorPage } from './components/ErrorPage';
+import { ItemPage } from './components/ItemPage';
 import { AboutPhones } from './components/AboutPhones';
 
 const App: React.FC = () => {
@@ -26,6 +27,7 @@ const App: React.FC = () => {
             <Route path='cart' element={<Cart />} />
             <Route path='about' element={<AboutPhones />} />
             <Route path='*' element={<ErrorPage />} />
+            <Route path="product/:id" element={<ItemPage />} />
           </Routes>
         </main>
         <footer>

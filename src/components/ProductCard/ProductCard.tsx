@@ -4,9 +4,10 @@ import { Phone } from '../../types/Phone';
 import styles from './ProductCard.module.scss';
 import classNames from 'classnames';
 import { formatCapacity } from '../../utilities/formatCapacity';
+import { NavLink } from 'react-router-dom';
 
 interface Props {
-  phone: Phone,
+  phone: Phone;
 }
 
 export const ProductCard: React.FC<Props> = ({ phone }) => {
@@ -23,25 +24,25 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
     <>
       <div className={styles.card}>
         <div className={styles.image_container}>
-          <img
-            className={styles.image}
-            src={`https://delightful-granita-7b1065.netlify.app/${phone.image}`}
-            alt="phone"
-          />
+          <NavLink to={`/product/${phone.phoneId}`}>
+            <img
+              className={styles.image}
+              src={`https://delightful-granita-7b1065.netlify.app/${phone.image}`}
+              alt="phone"
+            />
+          </NavLink>
         </div>
 
-        <h2 className={styles.title}>
-          {phone.name}
-        </h2>
+        <NavLink to={`/product/${phone.phoneId}`}>
+          <h2 className={styles.title}>{phone.name}</h2>
+        </NavLink>
 
         <h3 className={styles.price}>
           ${phone.price}&nbsp;
-          <span className={styles.full_price}>
-            ${phone.fullPrice}
-          </span>
+          <span className={styles.full_price}>${phone.fullPrice}</span>
         </h3>
 
-        <span className={styles.line}/>
+        <span className={styles.line} />
 
         <div className={styles.info_container}>
           <p className={styles.info}>
@@ -51,17 +52,15 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
 
           <p className={styles.info}>
             <span className={styles.info_name}>Capacity</span>
-            <span
-              className={styles.info_value}>
+            <span className={styles.info_value}>
               {formatCapacity(phone.capacity)}
             </span>
           </p>
 
           <p className={styles.info}>
             <span className={styles.info_name}>RAM</span>
-            <span
-              className={styles.info_value}>
-              {formatCapacity(phone.capacity)}
+            <span className={styles.info_value}>
+              {formatCapacity(phone.ram)}
             </span>
           </p>
         </div>
@@ -75,10 +74,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
               [styles.buy_active]: toCart.includes(phone.id),
             })}
           >
-            {!toCart.includes(phone.id)
-              ? 'Add to cart'
-              : 'Added to cart'
-            }
+            {!toCart.includes(phone.id) ? 'Add to cart' : 'Added to cart'}
           </button>
 
           <div
@@ -88,8 +84,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
             className={classNames(styles.favourites, {
               [styles.favourites_active]: toFavourites.includes(phone.id),
             })}
-          >
-          </div>
+          ></div>
         </div>
       </div>
     </>
