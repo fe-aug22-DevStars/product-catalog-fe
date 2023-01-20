@@ -33,7 +33,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
           </NavLink>
         </div>
 
-        <NavLink to={`/product/${phone.phoneId}`}>
+        <NavLink className={styles.productLink} to={`/product/${phone.phoneId}`}>
           <h2 className={styles.title}>{phone.name}</h2>
         </NavLink>
 
