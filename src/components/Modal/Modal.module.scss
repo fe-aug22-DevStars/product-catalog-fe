@@ -1,3 +1,5 @@
+@import '../../styles/utils/_variables';
+
 .modalBackground {
   background-color: rgba(0, 0, 0, 0.6);
   position: fixed;
@@ -65,7 +67,14 @@
   color: white;
   border-radius: 8px;
   font-size: 20px;
+  font-family: Mont-Regular, sans-serif;
+
   cursor: pointer;
+  transition: box-shadow $transition-time;
+
+  &:hover {
+    box-shadow: 0 3px 13px rgb(23 32 49 / 40%);
+  }
 }
 
 #cancelBtn {

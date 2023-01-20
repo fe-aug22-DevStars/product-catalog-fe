@@ -152,6 +152,10 @@
 
   background: $purple;
   border-radius: 48px;
+  border: none;
+  transition: box-shadow $transition-time;
+
+  cursor: pointer;
 
   @include onTablet {
     width: 544px;
@@ -160,6 +164,10 @@
   @include onDesktop {
     width: 320px;
   }
+}
+
+.checkout:hover {
+  box-shadow: 0 3px 13px rgb(23 32 49 / 40%);
 }
 
 .emptyTitle {
