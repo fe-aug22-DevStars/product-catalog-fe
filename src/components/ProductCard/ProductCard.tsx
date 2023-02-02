@@ -27,7 +27,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
           <NavLink to={`/product/${phone.phoneId}`}>
             <img
               className={styles.image}
-              src={`https://delightful-granita-7b1065.netlify.app/${phone.image}`}
+              src={`https://device-shop.onrender.com/${phone.image}`}
               alt="phone"
             />
           </NavLink>

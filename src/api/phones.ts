@@ -1,7 +1,7 @@
 import { Phone } from '../types/Phone';
 
 // eslint-disable-next-line max-len
-const BASE_URL = 'https://delightful-granita-7b1065.netlify.app/.netlify/functions/server/products';
+const BASE_URL = 'https://device-shop.onrender.com/products';
 // const BASE_URL = 'http://localhost:9000/.netlify/functions/server/products';
 
 export interface Req {
