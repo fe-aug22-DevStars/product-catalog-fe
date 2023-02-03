@@ -17,8 +17,6 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
     toCart,
     setToCart,
   } = useContext(StorageContext);
-  /* const [toCart, setToCart] = useLocalStorage('cart');
-  const [toFavourites, setToFavourites] = useLocalStorage('favourites'); */
 
   return (
     <>

@@ -9,13 +9,13 @@
 //}
 
 .card {
-  width: 232px;
+  width: auto;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
-  height: 440px;
+  height: auto;
   padding: 0 32px;
 
   border: 1px solid $greyForElements;
@@ -23,7 +23,7 @@
   background-color: $white;
 
   @include onTablet {
-    width: 237px;
+    width: 236px;
   }
 
   @include onDesktop {
@@ -37,11 +37,13 @@
   margin-bottom: 24px;
 }
 .image {
-  width: 224px;
-  height: 130px;
-
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 200px;
   object-fit: contain;
   display: block;
+  margin-top: 30px;
 }
 
 .productLink {
@@ -51,6 +53,7 @@
 .title {
   display: flex;
   justify-content: center;
+  height: 50px;
 
   font-family: Mont, sans-serif;
   font-size: 14px;
@@ -110,6 +113,7 @@
 .bottom {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
 }
 
 .favourites {
