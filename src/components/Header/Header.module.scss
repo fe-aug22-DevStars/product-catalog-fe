@@ -6,10 +6,10 @@
   display: flex;
   justify-content: space-between;
 
-  box-shadow: 0px 1px 0px $greyForElements;
+  box-shadow: 0 1px 0 $greyForElements;
   overflow: hidden;
 
-  font-family: "Mont";
+  font-family: "Mont", sans-serif;
   font-weight: 800;
   position: sticky;
   background-color: $white;
@@ -22,7 +22,7 @@
 }
 
 .logo {
-  padding: 0px 16px;
+  padding: 0 16px;
   height: 31px;
 }
 
@@ -97,8 +97,8 @@
   top: -10%;
   width: 12px;
   height: 12px;
-  
-  
+
+
   color: $white;
   font-size: 9px;
   line-height: 12px;
@@ -106,7 +106,7 @@
   font-weight: 700;
   border-radius: 100%;
   background-color: $purple;
-  
+
 }
 
 @include onTablet {
@@ -127,7 +127,7 @@
 
 @include onDesktop {
   .logo {
-    padding: 0px 24px;
+    padding: 0 24px;
   }
 
   .buttons__button {

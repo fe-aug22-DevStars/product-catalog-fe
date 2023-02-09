@@ -2,14 +2,9 @@
 @import '../../styles/utils/colors';
 @import '../../styles/utils/mixins';
 
-//@mixin onTablet {
-//  @media (min-width: 768px) {
-//    @content;
-//  }
-//}
-
 .card {
   width: auto;
+  max-width: 300px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;

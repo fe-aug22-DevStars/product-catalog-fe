@@ -7,7 +7,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
   margin: 0;
 }
@@ -23,7 +22,7 @@ body {
 }
 
 .app {
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
@@ -35,8 +34,3 @@ main {
   flex-grow: 1;
   background-color: $greyForBackground;
 }
-
-// footer {
-//   max-width: 1200px;
-//   text-align: center;
-// }

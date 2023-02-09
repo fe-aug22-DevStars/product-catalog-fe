@@ -5,6 +5,7 @@ import styles from './ProductCard.module.scss';
 import classNames from 'classnames';
 import { formatCapacity } from '../../utilities/formatCapacity';
 import { NavLink } from 'react-router-dom';
+import { Button } from '../Button';
 
 interface Props {
   phone: Phone;
@@ -14,8 +15,6 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
   const {
     toFavourites,
     setToFavourites,
-    toCart,
-    setToCart,
   } = useContext(StorageContext);
 
   return (
@@ -25,7 +24,8 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
           <NavLink to={`/product/${phone.phoneId}`}>
             <img
               className={styles.image}
-              src={`https://device-shop.onrender.com/${phone.image}`}
+              // src={`https://device-shop.onrender.com/${phone.image}`}
+              src={`http://localhost:5000/${phone.image}`}
               alt="phone"
             />
           </NavLink>
@@ -64,16 +64,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
         </div>
 
         <div className={styles.bottom}>
-          <button
-            onClick={() => {
-              setToCart(phone.id);
-            }}
-            className={classNames(styles.buy, {
-              [styles.buy_active]: toCart.includes(phone.id),
-            })}
-          >
-            {!toCart.includes(phone.id) ? 'Add to cart' : 'Added to cart'}
-          </button>
+          <Button phone={phone}/>
 
           <div
             onClick={() => {
