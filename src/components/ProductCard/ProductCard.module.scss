@@ -113,7 +113,7 @@
 
 .favourites {
   height: 40px;
-  width: 40px;
+  min-width: 40px;
 
   border: 1px solid $greyForIcons;
   border-radius: 50%;
@@ -135,35 +135,4 @@
   }
 }
 
-.buy {
-  width: 176px;
-  height: 40px;
 
-  background-color: $purple;
-  border: 1px solid transparent;
-  border-radius: 48px;
-
-  font-family: Mont, serif;
-  font-size: 14px;
-  font-weight: 700;
-
-  text-decoration: none;
-  color: $white;
-  cursor: pointer;
-
-  transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
-  }
-
-  &_active {
-    color: $purple;
-    background-color: $white;
-    border: 1px solid #E2E6E9;
-  }
-
-  @include onTablet {
-    width: 118px;
-  }
-}

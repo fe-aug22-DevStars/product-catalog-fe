@@ -37,8 +37,9 @@ export const Footer: React.FC = () => (
           onClick={scrollToTop}
         >
           Back to top
+
+          <img src={Up} alt="Up" className={styles.up}/>
         </button>
-        <img src={Up} alt="Up" className={styles.up}/>
       </div>
 
     </div>

@@ -23,7 +23,13 @@
 
 .logo {
   padding: 0 16px;
-  height: 31px;
+  height: 30px;
+
+  transition: 0.3s ease;
+
+  &:hover {
+    scale: 110%;
+  }
 }
 
 .buttons {
@@ -141,6 +147,13 @@
 
   .nav__link {
     padding: 19px 0;
+  }
+}
+
+.icon {
+  transition: 0.3s ease;
+  &:hover {
+    scale: 110%;
   }
 }
 

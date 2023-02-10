@@ -101,7 +101,7 @@ export const Header: React.FC = () => {
               cn(styles.buttons__button, { [styles['is-active']]: isActive })
             }
           >
-            <img src={favourites} alt="icon" />
+            <img src={favourites} className={styles.icon} alt="icon" />
             {favouritesAmount > 0 && (
               <span className={styles.counter}>
                 {favouritesAmount}
@@ -128,7 +128,7 @@ export const Header: React.FC = () => {
             }
           >
 
-            <img src={cart} alt="icon" />
+            <img src={cart} alt="icon" className={styles.icon}/>
             {cartAmount > 0 && (
               <span className={styles.counter}>
                 {cartAmount}

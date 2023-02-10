@@ -10,6 +10,8 @@ import { getSingleProductById } from '../../api/phones';
 import { Navigate, useLocation } from 'react-router-dom';
 import { ProductFullSpecs } from '../../types/ProductFullSpecs';
 import { Loader } from '../Loader';
+import { Button } from '../Button';
+import { FavouritesButton } from '../FavouritesButton/FavouritesButton';
 
 export const ItemPage = () => {
   const [hasError, setHasError] = useState(false);
@@ -21,7 +23,7 @@ export const ItemPage = () => {
   const loc = useLocation();
   const query = loc.pathname.toString().slice(9);
 
-  const getPhone = async () => {
+  const getPhone = async() => {
     try {
       const product = await getSingleProductById(query);
 
@@ -78,7 +80,7 @@ export const ItemPage = () => {
                         className={cn([styles.colors_button], {
                           [styles.isColorSelected]: selectedColor === color,
                         })}
-                        style={{background: color}}
+                        style={{ background: color }}
                         onClick={() => handleChangeColor(color)}
                         key={color}
                       >
@@ -93,8 +95,8 @@ export const ItemPage = () => {
                     {phoneInfo?.capacityAvailable.map(capacity => (
                       <button
                         className={cn([styles.capacity_block], {
-                          [styles.capacityIsActive]: capacity ===
-                          memoryCapacity,
+                          [styles.capacityIsActive]: capacity
+                          === memoryCapacity,
                         })}
                         key={capacity}
                         onClick={() => handleCapacity(capacity)}
@@ -111,7 +113,9 @@ export const ItemPage = () => {
                 </div>
 
                 <div className={styles.buttons}>
+                  <Button id={phoneInfo.id}/>
 
+                  <FavouritesButton id={phoneInfo.id} />
                 </div>
 
                 <div className={styles.specification}>

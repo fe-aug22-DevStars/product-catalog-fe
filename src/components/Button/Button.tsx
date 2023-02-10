@@ -1,14 +1,13 @@
 import React, { useContext } from 'react';
 import classNames from 'classnames';
-import styles from '../ProductCard/ProductCard.module.scss';
+import styles from '../Button/Button.module.scss';
 import { StorageContext } from '../../context/StorageContext';
-import { Phone } from '../../types/Phone';
 
 type Props = {
-  phone: Phone;
+  id: string;
 }
 
-export const Button: React.FC<Props> = ({ phone }) => {
+export const Button: React.FC<Props> = ({ id }) => {
   const {
     toCart,
     setToCart,
@@ -17,13 +16,13 @@ export const Button: React.FC<Props> = ({ phone }) => {
   return (
     <button
       onClick={() => {
-        setToCart(phone.id);
+        setToCart(id);
       }}
       className={classNames(styles.buy, {
-        [styles.buy_active]: toCart.includes(phone.id),
+        [styles.buy_active]: toCart.includes(id),
       })}
     >
-      {!toCart.includes(phone.id) ? 'Add to cart' : 'Added to cart'}
+      {!toCart.includes(id) ? 'Add to cart' : 'Added to cart'}
     </button>
   );
 };
