@@ -67,15 +67,12 @@
 
 .image {
   width: 100%;
-  padding-top: 100%;
-  margin-top: -100%;
   display: block;
   background-size: cover;
   background-position: top center;
+  height: 440px;
 
   @include onTablet {
-    padding-top: 0;
-    margin-top: 0;
     height: 100%;
   }
 
