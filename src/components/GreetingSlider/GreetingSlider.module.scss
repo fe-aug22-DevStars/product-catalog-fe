@@ -81,26 +81,26 @@
   }
 
   &_1 {
-    background-image: url(../../images/iphoneMobile.jpg);
+    background-image: url(../../assets/images/iphoneMobile.jpg);
 
     @include onTablet {
-      background-image: url(../../images/iphoneDesktop.jpg);
+      background-image: url(../../assets/images/iphoneDesktop.jpg);
     }
   }
 
   &_2 {
-    background-image: url(../../images/ipadMobile.jpg);
+    background-image: url(../../assets/images/ipadMobile.jpg);
 
     @include onTablet {
-      background-image: url(../../images/ipadDesktop.png);
+      background-image: url(../../assets/images/ipadDesktop.png);
     }
   }
 
   &_3 {
-    background-image: url(../../images/accessoriesMobile.jpg);
+    background-image: url(../../assets/images/accessoriesMobile.jpg);
 
     @include onTablet {
-      background-image: url(../../images/accessoriesDesktop.jpg);
+      background-image: url(../../assets/images/accessoriesDesktop.jpg);
     }
   }
 }

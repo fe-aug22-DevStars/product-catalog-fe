@@ -3,8 +3,8 @@ import { ProductCard } from '../ProductCard';
 import { getPhonesByIds } from '../../api/phones';
 import { Phone } from '../../types/Phone';
 
-import homeIcon from '../../images/Home.svg';
-import arrowRight from '../../images/ArrowRight.svg';
+import homeIcon from '../../assets/images/Home.svg';
+import arrowRight from '../../assets/images/ArrowRight.svg';
 import styles from './Favourites.module.scss';
 import { Loader } from '../Loader';
 import { StorageContext } from '../../context/StorageContext';

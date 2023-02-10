@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styles from './Cart.module.scss';
-import right from '../../images/right.svg';
+import right from '../../assets/images/right.svg';
 import { Phone } from '../../types/Phone';
 import { getPhonesByIds } from '../../api/phones';
 import { CartCard } from '../CartCard';

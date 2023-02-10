@@ -121,7 +121,7 @@
 
   cursor: pointer;
 
-  background: url("../../images/Favourites.svg") center no-repeat;
+  background: url("../../assets/images/Favourites.svg") center no-repeat;
   object-fit: contain;
 
   transition: all 0.3s ease;
@@ -132,7 +132,7 @@
 
   &_active {
     border: 1px solid $greyForIcons;
-    background: url("../../images/FavouritesFilled.svg") center no-repeat;
+    background: url("../../assets/images/FavouritesFilled.svg") center no-repeat;
   }
 }
 

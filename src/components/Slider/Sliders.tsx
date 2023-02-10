@@ -1,7 +1,7 @@
 import React from 'react';
 import Slider from 'react-slick';
 import { Phone } from '../../types/Phone';
-import rightNext from '../../images/rightNext.svg';
+import rightNext from '../../assets/images/rightNext.svg';
 import { ProductCard } from '../ProductCard';
 import styles from './Sliders.module.scss';
 

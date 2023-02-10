@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './Burger.module.scss';
-import favourites from '../../images/Favourites.svg';
-import shoppingBag from '../../images/ShoppingBag.svg';
+import favourites from '../../assets/images/Favourites.svg';
+import shoppingBag from '../../assets/images/ShoppingBag.svg';
 import { NavLink } from 'react-router-dom';
 import { StorageContext } from '../../context/StorageContext';
 

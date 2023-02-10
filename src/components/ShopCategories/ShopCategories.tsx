@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import phones from '../../images/Phones.jpg';
-import tablets from '../../images/Tablets.jpg';
-import accessories from '../../images/Accessories.jpg';
+import phones from '../../assets/images/Phones.jpg';
+import tablets from '../../assets/images/Tablets.jpg';
+import accessories from '../../assets/images/Accessories.jpg';
 import styles from './ShopCategories.module.scss';
 import { getAllPhones } from '../../api/phones';
 import { useEffect, useState } from 'react';

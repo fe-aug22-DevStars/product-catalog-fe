@@ -5,8 +5,8 @@ import { ProductCard } from '../ProductCard';
 import { Pagination } from '../Pagination';
 
 import styles from './Catalog.module.scss';
-import homeIcon from '../../images/Home.svg';
-import arrowRight from '../../images/ArrowRight.svg';
+import homeIcon from '../../assets/images/Home.svg';
+import arrowRight from '../../assets/images/ArrowRight.svg';
 import { Link } from 'react-router-dom';
 import { Loader } from '../Loader';
 

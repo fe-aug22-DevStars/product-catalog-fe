@@ -2,8 +2,8 @@ import React from 'react';
 import classNames from 'classnames';
 
 import styles from './Footer.module.scss';
-import Up from '../../images/Up.svg';
-import Logo from '../../images/logo.svg';
+import Up from '../../assets/images/Up.svg';
+import Logo from '../../assets/images/logo.svg';
 import '../../styles/fonts/Mont-Bold.otf';
 import { Link } from 'react-router-dom';
 import { scrollToTop } from '../../utilities/scrollToTop';

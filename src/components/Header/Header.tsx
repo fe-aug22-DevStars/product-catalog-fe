@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styles from './Header.module.scss';
-import logo from '../../images/logo.svg';
-import menu from '../../images/Menu.svg';
-import cancel from '../../images/cancel.svg';
-import favourites from '../../images/Favourites.svg';
-import cart from '../../images/ShoppingBag.svg';
+import logo from '../../assets/images/logo.svg';
+import menu from '../../assets/images/Menu.svg';
+import cancel from '../../assets/images/cancel.svg';
+import favourites from '../../assets/images/Favourites.svg';
+import cart from '../../assets/images/ShoppingBag.svg';
 import { BurgerMenu } from '../BurgerMenu';
 import { Link, NavLink } from 'react-router-dom';
 import cn from 'classnames';

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './ItemPage.module.scss';
 import { ProductGallerySwiper } from '../ProductGalerySwiper';
-import homeIcon from '../../images/Home.svg';
-import arrowRight from '../../images/ArrowRight.svg';
+import homeIcon from '../../assets/images/Home.svg';
+import arrowRight from '../../assets/images/ArrowRight.svg';
 import cn from 'classnames';
 import { formatCapacity } from '../../utilities/formatCapacity';
 import { AboutProduct } from '../AboutProduct';
