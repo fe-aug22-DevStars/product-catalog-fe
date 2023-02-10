@@ -34,3 +34,9 @@ main {
   flex-grow: 1;
   background-color: $greyForBackground;
 }
+
+.swiper-slide-thumb-active {
+  [class~='item'] {
+    border: 2px solid #0f0f11;
+  }
+}
