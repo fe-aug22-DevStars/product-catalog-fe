@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react';
-
 import styles from './Header.module.scss';
 import logo from '../../images/logo.svg';
 import menu from '../../images/Menu.svg';
@@ -87,7 +86,7 @@ export const Header: React.FC = () => {
                     })
                   }
                 >
-                  Accesories
+                  Accessories
                 </NavLink>
               </li>
             </ul>
@@ -109,8 +108,7 @@ export const Header: React.FC = () => {
             )}
           </NavLink>
 
-          <NavLink
-            to="menu"
+          <div
             className={styles.buttons__button}
             onClick={toggleMenu}
           >
@@ -119,7 +117,7 @@ export const Header: React.FC = () => {
             ) : (
               <img src={cancel} alt="icon" />
             )}
-          </NavLink>
+          </div>
 
           <NavLink
             to="/cart"
@@ -138,7 +136,7 @@ export const Header: React.FC = () => {
         </div>
       </header>
       {isMenuOpen && (
-        <BurgerMenu setIsMenuOpen={setIsMenuOpen} />
+        <BurgerMenu setIsMenuOpen={setIsMenuOpen}/>
       )}
     </>
   );
