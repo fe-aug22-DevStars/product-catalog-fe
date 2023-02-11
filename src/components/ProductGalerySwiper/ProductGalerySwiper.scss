@@ -23,6 +23,7 @@
   height: 100%;
 
   max-height: 500px;
+  margin-right: 0;
 
   object-fit: contain;
 
@@ -60,4 +61,8 @@
     margin-right: 0;
     margin-bottom: 30px;
   }
+}
+
+.slide {
+  height: 100px !important;
 }
