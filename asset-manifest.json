@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/product-catalog-fe/static/css/main.ae65f55e.css",
+    "main.css": "/product-catalog-fe/static/css/main.80623466.css",
     "main.js": "/product-catalog-fe/static/js/main.6b99f95d.js",
     "static/media/iphoneDesktop.jpg": "/product-catalog-fe/static/media/iphoneDesktop.a8c435336693d2864bad.jpg",
     "static/media/ipadDesktop.png": "/product-catalog-fe/static/media/ipadDesktop.bac34472c382c45f566a.png",
@@ -34,11 +34,11 @@
     "static/media/right.svg": "/product-catalog-fe/static/media/right.eb1c510df76614e8387069c610f145e5.svg",
     "static/media/ArrowRight.svg": "/product-catalog-fe/static/media/ArrowRight.474a52a363ff8d27461871ed29939bc2.svg",
     "static/media/minus.svg": "/product-catalog-fe/static/media/minus.9ce0234cad51cfbee3d1861996de0d45.svg",
-    "main.ae65f55e.css.map": "/product-catalog-fe/static/css/main.ae65f55e.css.map",
+    "main.80623466.css.map": "/product-catalog-fe/static/css/main.80623466.css.map",
     "main.6b99f95d.js.map": "/product-catalog-fe/static/js/main.6b99f95d.js.map"
   },
   "entrypoints": [
-    "static/css/main.ae65f55e.css",
+    "static/css/main.80623466.css",
     "static/js/main.6b99f95d.js"
   ]
 }
