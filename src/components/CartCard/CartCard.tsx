@@ -29,7 +29,7 @@ export const CartCard: React.FC<Props> = ({
         </a>
         <img
           className={styles.image}
-          src={`https://device-shop.onrender.com/${phone.image}`}
+          src={`https://device-shop-wrmh.onrender.com/${phone.image}`}
           alt="phone"
         />
         <h2 className={styles.title}>
