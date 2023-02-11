@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
-
 import styles from './Header.module.scss';
-import logo from '../../images/logo.svg';
-import menu from '../../images/Menu.svg';
-import cancel from '../../images/cancel.svg';
-import favourites from '../../images/Favourites.svg';
-import cart from '../../images/ShoppingBag.svg';
+import logo from '../../assets/images/logo.svg';
+import menu from '../../assets/images/Menu.svg';
+import cancel from '../../assets/images/cancel.svg';
+import favourites from '../../assets/images/Favourites.svg';
+import cart from '../../assets/images/ShoppingBag.svg';
 import { BurgerMenu } from '../BurgerMenu';
 import { Link, NavLink } from 'react-router-dom';
 import cn from 'classnames';
@@ -87,7 +86,7 @@ export const Header: React.FC = () => {
                     })
                   }
                 >
-                  Accesories
+                  Accessories
                 </NavLink>
               </li>
             </ul>
@@ -101,7 +100,7 @@ export const Header: React.FC = () => {
               cn(styles.buttons__button, { [styles['is-active']]: isActive })
             }
           >
-            <img src={favourites} alt="icon" />
+            <img src={favourites} className={styles.icon} alt="icon" />
             {favouritesAmount > 0 && (
               <span className={styles.counter}>
                 {favouritesAmount}
@@ -109,8 +108,7 @@ export const Header: React.FC = () => {
             )}
           </NavLink>
 
-          <NavLink
-            to="menu"
+          <div
             className={styles.buttons__button}
             onClick={toggleMenu}
           >
@@ -119,7 +117,7 @@ export const Header: React.FC = () => {
             ) : (
               <img src={cancel} alt="icon" />
             )}
-          </NavLink>
+          </div>
 
           <NavLink
             to="/cart"
@@ -128,7 +126,7 @@ export const Header: React.FC = () => {
             }
           >
 
-            <img src={cart} alt="icon" />
+            <img src={cart} alt="icon" className={styles.icon}/>
             {cartAmount > 0 && (
               <span className={styles.counter}>
                 {cartAmount}
@@ -138,7 +136,7 @@ export const Header: React.FC = () => {
         </div>
       </header>
       {isMenuOpen && (
-        <BurgerMenu setIsMenuOpen={setIsMenuOpen} />
+        <BurgerMenu setIsMenuOpen={setIsMenuOpen}/>
       )}
     </>
   );

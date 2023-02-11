@@ -15,22 +15,18 @@ const App: React.FC = () => {
   return (
     <StorageProvider>
       <div className='app'>
-        <header>
-          <Header />
-        </header>
+        <Header/>
         <main className='content'>
           <Routes>
-            <Route path='/' element={<HomePage />} />
-            <Route path='phones' element={<Catalog />} />
-            <Route path='favourites' element={<Favourites />} />
-            <Route path='cart' element={<Cart />} />
-            <Route path='*' element={<ErrorPage />} />
-            <Route path="product/:id" element={<ItemPage />} />
+            <Route path='/' element={<HomePage/>}/>
+            <Route path='phones' element={<Catalog/>}/>
+            <Route path='favourites' element={<Favourites/>}/>
+            <Route path='cart' element={<Cart/>}/>
+            <Route path='*' element={<ErrorPage/>}/>
+            <Route path="product/:id" element={<ItemPage/>}/>
           </Routes>
         </main>
-        <footer>
-          <Footer />
-        </footer>
+        <Footer/>
       </div>
     </StorageProvider>
   );

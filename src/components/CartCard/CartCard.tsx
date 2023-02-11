@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './CartCard.module.scss';
 import { Phone } from '../../types/Phone';
-import remove from '../../images/Close.svg';
-import Minus from '../../images/minus.svg';
-import Plus from '../../images/plus.svg';
+import remove from '../../assets/images/Close.svg';
+import Minus from '../../assets/images/minus.svg';
+import Plus from '../../assets/images/plus.svg';
 
 interface Props {
   phone: Phone;
@@ -29,7 +29,7 @@ export const CartCard: React.FC<Props> = ({
         </a>
         <img
           className={styles.image}
-          src={`https://delightful-granita-7b1065.netlify.app/${phone.image}`}
+          src={`https://device-shop.onrender.com/${phone.image}`}
           alt="phone"
         />
         <h2 className={styles.title}>
@@ -42,9 +42,11 @@ export const CartCard: React.FC<Props> = ({
           <a onClick={() => handleMinus(phone.id)}>
             <img src={Minus} alt="Logo" className={styles.minus}/>
           </a>
+
           <div className={styles.amount}>
             {phonesSum.filter(item => item.id === phone.id).length}
           </div>
+
           <a onClick={() => handlePlus(phone.id)}>
             <img src={Plus} alt="Logo" className={styles.plus}/>
           </a>

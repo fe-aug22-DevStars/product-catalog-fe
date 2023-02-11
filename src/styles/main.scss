@@ -7,7 +7,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
 body {
   margin: 0;
 }
@@ -23,7 +22,7 @@ body {
 }
 
 .app {
-  font-family: Mont;
+  font-family: Mont, sans-serif;
   display: flex;
   justify-content: center;
   flex-flow: column nowrap;
@@ -36,7 +35,8 @@ main {
   background-color: $greyForBackground;
 }
 
-// footer {
-//   max-width: 1200px;
-//   text-align: center;
-// }
+.swiper-slide-thumb-active {
+  [class~='item'] {
+    border: 2px solid #0f0f11;
+  }
+}

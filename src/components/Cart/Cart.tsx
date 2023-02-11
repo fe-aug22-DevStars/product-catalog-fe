@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styles from './Cart.module.scss';
-import right from '../../images/right.svg';
+import right from '../../assets/images/right.svg';
 import { Phone } from '../../types/Phone';
 import { getPhonesByIds } from '../../api/phones';
 import { CartCard } from '../CartCard';
@@ -111,8 +111,7 @@ export const Cart: React.FC = () => {
         </div>
 
         <p className={styles.name}>
-        Cart
-
+          Cart
         </p>
         <div className={styles.total_container}>
 
@@ -121,10 +120,8 @@ export const Cart: React.FC = () => {
           {!isLoading
 
               && <div className={styles.phones_container}>
-
                 {phones.length > 0
                   ? phones.map(phone =>
-
                     <CartCard
                       key={phone.id}
                       phone={phone}
@@ -144,15 +141,13 @@ export const Cart: React.FC = () => {
             </p>
 
             <p className={styles.amount}>
-
-                Total for {phonesSum.length} items
-
+              Total for {phonesSum.length} items
             </p>
+
             <div className={styles.line}>
             </div>
             <button className={styles.checkout} onClick={handleCheckout}>
               Checkout
-
             </button>
             {modalOpen && <Modal setOpenModal={setModalOpen} />}
           </div>

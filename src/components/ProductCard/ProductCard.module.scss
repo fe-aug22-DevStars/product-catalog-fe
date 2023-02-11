@@ -2,32 +2,32 @@
 @import '../../styles/utils/colors';
 @import '../../styles/utils/mixins';
 
-//@mixin onTablet {
-//  @media (min-width: 768px) {
-//    @content;
-//  }
-//}
-
 .card {
-  width: 232px;
+  width: auto;
+  max-width: 300px;
   box-sizing: border-box;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
-  height: 440px;
+  height: auto;
   padding: 0 32px;
 
   border: 1px solid $greyForElements;
   border-radius: 8px;
   background-color: $white;
+  transition: all 0.3s ease;
 
   @include onTablet {
-    width: 237px;
+    width: 236px;
   }
 
   @include onDesktop {
     width: 272px;
+  }
+
+  &:hover {
+    box-shadow: 2px 1px 20px $grey;
   }
 }
 
@@ -37,11 +37,13 @@
   margin-bottom: 24px;
 }
 .image {
-  width: 224px;
-  height: 130px;
-
+  width: 100%;
+  height: 100%;
+  max-width: 200px;
+  max-height: 200px;
   object-fit: contain;
   display: block;
+  margin-top: 30px;
 }
 
 .productLink {
@@ -51,6 +53,7 @@
 .title {
   display: flex;
   justify-content: center;
+  height: 50px;
 
   font-family: Mont, sans-serif;
   font-size: 14px;
@@ -110,18 +113,20 @@
 .bottom {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 30px;
+  gap: 10px;
 }
 
 .favourites {
   height: 40px;
-  width: 40px;
+  min-width: 40px;
 
   border: 1px solid $greyForIcons;
   border-radius: 50%;
 
   cursor: pointer;
 
-  background: url("../../images/Favourites.svg") center no-repeat;
+  background: url("../../assets/images/Favourites.svg") center no-repeat;
   object-fit: contain;
 
   transition: all 0.3s ease;
@@ -132,39 +137,8 @@
 
   &_active {
     border: 1px solid $greyForIcons;
-    background: url("../../images/FavouritesFilled.svg") center no-repeat;
+    background: url("../../assets/images/FavouritesFilled.svg") center no-repeat;
   }
 }
 
-.buy {
-  width: 176px;
-  height: 40px;
 
-  background-color: $purple;
-  border: 1px solid transparent;
-  border-radius: 48px;
-
-  font-family: Mont, serif;
-  font-size: 14px;
-  font-weight: 700;
-
-  text-decoration: none;
-  color: $white;
-  cursor: pointer;
-
-  transition: all 0.3s ease;
-
-  &:hover {
-    box-shadow: 0 3px 13px rgba(23, 32, 49, 0.4);
-  }
-
-  &_active {
-    color: $purple;
-    background-color: $white;
-    border: 1px solid #E2E6E9;
-  }
-
-  @include onTablet {
-    width: 118px;
-  }
-}

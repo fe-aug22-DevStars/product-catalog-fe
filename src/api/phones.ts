@@ -1,8 +1,7 @@
 import { Phone } from '../types/Phone';
+import { ProductFullSpecs } from '../types/ProductFullSpecs';
 
-// eslint-disable-next-line max-len
 const BASE_URL = 'https://device-shop.onrender.com/products';
-// const BASE_URL = 'http://localhost:9000/.netlify/functions/server/products';
 
 export interface Req {
   'products': Phone[]
@@ -31,3 +30,10 @@ export const getPhonesByIds = async(phoneIds: string): Promise<Phone[]> => {
 
   return response.json();
 };
+
+export const getSingleProductById
+  = async(productId: string): Promise<ProductFullSpecs> => {
+    const response = await fetch(`${BASE_URL}/full/${productId}`);
+
+    return response.json();
+  };

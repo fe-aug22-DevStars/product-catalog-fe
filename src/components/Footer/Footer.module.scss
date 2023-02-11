@@ -8,16 +8,21 @@
 }
 
 .footer {
-  height: 257px;
+  height: 258px;
   box-sizing: border-box;
-  
+
   @include onTablet {
     height: 96px;
   }
 
   .logo {
-    width: 89px;
+    width: 90px;
     margin: 34px 0 0 16px;
+    transition: 0.3s ease;
+
+    &:hover {
+      scale: 110%;
+    }
 
     &_container {
       position: relative;
@@ -35,26 +40,29 @@
     justify-content: space-between;
     flex-direction: column;
     box-sizing: border-box;
-    
+
 
     @include onTablet {
       flex-direction: row;
-
-      margin: 0 25px;
-    }
-
-    @include onDesktop {
-      margin: 0 25px;
+      justify-content: space-evenly;
     }
   }
 
   .text {
-    font-family: "Mont";
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-family: inherit;
     font-weight: 800;
     text-decoration: none;
     color: $grey;
     font-size: 12px;
     transition: $transition-time;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: 0;
 
     &_container {
       display: flex;
@@ -91,11 +99,12 @@
 
   .text:hover {
     color: $black;
-}
+  }
 
   .up {
-    height: 30px;
-    width: 30px;
+    height: 10px;
+    width: 10px;
+    padding: 5px 5px;
     position: relative;
     border: 1px solid $greyForIcons;
     border-radius: 50%;
@@ -108,11 +117,6 @@
       align-items: center;
       justify-content: center;
       margin: 32px 0 0 0;
-    }
-
-    &_logo {
-      height: 15px;
-      width: 10px;
     }
   }
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Modal.module.scss';
-import thank from '../../images/thank.gif';
+import thank from '../../assets/images/thank.gif';
 
 type Props = {
     setOpenModal: (value: boolean) => void;
