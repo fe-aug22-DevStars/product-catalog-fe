@@ -1,7 +1,7 @@
 import { Phone } from '../types/Phone';
 import { ProductFullSpecs } from '../types/ProductFullSpecs';
 
-const BASE_URL = 'https://device-shop.onrender.com/products';
+const BASE_URL = 'https://device-shop-wrmh.onrender.com/products';
 
 export interface Req {
   'products': Phone[]
