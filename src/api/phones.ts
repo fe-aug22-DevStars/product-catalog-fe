@@ -1,8 +1,7 @@
 import { Phone } from '../types/Phone';
 import { ProductFullSpecs } from '../types/ProductFullSpecs';
 
-// const BASE_URL = 'https://device-shop.onrender.com/products';
-const BASE_URL = 'http://localhost:5000/products';
+const BASE_URL = 'https://device-shop.onrender.com/products';
 
 export interface Req {
   'products': Phone[]
@@ -34,7 +33,7 @@ export const getPhonesByIds = async(phoneIds: string): Promise<Phone[]> => {
 
 export const getSingleProductById
   = async(productId: string): Promise<ProductFullSpecs> => {
-    const response = await fetch(`${BASE_URL}/${productId}`);
+    const response = await fetch(`${BASE_URL}/full/${productId}`);
 
     return response.json();
   };

@@ -37,7 +37,7 @@ export const ItemPage = () => {
 
   useEffect(() => {
     getPhone();
-  }, [location.pathname]);
+  }, [loc.pathname]);
 
   const handleChangeColor = (newColor: string) => {
     setSelectedColor(newColor);

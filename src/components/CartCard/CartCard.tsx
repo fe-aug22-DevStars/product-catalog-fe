@@ -29,7 +29,7 @@ export const CartCard: React.FC<Props> = ({
         </a>
         <img
           className={styles.image}
-          src={`https://delightful-granita-7b1065.netlify.app/${phone.image}`}
+          src={`https://device-shop.onrender.com/${phone.image}`}
           alt="phone"
         />
         <h2 className={styles.title}>
@@ -42,9 +42,11 @@ export const CartCard: React.FC<Props> = ({
           <a onClick={() => handleMinus(phone.id)}>
             <img src={Minus} alt="Logo" className={styles.minus}/>
           </a>
+
           <div className={styles.amount}>
             {phonesSum.filter(item => item.id === phone.id).length}
           </div>
+
           <a onClick={() => handlePlus(phone.id)}>
             <img src={Plus} alt="Logo" className={styles.plus}/>
           </a>

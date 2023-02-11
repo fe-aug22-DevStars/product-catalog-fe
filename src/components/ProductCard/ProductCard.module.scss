@@ -16,6 +16,7 @@
   border: 1px solid $greyForElements;
   border-radius: 8px;
   background-color: $white;
+  transition: all 0.3s ease;
 
   @include onTablet {
     width: 236px;
@@ -23,6 +24,10 @@
 
   @include onDesktop {
     width: 272px;
+  }
+
+  &:hover {
+    box-shadow: 2px 1px 20px $grey;
   }
 }
 
