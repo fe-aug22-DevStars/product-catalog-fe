@@ -23,7 +23,7 @@ export const ProductGallerySwiper: React.FC<Props> = ({ images }) => {
           {images.map((path) => (
             <SwiperSlide key={path}>
               <img
-                src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${path}`}
+                src={`https://device-shop-wrmh.onrender.com/${path}`}
                 alt=""
                 className="img"
               />
@@ -48,7 +48,7 @@ export const ProductGallerySwiper: React.FC<Props> = ({ images }) => {
             <SwiperSlide key={path} className="slide">
               <div className="item">
                 <img
-                  src={`https://raw.githubusercontent.com/mate-academy/product_catalog/main/public/${path}`}
+                  src={`https://device-shop-wrmh.onrender.com/${path}`}
                   alt=""
                   className="preview"
                 />
