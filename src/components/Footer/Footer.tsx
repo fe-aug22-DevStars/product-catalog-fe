@@ -18,7 +18,7 @@ export const Footer: React.FC = () => (
       <div className={styles.text_container}>
         <Link
           to={{
-            pathname: "https://github.com/fe-aug22-DevStars/product-catalog-fe"
+            pathname: 'https://github.com/fe-aug22-DevStars/product-catalog-fe',
           }}
           target="_blank"
           className={styles.text}
