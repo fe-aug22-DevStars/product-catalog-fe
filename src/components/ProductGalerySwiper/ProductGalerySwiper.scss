@@ -65,4 +65,8 @@
 
 .slide {
   height: 100px !important;
+
+  @include onTablet {
+    height: 60px !important;
+  }
 }
