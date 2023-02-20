@@ -7,7 +7,7 @@ E-commerce website where you can buy gadgets
 **Hosted on:** Render (it may take up to a minute to wake up the server)
 ## Tech Stack
 
-**Client:** React, React-Router, Redux, TypeScript, LocalStorage, HTML5, CSS3(Sass)
+**Client:** React, React-Router, Context, TypeScript, LocalStorage, HTML5, CSS3(Sass)
 
 **Server:** Node.js, Express, REST API, MySQL
 
