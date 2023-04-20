@@ -18,7 +18,7 @@
   margin-bottom: 40px;
 
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 15px;
 
 }
@@ -94,6 +94,7 @@
   border: 2px double $greyForElements;
   outline: 1px solid $greyForElements;
   transition: all 0.3s ease;
+  cursor: pointer;
 
   &:hover {
     outline-color: $black;
@@ -133,6 +134,7 @@
   border-radius: 4px;
   transition: all 0.3s ease;
   background-color: $white;
+  cursor: pointer;
 
   &:not(:last-child) {
     margin-right: 8px;

@@ -24,9 +24,8 @@
   margin-bottom: 40px;
 
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 15px;
-  
 }
 
 .category__name {
@@ -71,5 +70,4 @@
   @include onTablet {
     grid-template-columns: repeat(auto-fill, minmax(225px, auto));
   }
-  
 }

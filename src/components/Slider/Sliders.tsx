@@ -1,5 +1,5 @@
 import React from 'react';
-import Slider from 'react-slick';
+import Slider, { Settings } from 'react-slick';
 import { Phone } from '../../types/Phone';
 import rightNext from '../../assets/images/rightNext.svg';
 import { ProductCard } from '../ProductCard';
@@ -8,7 +8,7 @@ import styles from './Sliders.module.scss';
 type Props = {
   phones: Phone[];
   title: string;
-}
+};
 
 export const Sliders: React.FC<Props> = ({ phones, title }) => {
   const customSlider = React.createRef();
@@ -23,7 +23,7 @@ export const Sliders: React.FC<Props> = ({ phones, title }) => {
     customSlider.current.slickPrev();
   };
 
-  const settings = {
+  const settings: Settings = {
     slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
@@ -76,23 +76,18 @@ export const Sliders: React.FC<Props> = ({ phones, title }) => {
         },
       },
     ],
+    className: 'slider',
   };
 
   return (
     <div className={styles.block}>
       <div className={styles.container}>
-        <h1 className={styles.title}>
-          {title}
-        </h1>
+        <h1 className={styles.title}>{title}</h1>
         <div className={styles.button_container}>
-          <a className={styles.button_1}
-            onClick={() => gotoPrev()}
-          >
+          <a className={styles.button_1} onClick={() => gotoPrev()}>
             <img src={rightNext} alt="leftBack" className={styles.arrow1} />
           </a>
-          <a className={styles.button}
-            onClick={() => gotoNext()}
-          >
+          <a className={styles.button} onClick={() => gotoNext()}>
             <img src={rightNext} alt="rightNext" className={styles.arrow} />
           </a>
         </div>
@@ -103,12 +98,11 @@ export const Sliders: React.FC<Props> = ({ phones, title }) => {
           // @ts-ignore
           ref={customSlider}
         >
-
-          {phones.map(phone =>
-            <ProductCard key={phone.id} phone={phone}/>)}
+          {phones.map((phone) => (
+            <ProductCard key={phone.id} phone={phone} isCatalogItem={false} />
+          ))}
         </Slider>
       </div>
     </div>
-
   );
 };

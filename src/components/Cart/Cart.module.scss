@@ -1,22 +1,20 @@
-@import "../../styles/utils/variables";
-@import "../../styles/utils/mixins";
+@import '../../styles/utils/variables';
+@import '../../styles/utils/mixins';
 
 @font-face {
-  font-family: "Mont";
-  src: local("FontsFree-Net-mont"),
-  url("../../styles/fonts/Mont-Regular.otf") format("truetype");
+  font-family: 'Mont';
+  src: local('FontsFree-Net-mont'),
+    url('../../styles/fonts/Mont-Regular.otf') format('truetype');
 }
 
 .cart {
   background-color: $greyForBackground;
   padding: 25px 16px 60px;
-
 }
 .container {
   max-width: 1200px;
   box-sizing: border-box;
   background-color: $greyForBackground;
-
 
   @include onTablet {
     margin: 40px 24px 0 24px;
@@ -30,7 +28,7 @@
 .back {
   height: 9px;
   width: 5px;
-
+  cursor: pointer;
 
   &_container {
     display: flex;
@@ -45,22 +43,21 @@
     @include onDesktop {
       margin-bottom: 16px;
     }
-
   }
 
   &_name {
-    font-family: "Mont", serif;
+    font-family: 'Mont', serif;
     text-decoration: none;
     font-weight: 700;
     font-size: 12px;
     color: $grey;
     padding-left: 10px;
-
+    cursor: pointer;
   }
 }
 
 .name {
-  font-family: "Mont", serif;
+  font-family: 'Mont', serif;
   font-weight: 800;
   font-size: 32px;
   line-height: 56px;
@@ -105,11 +102,10 @@
   @include onDesktop {
     width: 368px;
   }
-
 }
 
 .price {
-  font-family: "Mont", serif;
+  font-family: 'Mont', serif;
   font-style: normal;
   font-weight: 800;
   font-size: 32px;
@@ -119,12 +115,11 @@
 }
 
 .amount {
-  font-family: "Mont", serif;
+  font-family: 'Mont', serif;
   font-size: 14px;
   line-height: 21px;
   color: $grey;
   margin-bottom: 16px;
-
 }
 
 .line {
@@ -142,7 +137,7 @@
 }
 
 .checkout {
-  font-family: "Mont", serif;
+  font-family: 'Mont', serif;
   font-weight: 700;
   font-size: 14px;
   line-height: 21px;
@@ -182,3 +177,4 @@
 //  display: flex;
 //  justify-content: space-between;
 //}
+
