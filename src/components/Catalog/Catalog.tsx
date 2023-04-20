@@ -118,6 +118,7 @@ export const Catalog: React.FC = () => {
                 <ProductCard
                   key={phone.id}
                   phone={phone}
+                  isCatalogItem={true}
                 />)}
             </div>
             {phonesPerPage !== 'All'

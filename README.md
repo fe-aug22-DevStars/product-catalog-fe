@@ -14,7 +14,7 @@ E-commerce website where you can buy gadgets
 
 ## Run Locally
 
-- `npm i` - install dependecies
+- `npm i` - install dependencies
 - `npm start` - run development server
 - `npm run deploy` - build and deploy to GH Pages
 

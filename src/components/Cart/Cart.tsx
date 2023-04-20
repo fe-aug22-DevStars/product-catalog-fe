@@ -7,6 +7,7 @@ import { CartCard } from '../CartCard';
 import { Loader } from '../Loader';
 import { Modal } from '../Modal';
 import { StorageContext } from '../../context/StorageContext';
+import { useNavigate } from 'react-router-dom';
 
 export const Cart: React.FC = () => {
   const [phones, setPhones] = useState<Phone[]>([]);
@@ -15,6 +16,7 @@ export const Cart: React.FC = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [cartAmount, setCartAmount] = useState(0);
   const { toCart, setToCart } = useContext(StorageContext);
+  const navigate = useNavigate();
 
   async function loadPhones(): Promise<any> {
     try {
@@ -46,7 +48,7 @@ export const Cart: React.FC = () => {
   }, [toCart]);
 
   const handlePlus = (id: string) => {
-    const addItems = phones.find(phone => phone.id === id) || null;
+    const addItems = phones.find((phone) => phone.id === id) || null;
 
     if (addItems) {
       setPhonesSum([...phonesSum, addItems]);
@@ -54,8 +56,8 @@ export const Cart: React.FC = () => {
   };
 
   const handleMinus = (id: string) => {
-    const removeItem = phonesSum.find(phone => phone.id === id) || null;
-    const removeLength = phonesSum.filter(phone => phone.id === id).length;
+    const removeItem = phonesSum.find((phone) => phone.id === id) || null;
+    const removeLength = phonesSum.filter((phone) => phone.id === id).length;
 
     if (removeLength <= 1) {
       return;
@@ -83,8 +85,8 @@ export const Cart: React.FC = () => {
   }
 
   const handleRemove = (id: string) => {
-    const removedItems = phones.filter(phone => phone.id !== id);
-    const removedPhoneSums = phonesSum.filter(phone => phone.id !== id);
+    const removedItems = phones.filter((phone) => phone.id !== id);
+    const removedPhoneSums = phonesSum.filter((phone) => phone.id !== id);
 
     setPhones(removedItems);
     setPhonesSum(removedPhoneSums);
@@ -100,52 +102,49 @@ export const Cart: React.FC = () => {
     setPhonesSum([]);
   };
 
+  const handleBack = () => {
+    navigate(-1);
+  };
+
   return (
     <div className={styles.cart}>
       <div className={styles.container}>
-        <div className={styles.back_container}>
-          <a href='/'>
-            <img src={right} alt="right" className={styles.back} />
-          </a>
-          <a href='/' className={styles.back_name}>Back</a>
+        <div className={styles.back_container} onClick={handleBack}>
+          <img src={right} alt="right" className={styles.back} />
+          <span className={styles.back_name}>Back</span>
         </div>
 
-        <p className={styles.name}>
-          Cart
-        </p>
+        <p className={styles.name}>Cart</p>
         <div className={styles.total_container}>
+          {isLoading && <Loader />}
 
-          {isLoading && <Loader /> }
-
-          {!isLoading
-
-              && <div className={styles.phones_container}>
-                {phones.length > 0
-                  ? phones.map(phone =>
-                    <CartCard
-                      key={phone.id}
-                      phone={phone}
-                      handlePlus={handlePlus}
-                      handleMinus={handleMinus}
-                      handleRemove={handleRemove}
-                      phonesSum={phonesSum}
-                    />)
-                  : <p className={styles.emptyTitle}>Your cart is empty</p>
-                }
-              </div>
-          }
+          {!isLoading && (
+            <div className={styles.phones_container}>
+              {phones.length > 0 ? (
+                phones.map((phone) => (
+                  <CartCard
+                    key={phone.id}
+                    phone={phone}
+                    handlePlus={handlePlus}
+                    handleMinus={handleMinus}
+                    handleRemove={handleRemove}
+                    phonesSum={phonesSum}
+                  />
+                ))
+              ) : (
+                <p className={styles.emptyTitle}>Your cart is empty</p>
+              )}
+            </div>
+          )}
 
           <div className={styles.sum_container}>
             <p className={styles.price}>
               {phonesSum.reduce((acc, item) => acc + item.price, 0)} $
             </p>
 
-            <p className={styles.amount}>
-              Total for {phonesSum.length} items
-            </p>
+            <p className={styles.amount}>Total for {phonesSum.length} items</p>
 
-            <div className={styles.line}>
-            </div>
+            <div className={styles.line}></div>
             <button className={styles.checkout} onClick={handleCheckout}>
               Checkout
             </button>

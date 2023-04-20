@@ -16,15 +16,13 @@ export const Footer: React.FC = () => (
       </Link>
 
       <div className={styles.text_container}>
-        <Link
-          to={{
-            pathname: 'https://github.com/fe-aug22-DevStars/product-catalog-fe',
-          }}
+        <a
+          href="https://github.com/fe-aug22-DevStars/product-catalog-fe"
           target="_blank"
           className={styles.text}
         >
           GITHUB
-        </Link>
+        </a>
         <Link
           to="/"
           className={classNames(styles.text, styles.text_mobile)}

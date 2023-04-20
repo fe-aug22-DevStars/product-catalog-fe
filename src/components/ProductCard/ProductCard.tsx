@@ -8,11 +8,12 @@ import { FavouritesButton } from '../FavouritesButton/FavouritesButton';
 
 interface Props {
   phone: Phone;
+  isCatalogItem: boolean;
 }
 
-export const ProductCard: React.FC<Props> = ({ phone }) => {
+export const ProductCard: React.FC<Props> = ({ phone, isCatalogItem }) => {
   return (
-    <div className={styles.card}>
+    <div className={`${styles.card} ${!isCatalogItem ? styles.sliderItem : ''}`}>
       <div className={styles.image_container}>
         <NavLink to={`/product/${phone.phoneId}`}>
           <img
@@ -32,7 +33,7 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
         <span className={styles.full_price}>${phone.fullPrice}</span>
       </h3>
 
-      <span className={styles.line}/>
+      <span className={styles.line} />
 
       <div className={styles.info_container}>
         <p className={styles.info}>
@@ -49,16 +50,14 @@ export const ProductCard: React.FC<Props> = ({ phone }) => {
 
         <p className={styles.info}>
           <span className={styles.info_name}>RAM</span>
-          <span className={styles.info_value}>
-            {formatCapacity(phone.ram)}
-          </span>
+          <span className={styles.info_value}>{formatCapacity(phone.ram)}</span>
         </p>
       </div>
 
       <div className={styles.bottom}>
-        <Button id={phone.id}/>
+        <Button id={phone.id} />
 
-        <FavouritesButton id={phone.id}/>
+        <FavouritesButton id={phone.id} />
       </div>
     </div>
   );

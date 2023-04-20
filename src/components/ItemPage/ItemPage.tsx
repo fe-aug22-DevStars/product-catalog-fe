@@ -7,7 +7,7 @@ import cn from 'classnames';
 import { formatCapacity } from '../../utilities/formatCapacity';
 import { AboutProduct } from '../AboutProduct';
 import { getSingleProductById } from '../../api/phones';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ProductFullSpecs } from '../../types/ProductFullSpecs';
 import { Loader } from '../Loader';
 import { Button } from '../Button';
@@ -66,9 +66,9 @@ export const ItemPage = () => {
     <div className={styles.page}>
       <div className={styles.container}>
         <div className={styles.topMenu}>
-          <a href="/">
+          <Link to="/">
             <img src={homeIcon} alt="Home" />
-          </a>
+          </Link>
           <img src={arrowRight} alt="Next" />
           <span className={styles.category__name}>{phoneInfo.name}</span>
         </div>
